@@ -5,7 +5,7 @@
   // ============================
   // CURRENT STATE
   // ============================
-  var currentLang = 'en';
+  var currentLang = 'pt';
   var currentTheme = 'rpg';
 
   // Expose lang for typewriter
@@ -1135,7 +1135,7 @@
     } catch (e) {}
 
     currentTheme = savedTheme || 'pro';
-    currentLang = savedLang || 'en';
+    currentLang = savedLang || 'pt';
 
     // Apply without transition to avoid flash
     document.body.style.transition = 'none';
