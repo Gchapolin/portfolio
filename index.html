@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guilherme Ferreira — Product Manager | AI Solutions</title>
+  <meta name="description" content="Portfolio of Guilherme Ferreira, Product Manager focused on AI Solutions. Explore projects in iOS, games, health, music and cloud.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/theme-pro.css">
+</head>
+<body data-theme="pro">
+  <a href="#projects" class="skip-link">Skip to content</a>
+
+  <!-- Top Bar: Language + Theme Toggle -->
+  <nav class="theme-bar" aria-label="Site controls">
+    <div class="lang-toggle">
+      <button class="lang-toggle__btn" data-lang="en" aria-label="English">EN</button>
+      <button class="lang-toggle__btn" data-lang="pt" aria-label="Portugu&ecirc;s">PT</button>
+    </div>
+    <div class="bar-divider"></div>
+    <label class="theme-toggle">
+      <span class="theme-toggle__title" id="theme-toggle-title">View:</span>
+      <span class="theme-toggle__label theme-toggle__label--pro" id="theme-label-pro">Professional</span>
+      <input type="checkbox" id="theme-switch" class="theme-toggle__input" aria-label="Toggle between professional and fun theme">
+      <span class="theme-toggle__slider"></span>
+      <span class="theme-toggle__label theme-toggle__label--rpg" id="theme-label-rpg">Fun</span>
+    </label>
+    <div class="bar-divider"></div>
+    <a href="Guilherme Ferreira.pdf" download class="bar-download" id="hero-download" aria-label="Download resume as PDF">
+      ↓ Resume
+    </a>
+  </nav>
+  <!-- Scanlines Overlay -->
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Particle Canvas -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- ===== HERO SECTION ===== -->
+  <header id="hero" class="hero">
+    <div class="hero__content">
+      <div class="hero__torch hero__torch--left" aria-hidden="true"></div>
+      <div class="hero__torch hero__torch--right" aria-hidden="true"></div>
+
+      <h1 class="hero__title glowing-text">GUILHERME FERREIRA</h1>
+      <p class="hero__subtitle" id="typewriter-target"></p>
+      <p class="hero__subtitle-static">Product Manager | AI Solutions</p>
+
+      <a href="#projects" class="hero__cta pulse-btn">
+        ▼ EXPLORE THE DUNGEON ▼
+      </a>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <span class="scroll-indicator__arrow">&darr;</span>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="about">
+      <h2 class="section-title glowing-text">THE HERO</h2>
+      <p class="section-subtitle">The origin story behind the quests.</p>
+
+      <div class="about__text fade-in" id="about-text">
+        <!-- Filled by JS -->
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS DUNGEON ===== -->
+    <section id="projects" class="projects">
+      <h2 class="section-title glowing-text">THE DUNGEON</h2>
+      <p class="section-subtitle">Each room holds a different quest. Choose wisely.</p>
+
+      <div class="projects__grid" id="projects-grid">
+        <!-- Cards rendered by JS -->
+      </div>
+    </section>
+
+    <!-- ===== GUILD HALL (Collaborations) ===== -->
+    <section id="collaborations" class="collaborations">
+      <div class="section-divider" aria-hidden="true"></div>
+      <h2 class="section-title glowing-text">Guild Hall</h2>
+      <p class="section-subtitle">Allies joined. Forces combined. Victory shared.</p>
+
+      <div class="collabs__grid" id="collabs-grid">
+        <!-- Cards rendered by JS -->
+      </div>
+    </section>
+
+    <!-- ===== QUEST LOG (Experience) ===== -->
+    <section id="experience" class="experience">
+      <div class="section-divider" aria-hidden="true"></div>
+      <h2 class="section-title glowing-text">QUEST LOG</h2>
+      <p class="section-subtitle">Battles fought. Levels gained. Experience earned.</p>
+
+      <div class="timeline" id="timeline">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- ===== SKILL TREE ===== -->
+    <section id="skills" class="skills">
+      <div class="section-divider" aria-hidden="true"></div>
+      <h2 class="section-title glowing-text">SKILL TREE</h2>
+      <p class="section-subtitle">Abilities unlocked throughout the journey.</p>
+
+      <div class="skills__categories" id="skills-grid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Certifications & Languages -->
+      <div class="skills__footer">
+        <div class="skills__certs fade-in">
+          <h3 class="skills__category-title" id="achievements-title">ACHIEVEMENTS</h3>
+          <div class="skills__cert-badges">
+            <span class="skills__cert-badge">Lean Six Sigma Black Belt</span>
+            <span class="skills__cert-badge">Lean Six Sigma Green Belt</span>
+            <span class="skills__cert-badge">PUC-PR — AI Aplicada</span>
+            <span class="skills__cert-badge">UniCesumar — Dev Mobile</span>
+          </div>
+        </div>
+        <div class="skills__langs fade-in">
+          <h3 class="skills__category-title" id="languages-title">LANGUAGES</h3>
+          <div class="skills__lang-bars">
+            <div class="skills__lang">
+              <span class="skills__lang-name">Português</span>
+              <div class="skills__lang-bar"><div class="skills__lang-fill" style="width:100%"></div></div>
+              <span class="skills__lang-level" id="lang-level-pt">Native</span>
+            </div>
+            <div class="skills__lang">
+              <span class="skills__lang-name">English</span>
+              <div class="skills__lang-bar"><div class="skills__lang-fill" style="width:75%"></div></div>
+              <span class="skills__lang-level" id="lang-level-en">Professional</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT / TREASURE ROOM ===== -->
+    <section id="contact" class="contact">
+      <div class="section-divider" aria-hidden="true"></div>
+      <h2 class="section-title glowing-text">TREASURE ROOM</h2>
+      <p class="section-subtitle">You found the treasure. Now reach out.</p>
+
+      <div class="contact__items">
+        <a href="https://github.com/Gchapolin" target="_blank" rel="noopener noreferrer" class="contact__item" aria-label="GitHub profile">
+          <span class="contact__icon"></span>
+          <span class="contact__label">Scroll of Code</span>
+          <span class="contact__detail">GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/guiferreira91" target="_blank" rel="noopener noreferrer" class="contact__item" aria-label="LinkedIn profile">
+          <span class="contact__icon"></span>
+          <span class="contact__label">Shield of Network</span>
+          <span class="contact__detail">LinkedIn</span>
+        </a>
+        <a href="mailto:guilherme.s.ferreira@outlook.com" class="contact__item" aria-label="Send email to Guilherme Ferreira">
+          <span class="contact__icon"></span>
+          <span class="contact__label">Letter to the Hero</span>
+          <span class="contact__detail">Email</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== PROJECT MODAL ===== -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal__close" id="modal-close" aria-label="Close project details">← BACK TO DUNGEON</button>
+      <div class="modal__content" id="modal-content">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>Built by Guilherme Ferreira &bull; 2026</p>
+  </footer>
+
+  <script src="js/particles.js"></script>
+  <script src="js/typewriter.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

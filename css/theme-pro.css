@@ -1,0 +1,571 @@
+/* ========================================
+   PROFESSIONAL THEME — Overrides
+   Active only when body[data-theme="pro"]
+   ======================================== */
+
+/* --- Palette --- */
+body[data-theme="pro"] {
+  --bg: #f8f9fc;
+  --primary: #4f6dca;
+  --secondary: #6b8de3;
+  --accent: #0d9488;
+  --text: #1e293b;
+  --text-dim: #64748b;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --font-pixel: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+}
+
+/* --- Hide RPG decorations --- */
+body[data-theme="pro"] .scanlines,
+body[data-theme="pro"] #particles,
+body[data-theme="pro"] .hero__torch,
+body[data-theme="pro"] .scroll-indicator {
+  display: none !important;
+}
+
+/* --- Toggle bar adapts --- */
+body[data-theme="pro"] .theme-bar {
+  background: rgba(248, 249, 252, 0.9);
+  border-bottom-color: var(--card-border);
+  backdrop-filter: blur(8px);
+}
+
+body[data-theme="pro"] .theme-toggle__label--pro {
+  color: var(--primary);
+  opacity: 1;
+}
+
+body[data-theme="pro"] .theme-toggle__label--rpg {
+  color: var(--text-dim);
+  opacity: 0.5;
+}
+
+body[data-theme="pro"] .lang-toggle__btn.active {
+  background: rgba(79, 109, 202, 0.1);
+  color: var(--primary);
+}
+
+body[data-theme="pro"] .theme-toggle__slider {
+  background: var(--primary);
+}
+
+body[data-theme="pro"] .theme-toggle__slider::after {
+  background: #ffffff;
+}
+
+/* --- Typography: Remove pixel font everywhere --- */
+body[data-theme="pro"] .glowing-text,
+body[data-theme="pro"] .hero__title,
+body[data-theme="pro"] .hero__subtitle,
+body[data-theme="pro"] .hero__subtitle-static,
+body[data-theme="pro"] .hero__cta,
+body[data-theme="pro"] .section-title,
+body[data-theme="pro"] .project-card__room,
+body[data-theme="pro"] .project-card__name,
+body[data-theme="pro"] .project-card__tag,
+body[data-theme="pro"] .project-card__status,
+body[data-theme="pro"] .modal__close,
+body[data-theme="pro"] .modal__title,
+body[data-theme="pro"] .modal__room,
+body[data-theme="pro"] .modal__status,
+body[data-theme="pro"] .modal__section-title,
+body[data-theme="pro"] .modal__tech-badge,
+body[data-theme="pro"] .modal__github,
+body[data-theme="pro"] .timeline__period,
+body[data-theme="pro"] .timeline__company,
+body[data-theme="pro"] .timeline__badge,
+body[data-theme="pro"] .skills__category-title,
+body[data-theme="pro"] .skills__cert-badge,
+body[data-theme="pro"] .skills__lang-level,
+body[data-theme="pro"] .skill-bar__level,
+body[data-theme="pro"] .contact__label,
+body[data-theme="pro"] .collab-card__collab-badge,
+body[data-theme="pro"] .section-divider,
+body[data-theme="pro"] .footer {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* --- Kill glow effect --- */
+body[data-theme="pro"] .glowing-text {
+  text-shadow: none;
+  animation: none;
+  color: var(--text);
+}
+
+body[data-theme="pro"] .section-title {
+  font-weight: 700;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  letter-spacing: -0.02em;
+}
+
+/* --- Hero: Clean modern, compact to show About in same viewport --- */
+body[data-theme="pro"] .hero {
+  background: linear-gradient(180deg, #f8f9fc 0%, #eef1f8 50%, #f8f9fc 100%);
+  box-shadow: none;
+  min-height: auto;
+  padding: 6rem 2rem 3rem;
+}
+
+/* --- About: Compact spacing for pro --- */
+body[data-theme="pro"] .about {
+  padding: 2rem 2rem 4rem;
+}
+
+body[data-theme="pro"] .hero__title {
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+body[data-theme="pro"] .hero__subtitle,
+body[data-theme="pro"] .hero__subtitle-static {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+body[data-theme="pro"] .hero__cta {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  animation: none;
+  box-shadow: 0 2px 12px rgba(79, 109, 202, 0.3);
+}
+
+body[data-theme="pro"] .bar-download {
+  border-color: rgba(13, 148, 136, 0.3);
+  color: var(--accent);
+}
+
+body[data-theme="pro"] .bar-download:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+body[data-theme="pro"] .hero__cta:hover {
+  background: var(--secondary);
+  box-shadow: 0 4px 20px rgba(79, 109, 202, 0.3);
+  transform: translateY(-2px);
+}
+
+body[data-theme="pro"] .pulse-btn {
+  animation: none;
+}
+
+/* --- About Text: Rounded modern --- */
+body[data-theme="pro"] .about__text {
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: var(--card-bg);
+}
+
+/* --- Section subtitles --- */
+body[data-theme="pro"] .section-subtitle {
+  font-size: 1rem;
+  color: var(--text-dim);
+}
+
+/* --- Project Cards: Rounded modern --- */
+body[data-theme="pro"] .project-card {
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: var(--card-bg);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+body[data-theme="pro"] .project-card::before {
+  display: none;
+}
+
+body[data-theme="pro"] .project-card:hover {
+  border-color: rgba(79, 109, 202, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 30px rgba(79, 109, 202, 0.12);
+}
+
+body[data-theme="pro"] .project-card__room {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text-dim);
+}
+
+body[data-theme="pro"] .project-card__name {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 700;
+  color: var(--text);
+}
+
+body[data-theme="pro"] .project-card__tag {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(13, 148, 136, 0.08);
+  color: var(--accent);
+  border-color: rgba(13, 148, 136, 0.2);
+}
+
+body[data-theme="pro"] .project-card__status {
+  font-size: 0.7rem;
+  border-radius: 6px;
+  padding: 0.2rem 0.6rem;
+  font-weight: 600;
+}
+
+/* --- Timeline: Clean thin --- */
+body[data-theme="pro"] .timeline::before {
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary), rgba(79, 109, 202, 0.1));
+}
+
+body[data-theme="pro"] .timeline__item::before {
+  width: 10px;
+  height: 10px;
+  border-color: var(--primary);
+  border-radius: 50%;
+  box-shadow: none;
+}
+
+body[data-theme="pro"] .timeline__item--current::before {
+  background: var(--primary);
+  box-shadow: 0 0 8px rgba(79, 109, 202, 0.3);
+}
+
+body[data-theme="pro"] .timeline__period {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+body[data-theme="pro"] .timeline__company {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 700;
+  color: var(--text);
+}
+
+body[data-theme="pro"] .timeline__badge {
+  display: none;
+}
+
+/* --- Skills: Rounded cards --- */
+body[data-theme="pro"] .skills__category {
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: var(--card-bg);
+}
+
+body[data-theme="pro"] .skills__category:hover {
+  border-color: rgba(79, 109, 202, 0.3);
+  box-shadow: 0 4px 16px rgba(79, 109, 202, 0.1);
+}
+
+body[data-theme="pro"] .skills__category-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--text);
+}
+
+body[data-theme="pro"] .skills__list li::before {
+  content: '\2022';
+  color: var(--primary);
+}
+
+body[data-theme="pro"] .skills__certs,
+body[data-theme="pro"] .skills__langs {
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: var(--card-bg);
+}
+
+body[data-theme="pro"] .skills__cert-badge {
+  font-size: 0.75rem;
+  border-radius: 6px;
+  background: rgba(13, 148, 136, 0.08);
+  color: var(--accent);
+  border-color: rgba(13, 148, 136, 0.2);
+}
+
+body[data-theme="pro"] .skills__lang-level {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+body[data-theme="pro"] .skill-bar__track {
+  border-radius: 3px;
+  background: var(--card-border);
+}
+
+body[data-theme="pro"] .skill-bar__fill {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 3px;
+}
+
+body[data-theme="pro"] .skills__lang-bar {
+  border-radius: 3px;
+  background: var(--card-border);
+}
+
+body[data-theme="pro"] .skills__lang-fill {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 3px;
+}
+
+/* --- Collab Cards: Modern rounded --- */
+body[data-theme="pro"] .collab-card {
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: var(--card-bg);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+body[data-theme="pro"] .collab-card::before {
+  display: none;
+}
+
+body[data-theme="pro"] .collab-card:hover {
+  border-color: rgba(79, 109, 202, 0.3);
+  border-left-color: var(--accent);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 30px rgba(79, 109, 202, 0.12);
+}
+
+body[data-theme="pro"] .collab-card__collab-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 6px;
+  background: rgba(13, 148, 136, 0.08);
+  color: var(--accent);
+  border-color: rgba(13, 148, 136, 0.2);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* --- Section Dividers: Clean line --- */
+body[data-theme="pro"] .section-divider {
+  font-size: 0;
+  letter-spacing: 0;
+}
+
+body[data-theme="pro"] .section-divider::before {
+  content: '';
+  display: inline-block;
+  width: 60px;
+  height: 1px;
+  background: var(--card-border);
+  vertical-align: middle;
+}
+
+/* --- Disable light sweep on pro --- */
+body[data-theme="pro"] .project-card::after,
+body[data-theme="pro"] .collab-card::after {
+  display: none;
+}
+
+/* --- Timeline ping: subtle in pro --- */
+body[data-theme="pro"] .timeline__item--current::after {
+  border-color: var(--primary);
+}
+
+/* --- Contact glow underline: pro colors --- */
+body[data-theme="pro"] .contact__item::after {
+  background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+}
+
+/* --- Contact: Modern pill buttons --- */
+body[data-theme="pro"] .contact__item {
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: var(--card-bg);
+  flex-direction: row;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  min-width: auto;
+}
+
+body[data-theme="pro"] .contact__item:hover {
+  border-color: rgba(79, 109, 202, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(79, 109, 202, 0.12);
+}
+
+body[data-theme="pro"] .contact__icon {
+  font-size: 1.4rem;
+}
+
+body[data-theme="pro"] .contact__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+body[data-theme="pro"] .contact__detail {
+  display: none;
+}
+
+/* --- Modal: Clean rounded --- */
+body[data-theme="pro"] .modal__overlay {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+body[data-theme="pro"] .modal {
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  background: var(--card-bg);
+  padding: 2.5rem;
+}
+
+body[data-theme="pro"] .modal__close {
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border-color: var(--card-border);
+  padding: 0.5rem 1rem;
+}
+
+body[data-theme="pro"] .modal__close:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+body[data-theme="pro"] .modal__title {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  color: var(--text);
+}
+
+body[data-theme="pro"] .modal__room {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+body[data-theme="pro"] .modal__status {
+  font-size: 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+body[data-theme="pro"] .modal__section-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body[data-theme="pro"] .modal__tech-badge {
+  font-size: 0.75rem;
+  border-radius: 6px;
+  background: rgba(13, 148, 136, 0.08);
+  color: var(--accent);
+  border-color: rgba(13, 148, 136, 0.2);
+}
+
+body[data-theme="pro"] .modal__features li::before {
+  content: '\2014';
+  color: var(--primary);
+}
+
+body[data-theme="pro"] .modal__github {
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border-color: var(--primary);
+  padding: 0.6rem 1.2rem;
+}
+
+body[data-theme="pro"] .modal__github:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+body[data-theme="pro"] .modal::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+/* --- Footer: Clean --- */
+body[data-theme="pro"] .footer {
+  font-size: 0.8rem;
+  font-weight: 400;
+  border-top-color: var(--card-border);
+}
+
+/* --- Selection --- */
+body[data-theme="pro"] ::selection {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* --- Focus --- */
+body[data-theme="pro"] :focus-visible {
+  outline-color: var(--primary);
+}
+
+/* --- Skill Tooltip: Pro override --- */
+body[data-theme="pro"] .skill-tip {
+  border-radius: 10px;
+  border-color: var(--card-border);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  background: var(--card-bg);
+}
+
+body[data-theme="pro"] .skill-tip::after {
+  border-top-color: var(--card-border);
+}
+
+/* --- Project Highlight Tooltip: Pro override --- */
+body[data-theme="pro"] .project-highlight-tip {
+  border-radius: 10px;
+  border-color: var(--card-border);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  background: var(--card-bg);
+}
+
+body[data-theme="pro"] .project-highlight-tip::after {
+  border-bottom-color: var(--card-border);
+}
+
+body[data-theme="pro"] .modal__highlight-text {
+  background: rgba(13, 148, 136, 0.06);
+  border-left-color: var(--accent);
+}
+
+/* --- Mobile overrides --- */
+@media (max-width: 768px) {
+  body[data-theme="pro"] .hero {
+    padding: 4rem 1rem 2rem;
+  }
+
+  body[data-theme="pro"] .about {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  body[data-theme="pro"] .modal {
+    border-radius: 0;
+    border: none;
+    border-top: 3px solid var(--primary);
+  }
+
+  body[data-theme="pro"] .contact__item {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}
