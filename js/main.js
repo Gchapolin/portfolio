@@ -195,6 +195,44 @@
         en: 'WebRTC peer-to-peer with zero-server gameplay after signaling handshake',
         pt: 'WebRTC peer-to-peer com gameplay sem servidor após handshake de sinalização'
       }
+    },
+    {
+      id: 'kpitree',
+      name: 'KPI Tree Game',
+      room: { en: 'War Room', pt: 'Sala de Guerra' },
+      status: 'Beta',
+      tagline: {
+        en: 'Gamified KPI management tool that turns metrics into an RPG battle',
+        pt: 'Ferramenta gamificada de gestão de KPIs que transforma métricas em batalha RPG'
+      },
+      description: {
+        en: 'A React-based gamified KPI management tool that visualizes business metrics in a hierarchical tree (North Star → Areas → KPIs). Transforms performance tracking into an RPG battle system with XP, levels, status effects, and pixel-art sprites. Supports multi-project management, scoring mechanics, leaderboards, and an educational guide.',
+        pt: 'Ferramenta gamificada de gestão de KPIs construída em React que visualiza métricas de negócio em árvore hierárquica (North Star → Áreas → KPIs). Transforma acompanhamento de performance em sistema de batalha RPG com XP, níveis, efeitos de status e sprites pixel-art. Suporta gestão multi-projeto, mecânicas de pontuação, leaderboards e guia educativo.'
+      },
+      tech: ['React', 'Vite', 'JavaScript', 'Vitest', 'localStorage'],
+      features: {
+        en: [
+          'Hierarchical KPI tree: North Star → Business Areas → KPIs',
+          'RPG battle system with XP, levels, and status effects',
+          'Multi-project support with custom names and colors',
+          'Dynamic scoring with alignment multiplier bonuses',
+          'Pixel-art battle view with CSS sprite system',
+          'Educational 7-section guide on KPI best practices'
+        ],
+        pt: [
+          'Árvore hierárquica de KPIs: North Star → Áreas de Negócio → KPIs',
+          'Sistema de batalha RPG com XP, níveis e efeitos de status',
+          'Suporte multi-projeto com nomes e cores customizáveis',
+          'Pontuação dinâmica com bônus por alinhamento entre áreas',
+          'Visualização de batalha pixel-art com sprites em CSS',
+          'Guia educativo de 7 seções sobre boas práticas de KPIs'
+        ]
+      },
+      github: 'https://github.com/Gchapolin/kpi-tree-game',
+      highlight: {
+        en: 'RPG scoring engine with depth-based XP multipliers (5x root, 2x branch, 1x leaf) and alignment bonus system',
+        pt: 'Engine de pontuação RPG com multiplicadores de XP por profundidade (5x raiz, 2x ramo, 1x folha) e sistema de bônus por alinhamento'
+      }
     }
   ];
 
