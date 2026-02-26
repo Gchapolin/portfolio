@@ -80,7 +80,6 @@
 
       var staticEl = document.querySelector('.hero__subtitle-static');
       if (staticEl) {
-        staticEl.classList.add('visible');
         staticEl.style.display = 'none';
       }
     }

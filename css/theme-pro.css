@@ -20,6 +20,7 @@ body[data-theme="pro"] {
 /* --- Hide RPG decorations --- */
 body[data-theme="pro"] .scanlines,
 body[data-theme="pro"] #particles,
+body[data-theme="pro"] #dragon-svg,
 body[data-theme="pro"] .hero__torch,
 body[data-theme="pro"] .scroll-indicator {
   display: none !important;

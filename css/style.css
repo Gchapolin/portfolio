@@ -58,6 +58,18 @@ body {
   z-index: 1;
 }
 
+/* --- Dragon Cursor SVG --- */
+#dragon-svg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+  opacity: 0.25;
+}
+
 /* --- Utility: Glowing Text --- */
 .glowing-text {
   font-family: var(--font-pixel);

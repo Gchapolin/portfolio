@@ -1124,6 +1124,15 @@
       }
     }
 
+    // Dragon
+    if (window.dragonControl) {
+      if (theme === 'pro') {
+        window.dragonControl.pause();
+      } else {
+        window.dragonControl.resume();
+      }
+    }
+
     // Typewriter
     if (window.typewriterControl) {
       window.typewriterControl.reset();
@@ -1198,6 +1207,15 @@
       window.particlesControl.pause();
     }
 
+    // Dragon
+    if (window.dragonControl) {
+      if (currentTheme === 'pro') {
+        window.dragonControl.pause();
+      } else {
+        window.dragonControl.resume();
+      }
+    }
+
     // Download button cycle
     if (currentTheme === 'rpg') {
       startDownloadCycle();
@@ -1231,12 +1249,6 @@
   // INIT
   // ============================
   function init() {
-    renderAbout();
-    renderCards();
-    renderCollaborations();
-    renderTimeline();
-    renderSkills();
-    setupScrollAnimations();
     initToggles();
   }
 
