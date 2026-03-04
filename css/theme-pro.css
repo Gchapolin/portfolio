@@ -501,6 +501,25 @@ body[data-theme="pro"] .modal::-webkit-scrollbar-thumb {
   border-radius: 3px;
 }
 
+body[data-theme="pro"] .modal__slides {
+  border-color: var(--card-border);
+}
+
+body[data-theme="pro"] .modal__nav {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--card-border);
+}
+
+body[data-theme="pro"] .modal__nav:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--primary);
+}
+
+body[data-theme="pro"] .modal__dot.active {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
 /* --- Footer: Clean --- */
 body[data-theme="pro"] .footer {
   font-size: 0.8rem;

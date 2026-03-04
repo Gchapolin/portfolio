@@ -126,38 +126,55 @@
     },
     {
       id: 'harmonicmap',
-      name: 'HarmonicMapApp',
-      room: { en: 'Chamber of Maps', pt: 'C\u00E2mara dos Mapas' },
+      name: 'HarmonicMap',
+      room: { en: 'Music Chamber', pt: 'C\u00E2mara da M\u00FAsica' },
       status: 'MVP',
       tagline: {
-        en: 'Interactive music theory visualization with circle of fifths',
-        pt: 'Visualiza\u00E7\u00E3o interativa de teoria musical com c\u00EDrculo de quintas'
+        en: 'iOS music theory app with interactive radial harmonic map and MIDI playback',
+        pt: 'App iOS de teoria musical com mapa harm\u00F4nico radial interativo e playback MIDI'
       },
       description: {
-        en: 'An iOS app that provides an interactive harmonic map for musicians, visualizing chord relationships, scales, and progressions. Built with AudioKit for real-time audio synthesis and analysis.',
-        pt: 'App iOS que oferece um mapa harm\u00F4nico interativo para m\u00FAsicos, visualizando rela\u00E7\u00F5es de acordes, escalas e progress\u00F5es. Constru\u00EDdo com AudioKit para s\u00EDntese e an\u00E1lise de \u00E1udio em tempo real.'
+        en: 'HarmonicMap is an iOS app (Swift 6, SwiftUI, iOS 18+) for music theory exploration. It lets musicians navigate harmonic fields, build chord progressions on an interactive radial map, and play compositions with real-time MIDI audio. Built with MVVM + SwiftData + @Observable architecture, AVAudioEngine with Piano.sf2 soundfont, and a neumorphic dark theme with depth-based shadows. 14 screens covering chords, progressions, scales, composition, and a full playback system with BPM control.',
+        pt: 'HarmonicMap \u00E9 um app iOS (Swift 6, SwiftUI, iOS 18+) para explora\u00E7\u00E3o de teoria musical. Permite navegar campos harm\u00F4nicos, construir progress\u00F5es de acordes em um mapa radial interativo e reproduzir composi\u00E7\u00F5es com \u00E1udio MIDI em tempo real. Arquitetura MVVM + SwiftData + @Observable, AVAudioEngine com soundfont Piano.sf2 e tema neumorphic escuro com profundidade via sombras. 14 telas cobrindo acordes, progress\u00F5es, escalas, composi\u00E7\u00E3o e sistema completo de playback com controle de BPM.'
       },
-      tech: ['Swift', 'SwiftUI', 'AudioKit', 'MusicTheory', 'CoreAudio'],
+      tech: ['Swift 6', 'SwiftUI', 'SwiftData', 'AVAudioEngine', 'MIDI', 'XcodeGen'],
       features: {
         en: [
-          'Interactive circle of fifths visualization',
-          'Real-time chord playback and analysis',
-          'Scale and mode explorer with audio preview',
-          'Common chord progression templates',
-          'Custom progression builder with export'
+          'Interactive radial harmonic map — tap chords to build progressions with 0.8s audio preview',
+          'Smart voicing algorithm — close voicing with ascending notes from root using Piano.sf2 soundfont',
+          'Chord explorer with harmonic functions (Tonic, Dominant, Subdominant), notes and intervals',
+          'Scale & mode explorer — basic scales, Greek modes with interval patterns and related scales',
+          'Progression library with genre filters (Blues, Jazz, Flamenco, Classical) and favorites',
+          'Composition player with BPM slider, play/stop and per-bar UI sync',
+          'Symbol editor for structural markers, dynamics and articulations per bar',
+          'Neumorphic dark UI — depth via shadows, desaturated harmonic function colors, Tabler icons'
         ],
         pt: [
-          'Visualiza\u00E7\u00E3o interativa do c\u00EDrculo de quintas',
-          'Reprodu\u00E7\u00E3o e an\u00E1lise de acordes em tempo real',
-          'Explorador de escalas e modos com preview de \u00E1udio',
-          'Templates de progress\u00F5es de acordes comuns',
-          'Construtor de progress\u00F5es customizadas com exporta\u00E7\u00E3o'
+          'Mapa harm\u00F4nico radial interativo \u2014 toque nos acordes para construir progress\u00F5es com preview de \u00E1udio de 0.8s',
+          'Algoritmo de smart voicing \u2014 close voicing ascendente a partir do root usando soundfont Piano.sf2',
+          'Explorador de acordes com fun\u00E7\u00F5es harm\u00F4nicas (T\u00F4nica, Dominante, Subdominante), notas e intervalos',
+          'Explorador de escalas e modos \u2014 escalas b\u00E1sicas, modos gregos com padr\u00F5es de intervalos e escalas relacionadas',
+          'Biblioteca de progress\u00F5es com filtros por g\u00EAnero (Blues, Jazz, Flamenco, Cl\u00E1ssico) e favoritos',
+          'Player de composi\u00E7\u00E3o com slider de BPM, play/stop e sincroniza\u00E7\u00E3o visual por compasso',
+          'Editor de s\u00EDmbolos para marcadores estruturais, din\u00E2micas e articula\u00E7\u00F5es por compasso',
+          'UI neumorphic escura \u2014 profundidade via sombras, cores desaturadas por fun\u00E7\u00E3o harm\u00F4nica, \u00EDcones Tabler'
         ]
       },
       github: 'https://github.com/Gchapolin/harmonicmapapp',
+      screenshots: [
+        { src: 'assets/screenshots/harmonicmap/01-acordes.png', caption: { en: 'Chords — Harmonic map with notes and functions', pt: 'Acordes \u2014 Mapa harm\u00F4nico com notas e fun\u00E7\u00F5es' } },
+        { src: 'assets/screenshots/harmonicmap/02-progressoes.png', caption: { en: 'Progressions — Popular templates by genre', pt: 'Progress\u00F5es \u2014 Templates populares por g\u00EAnero' } },
+        { src: 'assets/screenshots/harmonicmap/03-detalhe-acorde.png', caption: { en: 'Chord Detail — Notes, intervals and tonal function', pt: 'Detalhe do Acorde \u2014 Notas, intervalos e fun\u00E7\u00E3o tonal' } },
+        { src: 'assets/screenshots/harmonicmap/04-escalas.png', caption: { en: 'Scales — Basic scales and Greek modes explorer', pt: 'Escalas \u2014 Explorador de escalas b\u00E1sicas e modos gregos' } },
+        { src: 'assets/screenshots/harmonicmap/05-detalhe-escala.png', caption: { en: 'Scale Detail — Melodic minor with interval pattern', pt: 'Detalhe da Escala \u2014 Menor mel\u00F3dica com padr\u00E3o de intervalos' } },
+        { src: 'assets/screenshots/harmonicmap/06-blues-detail.png', caption: { en: 'Blues Basic — 12-bar progression detail view', pt: 'Blues B\u00E1sico \u2014 Detalhe da progress\u00E3o de 12 compassos' } },
+        { src: 'assets/screenshots/harmonicmap/07-composicao.png', caption: { en: 'Composition — Interactive radial chord map builder', pt: 'Composi\u00E7\u00E3o \u2014 Construtor de mapa radial de acordes' } },
+        { src: 'assets/screenshots/harmonicmap/08-perfil.png', caption: { en: 'Profile — User settings and compositions', pt: 'Perfil \u2014 Configura\u00E7\u00F5es e composi\u00E7\u00F5es do usu\u00E1rio' } },
+        { src: 'assets/screenshots/harmonicmap/09-composicoes.png', caption: { en: 'My Compositions — Saved progressions with BPM and details', pt: 'Minhas Composi\u00E7\u00F5es \u2014 Progress\u00F5es salvas com BPM e detalhes' } }
+      ],
       highlight: {
-        en: 'AudioKit real-time synthesis + custom circle-of-fifths graph engine in SwiftUI',
-        pt: 'Síntese em tempo real com AudioKit + engine gráfico do círculo de quintas em SwiftUI'
+        en: 'AVAudioEngine + Piano.sf2 soundfont with smart voicing algorithm for real-time MIDI playback, synced to a custom radial harmonic map built in SwiftUI with drag, pinch and glowing journey paths',
+        pt: 'AVAudioEngine + soundfont Piano.sf2 com algoritmo de smart voicing para playback MIDI em tempo real, sincronizado com mapa harm\u00F4nico radial customizado em SwiftUI com drag, pinch e caminhos brilhantes da jornada'
       }
     },
     {
@@ -858,6 +875,29 @@
         '</div>';
     }
 
+    var screenshotsBlock = '';
+    if (p.screenshots && p.screenshots.length) {
+      var slides = p.screenshots.map(function (shot, i) {
+        return '<div class="modal__slide' + (i === 0 ? ' active' : '') + '" data-index="' + i + '">' +
+          '<img src="' + shot.src + '" alt="' + t(shot.caption) + '" loading="lazy">' +
+          '<p class="modal__slide-caption">' + t(shot.caption) + '</p>' +
+        '</div>';
+      }).join('');
+      var dots = p.screenshots.map(function (_, i) {
+        return '<button class="modal__dot' + (i === 0 ? ' active' : '') + '" data-index="' + i + '" aria-label="Go to screenshot ' + (i + 1) + '"></button>';
+      }).join('');
+      screenshotsBlock =
+        '<div class="modal__gallery">' +
+          '<h4 class="modal__section-title">SCREENSHOTS</h4>' +
+          '<div class="modal__carousel">' +
+            '<button class="modal__nav modal__nav--prev" aria-label="Previous screenshot">&#8249;</button>' +
+            '<div class="modal__slides">' + slides + '</div>' +
+            '<button class="modal__nav modal__nav--next" aria-label="Next screenshot">&#8250;</button>' +
+          '</div>' +
+          '<div class="modal__dots">' + dots + '</div>' +
+        '</div>';
+    }
+
     modalContent.innerHTML =
       '<div class="modal__header">' +
         '<div>' +
@@ -867,6 +907,7 @@
       '</div>' +
       '<span class="modal__status ' + statusClass + '">' + p.status + '</span>' +
       '<p class="modal__description">' + t(p.description) + '</p>' +
+      screenshotsBlock +
       highlightBlock +
       '<h4 class="modal__section-title">' + s.modalTechTitle + '</h4>' +
       '<div class="modal__tech">' + techBadges + '</div>' +
@@ -877,10 +918,47 @@
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
 
+    // Init carousel if screenshots exist
+    if (p.screenshots && p.screenshots.length) {
+      initCarousel(modalContent);
+    }
+
     setTimeout(function () {
       modalClose.focus();
       setupFocusTrap();
     }, 100);
+  }
+
+  function initCarousel(container) {
+    var slides = container.querySelectorAll('.modal__slide');
+    var dots = container.querySelectorAll('.modal__dot');
+    var prevBtn = container.querySelector('.modal__nav--prev');
+    var nextBtn = container.querySelector('.modal__nav--next');
+    var current = 0;
+    var total = slides.length;
+
+    function goTo(idx) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (idx + total) % total;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    prevBtn.addEventListener('click', function () { goTo(current - 1); });
+    nextBtn.addEventListener('click', function () { goTo(current + 1); });
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () { goTo(parseInt(dot.dataset.index)); });
+    });
+
+    // Swipe support for mobile
+    var startX = 0;
+    var slidesContainer = container.querySelector('.modal__slides');
+    slidesContainer.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; });
+    slidesContainer.addEventListener('touchend', function (e) {
+      var diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) { goTo(current + (diff > 0 ? 1 : -1)); }
+    });
   }
 
   function setupFocusTrap() {

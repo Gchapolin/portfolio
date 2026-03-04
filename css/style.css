@@ -832,6 +832,115 @@ body {
   color: var(--bg);
 }
 
+/* --- Screenshot Gallery / Carousel --- */
+.modal__gallery {
+  margin: 1.5rem 0;
+}
+
+.modal__carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal__slides {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 520px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal__slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.modal__slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal__slide img {
+  max-width: 100%;
+  max-height: 460px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.modal__slide-caption {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 0.5rem;
+  padding: 0 1rem;
+}
+
+.modal__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text);
+  font-size: 1.8rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  line-height: 1;
+}
+
+.modal__nav:hover {
+  background: rgba(244, 162, 97, 0.3);
+  border-color: var(--primary);
+}
+
+.modal__nav--prev { left: 8px; }
+.modal__nav--next { right: 8px; }
+
+.modal__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.modal__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.modal__dot.active {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.modal__dot:hover {
+  border-color: var(--primary);
+}
+
 /* Modal scrollbar */
 .modal::-webkit-scrollbar {
   width: 6px;
