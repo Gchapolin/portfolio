@@ -52,42 +52,6 @@
       }
     },
     {
-      id: 'monstrosaudavel',
-      name: 'MonstroSaudavel',
-      room: { en: 'The Arena', pt: 'A Arena' },
-      status: 'Beta',
-      tagline: {
-        en: 'Gamified health tracking app that turns wellness into an adventure',
-        pt: 'App de sa\u00FAde gamificado que transforma bem-estar em aventura'
-      },
-      description: {
-        en: 'A cross-platform health and fitness app that gamifies daily habits like exercise, hydration and sleep. Users raise a virtual monster that evolves based on their real-world healthy behaviors, powered by Firebase for real-time sync.',
-        pt: 'App multiplataforma de sa\u00FAde e fitness que gamifica h\u00E1bitos di\u00E1rios como exerc\u00EDcio, hidrata\u00E7\u00E3o e sono. Usu\u00E1rios criam um monstro virtual que evolui baseado em comportamentos saud\u00E1veis reais, com Firebase para sincroniza\u00E7\u00E3o em tempo real.'
-      },
-      tech: ['Swift', 'SwiftUI', 'Kotlin', 'Firebase', 'HealthKit'],
-      features: {
-        en: [
-          'Virtual monster evolution based on health data',
-          'Daily challenge system with streak rewards',
-          'Real-time sync across devices via Firebase',
-          'HealthKit / Google Fit integration',
-          'Social leaderboards and friend challenges'
-        ],
-        pt: [
-          'Evolu\u00E7\u00E3o do monstro virtual baseada em dados de sa\u00FAde',
-          'Sistema de desafios di\u00E1rios com recompensas por streaks',
-          'Sincroniza\u00E7\u00E3o em tempo real entre dispositivos via Firebase',
-          'Integra\u00E7\u00E3o com HealthKit / Google Fit',
-          'Rankings sociais e desafios entre amigos'
-        ]
-      },
-      github: 'https://github.com/Gchapolin/monstrosaudavel',
-      highlight: {
-        en: 'HealthKit/Google Fit bridge with Firebase real-time sync and gamification engine',
-        pt: 'Bridge HealthKit/Google Fit com sync Firebase em tempo real e engine de gamificação'
-      }
-    },
-    {
       id: 'eternalpyre',
       name: 'The Eternal Pyre',
       room: { en: 'Hall of Fire', pt: 'Sal\u00E3o do Fogo' },
@@ -178,42 +142,6 @@
       }
     },
     {
-      id: 'arena-catacomb',
-      name: 'Arena: Catacomb',
-      room: { en: 'The Catacombs', pt: 'As Catacumbas' },
-      status: 'Prototype',
-      tagline: {
-        en: 'Peer-to-peer browser combat game using WebRTC',
-        pt: 'Jogo de combate peer-to-peer no navegador usando WebRTC'
-      },
-      description: {
-        en: 'A lightweight browser-based combat game that connects players directly via WebRTC for peer-to-peer multiplayer. No server needed after initial signaling \u2014 pure vanilla JavaScript with minimal latency.',
-        pt: 'Jogo de combate leve baseado em navegador que conecta jogadores diretamente via WebRTC para multiplayer peer-to-peer. Sem servidor necess\u00E1rio ap\u00F3s a sinaliza\u00E7\u00E3o inicial \u2014 JavaScript puro com lat\u00EAncia m\u00EDnima.'
-      },
-      tech: ['JavaScript', 'WebRTC', 'Canvas API', 'HTML5', 'CSS3'],
-      features: {
-        en: [
-          'Peer-to-peer connection via WebRTC',
-          'Zero-server gameplay after handshake',
-          'Canvas-based 2D combat system',
-          'Local and remote multiplayer modes',
-          'Custom matchmaking with room codes'
-        ],
-        pt: [
-          'Conex\u00E3o peer-to-peer via WebRTC',
-          'Gameplay sem servidor ap\u00F3s handshake',
-          'Sistema de combate 2D baseado em Canvas',
-          'Modos multiplayer local e remoto',
-          'Matchmaking customizado com c\u00F3digos de sala'
-        ]
-      },
-      github: null,
-      highlight: {
-        en: 'WebRTC peer-to-peer with zero-server gameplay after signaling handshake',
-        pt: 'WebRTC peer-to-peer com gameplay sem servidor após handshake de sinalização'
-      }
-    },
-    {
       id: 'kpitree',
       name: 'KPI Tree Game',
       room: { en: 'War Room', pt: 'Sala de Guerra' },
@@ -249,6 +177,205 @@
       highlight: {
         en: 'RPG scoring engine with depth-based XP multipliers (5x root, 2x branch, 1x leaf) and alignment bonus system',
         pt: 'Engine de pontuação RPG com multiplicadores de XP por profundidade (5x raiz, 2x ramo, 1x folha) e sistema de bônus por alinhamento'
+      }
+    },
+    {
+      id: 'fitlink',
+      name: 'FitLink',
+      room: { en: 'The Arena', pt: 'A Arena' },
+      status: 'MVP',
+      tagline: {
+        en: 'Cross-platform fitness platform connecting students, trainers and nutritionists',
+        pt: 'Plataforma fitness multiplataforma conectando alunos, personal trainers e nutricionistas'
+      },
+      description: {
+        en: 'A cross-platform health and fitness platform that connects three types of users: students, personal trainers and nutritionists. Trainers create and assign personalized workout plans, nutritionists manage meal plans, and students track everything with gamified achievements and streaks. Powered by Firebase for real-time sync across devices.',
+        pt: 'Plataforma de sa\u00FAde e fitness multiplataforma que conecta tr\u00EAs tipos de usu\u00E1rios: alunos, personal trainers e nutricionistas. Trainers criam e atribuem treinos personalizados, nutricionistas gerenciam planos alimentares, e alunos acompanham tudo com conquistas gamificadas e streaks. Firebase para sincroniza\u00E7\u00E3o em tempo real.'
+      },
+      tech: ['Swift', 'SwiftUI', 'Kotlin', 'Jetpack Compose', 'Firebase', 'Cloud Functions'],
+      features: {
+        en: [
+          'Multi-role system: Student, Personal Trainer, Nutritionist',
+          'Workout execution with real-time rep/weight tracking and rest timers',
+          'Meal plan management with daily adherence tracking',
+          'Invite system with shareable codes for professional connections',
+          'Gamified achievements and streak rewards',
+          'Real-time dashboards with adherence analytics'
+        ],
+        pt: [
+          'Sistema multi-perfil: Aluno, Personal Trainer, Nutricionista',
+          'Execu\u00E7\u00E3o de treinos com tracking de reps/peso em tempo real e timers de descanso',
+          'Gest\u00E3o de planos alimentares com acompanhamento di\u00E1rio de ader\u00EAncia',
+          'Sistema de convites com c\u00F3digos compartilh\u00E1veis para conex\u00F5es profissionais',
+          'Conquistas gamificadas e recompensas por streaks',
+          'Dashboards em tempo real com analytics de ader\u00EAncia'
+        ]
+      },
+      github: null,
+      highlight: {
+        en: 'Atomic Firebase transactions for invite system + role-based Firestore security rules + real-time sync across 3 user types',
+        pt: 'Transa\u00E7\u00F5es at\u00F4micas Firebase para sistema de convites + regras de seguran\u00E7a Firestore por role + sync em tempo real entre 3 tipos de usu\u00E1rio'
+      }
+    },
+    {
+      id: 'castor',
+      name: 'Castor',
+      room: { en: 'Command Center', pt: 'Centro de Comando' },
+      status: 'Beta',
+      tagline: {
+        en: 'Local-first task dashboard with Claude Code integration and execution queues',
+        pt: 'Dashboard local-first de tarefas com integra\u00E7\u00E3o Claude Code e filas de execu\u00E7\u00E3o'
+      },
+      description: {
+        en: 'A local-first task and workspace dashboard designed for developers working with Claude Code. Features 8 specialized views (Kanban, Timeline, Discovery, KPI, and more), automated execution queues with plan/implement/fix/review phases, real-time SSE updates, RBAC, and a CLI interface. Imports Claude Code sessions automatically.',
+        pt: 'Dashboard local-first de tarefas e workspaces projetado para desenvolvedores usando Claude Code. 8 visualiza\u00E7\u00F5es especializadas (Kanban, Timeline, Discovery, KPI e mais), filas de execu\u00E7\u00E3o automatizadas com fases plan/implement/fix/review, atualiza\u00E7\u00F5es SSE em tempo real, RBAC e interface CLI. Importa sess\u00F5es do Claude Code automaticamente.'
+      },
+      tech: ['React 19', 'Node.js', 'Express', 'SQLite', 'Vite', 'Tailwind CSS'],
+      features: {
+        en: [
+          '8 specialized views: Kanban, List, Timeline, Discovery, KPI, Pipeline, Prototyping, Git',
+          'Automated execution queue with plan \u2192 implement \u2192 fix \u2192 review phases',
+          'Real-time updates via Server-Sent Events (SSE)',
+          'Claude Code session import and project auto-detection',
+          'Role-based access control (owner, admin, member, viewer)',
+          'Shape-Up integration with pitch-to-task workflow'
+        ],
+        pt: [
+          '8 visualiza\u00E7\u00F5es: Kanban, Lista, Timeline, Discovery, KPI, Pipeline, Prototipagem, Git',
+          'Fila de execu\u00E7\u00E3o automatizada com fases plan \u2192 implement \u2192 fix \u2192 review',
+          'Atualiza\u00E7\u00F5es em tempo real via Server-Sent Events (SSE)',
+          'Importa\u00E7\u00E3o de sess\u00F5es Claude Code e auto-detec\u00E7\u00E3o de projetos',
+          'Controle de acesso por role (owner, admin, member, viewer)',
+          'Integra\u00E7\u00E3o Shape-Up com fluxo pitch-to-task'
+        ]
+      },
+      github: null,
+      subprojects: {
+        title: { en: 'Apps Built with Castor', pt: 'Apps Criados com Castor' },
+        items: [
+          { name: 'Color Switch', tech: 'Swift / SpriteKit', desc: { en: 'iOS game where a circle moves upward matching colors with rotating barriers', pt: 'Jogo iOS onde um c\u00EDrculo sobe combinando cores com barreiras rotativas' } },
+          { name: 'Gap Runner', tech: 'Swift / SpriteKit', desc: { en: 'Endless runner navigating through gaps in walls with progressive difficulty', pt: 'Endless runner navegando por brechas em paredes com dificuldade progressiva' } },
+          { name: 'Gravity Flip', tech: 'Swift / SpriteKit', desc: { en: 'Arcade game with gravity-flipping mechanics and neon aesthetics', pt: 'Jogo arcade com mec\u00E2nica de inverter gravidade e est\u00E9tica neon' } },
+          { name: 'Spike Dodge', tech: 'Swift / SpriteKit', desc: { en: 'Survival game dodging falling spikes and collecting power-ups', pt: 'Jogo de sobreviv\u00EAncia desviando de espinhos e coletando power-ups' } }
+        ]
+      },
+      highlight: {
+        en: 'SSE-driven real-time updates + async Claude spawn pattern with 3-level JSON extraction fallback + URL-driven modal state',
+        pt: 'Atualiza\u00E7\u00F5es em tempo real via SSE + padr\u00E3o async de spawn Claude com fallback de extra\u00E7\u00E3o JSON em 3 n\u00EDveis + estado de modal via URL'
+      }
+    },
+    {
+      id: 'smartscore',
+      name: 'SmartScore',
+      room: { en: 'Music Chamber', pt: 'C\u00E2mara da M\u00FAsica' },
+      status: 'MVP',
+      tagline: {
+        en: 'Android app for managing and annotating musical scores with neobrutal design',
+        pt: 'App Android para gerenciar e anotar partituras musicais com design neobrutal'
+      },
+      description: {
+        en: 'An Android app for musicians to manage their musical score library. Organize scores by folders and tags, view with page navigation, add annotations and markups, and create custom setlists. Built with Jetpack Compose and a custom Neobrutal Design System with bold borders, solid shadows and Space Grotesk typography.',
+        pt: 'App Android para m\u00FAsicos gerenciarem sua biblioteca de partituras. Organiza\u00E7\u00E3o por pastas e tags, visualiza\u00E7\u00E3o com navega\u00E7\u00E3o por p\u00E1ginas, anota\u00E7\u00F5es e marcas, e cria\u00E7\u00E3o de setlists personalizadas. Constru\u00EDdo com Jetpack Compose e Design System Neobrutal customizado com bordas bold, sombras s\u00F3lidas e tipografia Space Grotesk.'
+      },
+      tech: ['Kotlin', 'Jetpack Compose', 'Hilt', 'Material 3', 'Firebase'],
+      features: {
+        en: [
+          'Score library with folder and tag organization',
+          'Score viewer with page navigation and zoom',
+          'Annotation layer with toolbar for markups',
+          'Custom setlist creation and management',
+          'Neobrutal Design System with custom components',
+          'Clean Architecture with MVVM and feature modules'
+        ],
+        pt: [
+          'Biblioteca de partituras com organiza\u00E7\u00E3o por pastas e tags',
+          'Visualizador de partituras com navega\u00E7\u00E3o por p\u00E1ginas e zoom',
+          'Camada de anota\u00E7\u00F5es com toolbar para marca\u00E7\u00F5es',
+          'Cria\u00E7\u00E3o e gest\u00E3o de setlists personalizadas',
+          'Design System Neobrutal com componentes customizados',
+          'Clean Architecture com MVVM e m\u00F3dulos por feature'
+        ]
+      },
+      github: null,
+      highlight: {
+        en: 'Custom Neobrutal Design System with 10+ reusable components + Clean Architecture with Hilt DI across feature modules',
+        pt: 'Design System Neobrutal customizado com 10+ componentes reutiliz\u00E1veis + Clean Architecture com Hilt DI entre m\u00F3dulos de feature'
+      }
+    },
+    {
+      id: 'termpost',
+      name: 'TermPost',
+      room: { en: 'The Forge', pt: 'A Forja' },
+      status: 'Prototype',
+      tagline: {
+        en: 'Terminal-based HTTP client with TUI \u2014 Postman for the command line',
+        pt: 'Cliente HTTP no terminal com TUI \u2014 Postman para a linha de comando'
+      },
+      description: {
+        en: 'A terminal-based TUI HTTP client built in Rust. Organize requests in collections and workspaces, manage params, headers, body and auth settings, chain requests with variables, and view responses with syntax highlighting. Think Postman/Insomnia but entirely in the terminal.',
+        pt: 'Cliente HTTP TUI no terminal constru\u00EDdo em Rust. Organize requisi\u00E7\u00F5es em collections e workspaces, gerencie params, headers, body e auth, encadeie requisi\u00E7\u00F5es com vari\u00E1veis e visualize respostas com syntax highlighting. Postman/Insomnia mas 100% no terminal.'
+      },
+      tech: ['Rust', 'Ratatui', 'Reqwest', 'Tokio', 'Crossterm'],
+      features: {
+        en: [
+          'Multi-workspace and collection organization',
+          'Request editing: Params, Headers, Body, Auth tabs',
+          'Response viewer with syntax highlighting (Syntect)',
+          'Request chaining with variable support',
+          'Data import/export for sharing collections',
+          'Fully async with Tokio runtime'
+        ],
+        pt: [
+          'Organiza\u00E7\u00E3o multi-workspace e collections',
+          'Edi\u00E7\u00E3o de requests: abas Params, Headers, Body, Auth',
+          'Visualizador de respostas com syntax highlighting (Syntect)',
+          'Encadeamento de requests com suporte a vari\u00E1veis',
+          'Import/export de dados para compartilhar collections',
+          'Totalmente async com runtime Tokio'
+        ]
+      },
+      github: null,
+      highlight: {
+        en: 'Fully async Rust TUI with Ratatui + Tokio runtime, request chaining and Syntect-powered response highlighting',
+        pt: 'TUI Rust totalmente async com Ratatui + runtime Tokio, encadeamento de requests e highlighting de respostas via Syntect'
+      }
+    },
+    {
+      id: 'tradeagent',
+      name: 'Trade Agent',
+      room: { en: 'War Room', pt: 'Sala de Guerra' },
+      status: 'MVP',
+      tagline: {
+        en: 'Autonomous AI-powered trading agent for Polymarket prediction markets',
+        pt: 'Agente aut\u00F4nomo de trading com IA para mercados de predi\u00E7\u00E3o Polymarket'
+      },
+      description: {
+        en: 'An autonomous trading agent that uses Google Gemini AI to analyze Polymarket prediction markets and execute trades on the Polygon blockchain. Features configurable confidence thresholds, auto take-profit, position management, dry-run mode, and a full React dashboard with real-time analytics including P&L tracking, win rates, and drawdown analysis.',
+        pt: 'Agente aut\u00F4nomo de trading que usa Google Gemini AI para analisar mercados de predi\u00E7\u00E3o Polymarket e executar trades na blockchain Polygon. Configura\u00E7\u00E3o de thresholds de confian\u00E7a, auto take-profit, gest\u00E3o de posi\u00E7\u00F5es, modo dry-run e dashboard React completo com analytics em tempo real incluindo P&L, win rates e an\u00E1lise de drawdown.'
+      },
+      tech: ['Python', 'FastAPI', 'React', 'TypeScript', 'Gemini AI', 'Polygon'],
+      features: {
+        en: [
+          'Autonomous market analysis with Gemini 2.5 Flash AI',
+          'On-chain trade execution via Polygon/CLOB API',
+          'Configurable confidence thresholds and investment caps',
+          'Auto take-profit with position tracking',
+          'Real-time dashboard with P&L charts and drawdown analysis',
+          'Dry-run mode for risk-free testing'
+        ],
+        pt: [
+          'An\u00E1lise aut\u00F4noma de mercados com Gemini 2.5 Flash AI',
+          'Execu\u00E7\u00E3o de trades on-chain via Polygon/CLOB API',
+          'Thresholds de confian\u00E7a e limites de investimento configur\u00E1veis',
+          'Auto take-profit com tracking de posi\u00E7\u00F5es',
+          'Dashboard em tempo real com gr\u00E1ficos P&L e an\u00E1lise de drawdown',
+          'Modo dry-run para testes sem risco'
+        ]
+      },
+      github: null,
+      highlight: {
+        en: 'Gemini AI market reasoning + Polygon blockchain execution + real-time P&L analytics with drawdown tracking',
+        pt: 'Racioc\u00EDnio de mercado via Gemini AI + execu\u00E7\u00E3o na blockchain Polygon + analytics P&L em tempo real com tracking de drawdown'
       }
     }
   ];
@@ -898,6 +1025,22 @@
         '</div>';
     }
 
+    var subprojectsBlock = '';
+    if (p.subprojects) {
+      var subItems = p.subprojects.items.map(function (item) {
+        return '<div class="modal__subproject">' +
+          '<div class="modal__subproject-header">' +
+            '<strong class="modal__subproject-name">' + item.name + '</strong>' +
+            '<span class="modal__tech-badge">' + item.tech + '</span>' +
+          '</div>' +
+          '<p class="modal__subproject-desc">' + t(item.desc) + '</p>' +
+        '</div>';
+      }).join('');
+      subprojectsBlock =
+        '<h4 class="modal__section-title">' + t(p.subprojects.title) + '</h4>' +
+        '<div class="modal__subprojects">' + subItems + '</div>';
+    }
+
     modalContent.innerHTML =
       '<div class="modal__header">' +
         '<div>' +
@@ -913,6 +1056,7 @@
       '<div class="modal__tech">' + techBadges + '</div>' +
       '<h4 class="modal__section-title">' + s.modalFeaturesTitle + '</h4>' +
       '<ul class="modal__features">' + featureItems + '</ul>' +
+      subprojectsBlock +
       liveLink + githubLink;
 
     overlay.classList.add('active');
