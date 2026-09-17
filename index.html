@@ -15,7 +15,7 @@
   <meta property="og:site_name" content="Guilherme Ferreira">
   <meta property="og:url" content="https://gchapolin.github.io/portfolio/">
   <meta property="og:title" content="Guilherme Ferreira — Product Manager que constrói">
-  <meta property="og:description" content="Mais de 5 anos em produto digital e base em operação. 12 projetos próprios construídos de ponta a ponta com IA — apps nativos, agentes e sistemas gamificados.">
+  <meta property="og:description" content="Mais de 5 anos em produto digital e base em operação. 10 projetos próprios construídos de ponta a ponta com IA — apps nativos, agentes e sistemas gamificados.">
   <meta property="og:image" content="https://gchapolin.github.io/portfolio/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -26,7 +26,7 @@
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Guilherme Ferreira — Product Manager que constrói">
-  <meta name="twitter:description" content="Mais de 5 anos em produto digital e base em operação. 12 projetos próprios construídos de ponta a ponta com IA.">
+  <meta name="twitter:description" content="Mais de 5 anos em produto digital e base em operação. 10 projetos próprios construídos de ponta a ponta com IA.">
   <meta name="twitter:image" content="https://gchapolin.github.io/portfolio/assets/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1190,41 +1190,6 @@
         }
       },
       {
-        id: 'taverna', name: 'Taverna', theme: 't-gamified', status: 'Prototype',
-        tagline: {
-          en: 'An AI game master for tabletop RPGs, built on the Claude Agent SDK',
-          pt: 'Um mestre de RPG com IA para mesas de RPG, construído sobre o Claude Agent SDK'
-        },
-        description: {
-          en: 'A digital RPG table where the Game Master is a Claude agent, built on the Claude Agent SDK with an in-process MCP server exposing 9 game tools. Strict sandbox: an allowlist blocks the SDK’s native tools; character sheets change only through JSON Merge Patch with protected fields; player rolls are asynchronous — the agent requests the roll and must wait. Next.js 14, SQLite, SSE streaming, 40 automated tests and per-turn cost logging.',
-          pt: 'Mesa de RPG digital em que o Mestre é um agente Claude, construído sobre o Claude Agent SDK com servidor MCP in-process expondo 9 ferramentas de jogo. Sandbox rigoroso: allowlist bloqueia as ferramentas nativas do SDK; fichas só mudam via JSON Merge Patch com campos protegidos; rolagens dos jogadores são assíncronas — o agente pede o dado e é obrigado a esperar. Next.js 14, SQLite, streaming por SSE, 40 testes automatizados e custo por turno logado.'
-        },
-        tech: ['Claude Agent SDK', 'MCP', 'Next.js 14', 'SQLite', 'SSE'],
-        features: {
-          en: [
-            'In-process MCP server with 9 game-master tools',
-            'Sandbox: allowlist blocks the SDK’s native Bash/Read tools',
-            'Asynchronous rolls: the GM must wait for the player’s dice',
-            'Character sheets via JSON Merge Patch (RFC 7396) with protected fields',
-            'Rulebook search with relevance-ranked chunks',
-            '40 automated tests and per-turn cost logging'
-          ],
-          pt: [
-            'Servidor MCP in-process com 9 ferramentas de mestre de jogo',
-            'Sandbox: allowlist bloqueia Bash/Read nativos do SDK',
-            'Rolagem assíncrona: o Mestre espera o dado do jogador',
-            'Fichas via JSON Merge Patch (RFC 7396) com campos protegidos',
-            'Busca no livro de regras com ranking por relevância',
-            '40 testes automatizados e custo por turno em log'
-          ]
-        },
-        github: null,
-        highlight: {
-          en: 'The same agentic architecture as Trade Agent, applied to running a game — with the twist that here the agent is prevented, by design, from rolling the players’ dice.',
-          pt: 'Mesma arquitetura agêntica do Trade Agent, aplicada a conduzir um jogo — com o detalhe de que aqui o agente é impedido, por design, de rolar os dados dos jogadores.'
-        }
-      },
-      {
         id: 'retornelo', name: 'Retornelo', theme: 't-apps', status: 'Beta', brand: 'Ferguis',
         live: 'https://retornelo.ferguis.com.br',
         tagline: {
@@ -1327,33 +1292,6 @@
         highlight: {
           en: 'RPG scoring engine with depth-based XP multipliers (5x root, 2x branch, 1x leaf) and alignment bonus system',
           pt: 'Engine de pontuação RPG com multiplicadores de XP por profundidade (5x raiz, 2x ramo, 1x folha) e sistema de bônus por alinhamento'
-        }
-      },
-      {
-        id: 'curso', name: 'Desenvolvimento com Claude para PMs', theme: 't-leadership', status: 'Beta',
-        tagline: {
-          en: 'A 3-module course teaching product managers how to build with Claude',
-          pt: 'Um curso de 3 módulos ensinando gerentes de produto a construir com Claude'
-        },
-        description: {
-          en: 'A structured course for product managers on building real software with Claude, with three modules and evaluation rubrics. Module 1 uses this very site as its case study — walking through the project from conception to deploy.',
-          pt: 'Curso estruturado pra gerentes de produto sobre construir software de verdade com Claude, com três módulos e rubricas de avaliação. O módulo 1 usa este próprio site como estudo de caso — percorrendo o projeto da concepção ao deploy.'
-        },
-        tech: ['Claude Code', 'Curriculum design'],
-        features: {
-          en: [
-            '3 structured modules with evaluation rubrics',
-            'Module 1 case study: this site, from conception to deploy'
-          ],
-          pt: [
-            '3 módulos estruturados com rubricas de avaliação',
-            'Estudo de caso do módulo 1: este site, da concepção ao deploy'
-          ]
-        },
-        github: null,
-        highlight: {
-          en: 'The case study in Module 1 is the same knowledge-graph-informed process that produced this redesign.',
-          pt: 'O estudo de caso do Módulo 1 é o mesmo processo informado por grafo de conhecimento que produziu este redesign.'
         }
       },
       {
