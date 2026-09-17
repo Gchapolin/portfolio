@@ -15,7 +15,7 @@
   <meta property="og:site_name" content="Guilherme Ferreira">
   <meta property="og:url" content="https://gchapolin.github.io/portfolio/">
   <meta property="og:title" content="Guilherme Ferreira — Product Manager que constrói">
-  <meta property="og:description" content="Mais de 5 anos em produto digital e base em operação. 13 projetos próprios construídos de ponta a ponta com IA — apps nativos, agentes e sistemas gamificados.">
+  <meta property="og:description" content="Mais de 5 anos em produto digital e base em operação. 12 projetos próprios construídos de ponta a ponta com IA — apps nativos, agentes e sistemas gamificados.">
   <meta property="og:image" content="https://gchapolin.github.io/portfolio/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -26,7 +26,7 @@
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Guilherme Ferreira — Product Manager que constrói">
-  <meta name="twitter:description" content="Mais de 5 anos em produto digital e base em operação. 13 projetos próprios construídos de ponta a ponta com IA.">
+  <meta name="twitter:description" content="Mais de 5 anos em produto digital e base em operação. 12 projetos próprios construídos de ponta a ponta com IA.">
   <meta name="twitter:image" content="https://gchapolin.github.io/portfolio/assets/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1225,15 +1225,15 @@
         }
       },
       {
-        id: 'smartscore', name: 'SmartScore', theme: 't-apps', status: 'Beta', brand: 'Ferguis',
+        id: 'retornelo', name: 'Retornelo', theme: 't-apps', status: 'Beta', brand: 'Ferguis',
         live: 'https://retornelo.ferguis.com.br',
         tagline: {
-          en: 'Score app for musicians on iOS and Android — being prepared as Retornelo, under the Ferguis indie label',
-          pt: 'App de partituras para músicos, iOS e Android — em preparação como Retornelo, sob o selo indie Ferguis'
+          en: 'Score app for musicians on iOS and Android, being prepared for release under the Ferguis indie label — formerly SmartScore',
+          pt: 'App de partituras para músicos, iOS e Android, em preparação para lançamento sob o selo indie Ferguis — antes SmartScore'
         },
         description: {
-          en: 'A tablet-first score reader and organizer (internal codename SmartScore), being prepared for release as Retornelo under Ferguis, Guilherme’s own indie label. iOS and Android with mirrored parity: SwiftUI + SwiftData on one side, Jetpack Compose + Hilt + Room on the other. Score library with folders and tags, page-based viewer, a custom annotation canvas (Douglas-Peucker simplification and eraser hit-testing, no PencilKit) and setlists. Cross-platform ZIP backup/restore with a versioned schema, full store identity (br.com.ferguis.retornelo), fastlane metadata in pt-BR and en-US, and its own public site.',
-          pt: 'Leitor e organizador de partituras tablet-first (codinome interno SmartScore), em preparação para lançamento como Retornelo sob o Ferguis, selo indie do próprio Guilherme. iOS e Android com paridade espelhada: SwiftUI + SwiftData de um lado, Jetpack Compose + Hilt + Room do outro. Biblioteca com pastas e tags, visualizador por páginas, canvas de anotação autoral (simplificação Douglas-Peucker e eraser hit-test, sem PencilKit) e setlists. Backup/restore cross-platform em ZIP com schema versionado, identidade de loja completa (br.com.ferguis.retornelo), metadados fastlane em pt-BR e en-US e site público próprio.'
+          en: 'Retornelo (internal codename SmartScore) is a tablet-first score reader and organizer, being prepared for release under Ferguis, Guilherme’s own indie label. iOS and Android with mirrored parity: SwiftUI + SwiftData on one side, Jetpack Compose + Hilt + Room on the other. Score library with folders and tags, page-based viewer, a custom annotation canvas (Douglas-Peucker simplification and eraser hit-testing, no PencilKit) and setlists. Cross-platform ZIP backup/restore with a versioned schema, full store identity (br.com.ferguis.retornelo), fastlane metadata in pt-BR and en-US, and its own public site.',
+          pt: 'Retornelo (codinome interno SmartScore) é um leitor e organizador de partituras tablet-first, em preparação para lançamento sob o Ferguis, selo indie do próprio Guilherme. iOS e Android com paridade espelhada: SwiftUI + SwiftData de um lado, Jetpack Compose + Hilt + Room do outro. Biblioteca com pastas e tags, visualizador por páginas, canvas de anotação autoral (simplificação Douglas-Peucker e eraser hit-test, sem PencilKit) e setlists. Backup/restore cross-platform em ZIP com schema versionado, identidade de loja completa (br.com.ferguis.retornelo), metadados fastlane em pt-BR e en-US e site público próprio.'
         },
         tech: ['SwiftUI', 'SwiftData', 'Kotlin', 'Jetpack Compose', 'Room', 'Fastlane'],
         features: {
@@ -1466,41 +1466,6 @@
         highlight: {
           en: 'Atomic Firebase transactions for invite system + role-based Firestore security rules + real-time sync across 3 user types',
           pt: 'Transações atômicas Firebase para sistema de convites + regras de segurança Firestore por role + sync em tempo real entre 3 tipos de usuário'
-        }
-      },
-      {
-        id: 'termpost', name: 'TermPost', theme: 't-devtools', status: 'Prototype',
-        tagline: {
-          en: 'Terminal-based HTTP client with TUI — Postman for the command line',
-          pt: 'Cliente HTTP no terminal com TUI — Postman para a linha de comando'
-        },
-        description: {
-          en: 'A terminal-based TUI HTTP client built in Rust. Organize requests in collections and workspaces, manage params, headers, body and auth settings, chain requests with variables, and view responses with syntax highlighting. Think Postman/Insomnia but entirely in the terminal.',
-          pt: 'Cliente HTTP TUI no terminal construído em Rust. Organize requisições em collections e workspaces, gerencie params, headers, body e auth, encadeie requisições com variáveis e visualize respostas com syntax highlighting. Postman/Insomnia mas 100% no terminal.'
-        },
-        tech: ['Rust', 'Ratatui', 'Reqwest', 'Tokio', 'Crossterm'],
-        features: {
-          en: [
-            'Multi-workspace and collection organization',
-            'Request editing: Params, Headers, Body, Auth tabs',
-            'Response viewer with syntax highlighting (Syntect)',
-            'Request chaining with variable support',
-            'OpenAPI 3.x and Swagger 2.0 import (JSON and YAML), with examples generated from schemas',
-            'Fully async with Tokio runtime'
-          ],
-          pt: [
-            'Organização multi-workspace e collections',
-            'Edição de requests: abas Params, Headers, Body, Auth',
-            'Visualizador de respostas com syntax highlighting (Syntect)',
-            'Encadeamento de requests com suporte a variáveis',
-            'Import de OpenAPI 3.x e Swagger 2.0 (JSON e YAML), com examples gerados dos schemas',
-            'Totalmente async com runtime Tokio'
-          ]
-        },
-        github: null,
-        highlight: {
-          en: 'Fully async Rust TUI with Ratatui + Tokio runtime, response chaining via {{responses.<uuid>.<json.path>}} templates and atomic saves (.tmp + rename)',
-          pt: 'TUI Rust totalmente async com Ratatui + runtime Tokio, encadeamento de respostas via templates {{responses.<uuid>.<json.path>}} e save atômico (.tmp + rename)'
         }
       },
       {
@@ -1770,8 +1735,8 @@
         heroBadgeLeft: 'Product Manager',
         heroBadgeRight: 'Builds with AI',
         heroChip1: 'Agentic AI', heroChip2: 'Native Apps', heroChip3: 'Gamified Systems',
-        heroSub: 'Product Manager with 5+ years in digital product and a background in operations. Outside work, I use AI to build my own products end to end — 13 projects so far, with Tonika, an iOS music theory app, now in its launch phase.',
-        heroCtaPrimary: 'See all 13 projects',
+        heroSub: 'Product Manager with 5+ years in digital product and a background in operations. Outside work, I use AI to build my own products end to end — {count} projects so far, with Tonika, an iOS music theory app, now in its launch phase.',
+        heroCtaPrimary: 'See all {count} projects',
         heroCtaGhost: 'Download resume',
         journeyA: 'My', journeyB: 'Journey',
         journeySub: 'Operations background, product mind, hands on the code.',
@@ -1809,8 +1774,8 @@
         heroBadgeLeft: 'Product Manager',
         heroBadgeRight: 'Constrói com IA',
         heroChip1: 'IA Agêntica', heroChip2: 'Apps Nativos', heroChip3: 'Sistemas Gamificados',
-        heroSub: 'Product Manager com mais de 5 anos em produto digital e base em operação. Fora do trabalho, uso IA para construir meus próprios produtos de ponta a ponta — 13 projetos até aqui, com o Tonika, app iOS de teoria musical, em fase de lançamento.',
-        heroCtaPrimary: 'Ver os 13 projetos',
+        heroSub: 'Product Manager com mais de 5 anos em produto digital e base em operação. Fora do trabalho, uso IA para construir meus próprios produtos de ponta a ponta — {count} projetos até aqui, com o Tonika, app iOS de teoria musical, em fase de lançamento.',
+        heroCtaPrimary: 'Ver os {count} projetos',
         heroCtaGhost: 'Baixar currículo',
         journeyA: 'Minha', journeyB: 'Jornada',
         journeySub: 'Visão de operação, cabeça de produto, mão no código.',
@@ -1851,7 +1816,9 @@
     }
     function ui(key) {
       var val = uiText[currentLang][key] || '';
-      return val.replace('{year}', new Date().getFullYear());
+      return val
+        .replace('{year}', new Date().getFullYear())
+        .replace('{count}', projects.length);
     }
 
     var activeTheme = 'all';
