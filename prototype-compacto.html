@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guilherme Ferreira — protótipo carrossel</title>
+  <title>Guilherme Ferreira — protótipo compacto</title>
   <meta name="description" content="Portfólio de Guilherme Ferreira, Product Manager com mais de 5 anos em produto digital. Projetos próprios construídos com IA: apps nativos, agentes e sistemas gamificados.">
   <meta name="author" content="Guilherme Ferreira">
   <meta name="theme-color" content="#ffffff">
@@ -478,6 +478,27 @@
     .journey p:last-child { margin-bottom: 0; }
     .journey p:first-child { font-size: 17px; color: var(--ink); font-weight: 600; }
 
+    /* ---------- Secao compacta: texto + botao ---------- */
+    .teaser {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      max-width: 62ch;
+      margin-bottom: 24px;
+    }
+    .more-btn::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 0.25s ease;
+    }
+    .more-btn[aria-expanded="true"]::after { transform: translateY(1px) rotate(-135deg); }
+    [hidden] { display: none !important; }
+    .more { margin-top: 28px; }
+
     /* ---------- Projects ---------- */
     .tabs {
       display: flex;
@@ -604,125 +625,6 @@
     .card:focus-visible .card__link::after { transform: translateX(4px); }
     .card:hover .card__thumb-letter,
     .card:focus-visible .card__thumb-letter { transform: scale(1.07) translateY(-2px); }
-
-    /* ---------- Carrossel (projetos e experiencia) ---------- */
-    .carousel {
-      position: relative;
-      /* sem isso o min-width:auto de item de grid faz a faixa crescer pra
-         caber o trilho inteiro, e o carrossel nunca rola: ele transborda */
-      min-width: 0;
-    }
-    .carousel__viewport {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      overscroll-behavior-x: contain;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      /* respiro pra sombra do hover do card nao ser cortada */
-      padding: 4px 4px 8px;
-      margin: -4px -4px -8px;
-    }
-    .carousel__viewport::-webkit-scrollbar { display: none; }
-    .carousel__viewport:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; border-radius: var(--radius); }
-    .carousel__viewport > * { scroll-snap-align: start; }
-    @media (prefers-reduced-motion: reduce) {
-      .carousel__viewport { scroll-behavior: auto; }
-    }
-
-    .carousel__controls {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-    }
-    .carousel__btn {
-      width: 40px;
-      height: 40px;
-      flex: none;
-      display: grid;
-      place-items: center;
-      padding: 0;
-      color: var(--ink);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      cursor: pointer;
-    }
-    .carousel__btn:hover:not(:disabled) { border-color: var(--ink); }
-    .carousel__btn:disabled { opacity: 0.3; cursor: default; }
-    .carousel__btn svg { width: 17px; height: 17px; }
-    .carousel__count {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--gray);
-      font-variant-numeric: tabular-nums;
-    }
-
-    /* cards de projeto no carrossel: 2 por vez, com o terceiro espiando */
-    .cards.carousel__viewport { display: flex; }
-    .carousel__viewport > .card { flex: 0 0 calc((100% - 52px) / 2.18); }
-
-    /* ---------- Trilho horizontal da experiencia ---------- */
-    .rail > .tlh { flex: 0 0 340px; }
-    .tlh { position: relative; padding-top: 60px; }
-    .tlh::before {
-      content: "";
-      position: absolute;
-      left: 22px;
-      right: -20px;
-      top: 21px;
-      height: 2px;
-      background: var(--border);
-    }
-    .tlh:last-child::before { right: auto; width: 0; }
-    .tlh__dot {
-      position: absolute;
-      left: 0;
-      top: 0;
-      z-index: 1;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--chip-bg);
-      display: grid;
-      place-items: center;
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--ink);
-    }
-    .tlh--current .tlh__dot { background: var(--ink); border-color: var(--ink); color: var(--on-pill); }
-    .tlh__card {
-      height: 100%;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 20px 22px 22px;
-    }
-    .tlh__period {
-      font-size: 11.5px;
-      font-weight: 800;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 8px;
-    }
-    .tlh__name { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; }
-    .tlh__role { font-size: 13.5px; font-weight: 600; color: var(--gray); margin-bottom: 12px; }
-    .tlh__desc { font-size: 13.5px; line-height: 1.65; color: var(--ink-soft); margin-bottom: 14px; }
-    .tlh__chips { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tlh__chips span {
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--gray);
-      background: var(--chip-bg);
-      border-radius: 999px;
-      padding: 4px 11px;
-    }
-    .tlh__chips span.now { background: var(--ink); color: var(--on-pill); }
 
     /* ---------- Work history / education cards ---------- */
     .stack { display: flex; flex-direction: column; gap: 16px; }
@@ -1028,8 +930,6 @@
       .hero__title { font-size: 42px; }
       .h2 { font-size: 32px; }
       .split { grid-template-columns: 1fr; gap: 32px; }
-      .carousel__viewport > .card,
-      .rail > .tlh { flex: 0 0 86%; }
       .split__head { position: static; }
       .section-sub { max-width: none; }
       .cards { grid-template-columns: 1fr; }
@@ -1143,17 +1043,12 @@
           <h2 class="h2"><span class="a" data-ui="projectsA"></span> <span class="b" data-ui="projectsB"></span></h2>
           <p class="section-sub" data-ui="projectsSub"></p>
         </div>
-        <div class="carousel" data-carousel>
-          <div class="tabs" id="theme-tabs" role="tablist"></div>
-          <div class="carousel__viewport cards" id="projects-grid" data-carousel-viewport tabindex="0"></div>
-          <div class="carousel__controls">
-            <button class="carousel__btn" type="button" data-dir="-1" data-ui-label="carouselPrev">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <span class="carousel__count" data-carousel-count aria-live="polite"></span>
-            <button class="carousel__btn" type="button" data-dir="1" data-ui-label="carouselNext">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
+        <div>
+          <p class="teaser" data-ui="projectsTeaser"></p>
+          <button class="btn-line more-btn" type="button" aria-expanded="false" aria-controls="projects-full" data-more></button>
+          <div class="more" id="projects-full" hidden>
+            <div class="tabs" id="theme-tabs" role="tablist"></div>
+            <div class="cards" id="projects-grid"></div>
           </div>
         </div>
       </div>
@@ -1166,16 +1061,11 @@
           <h2 class="h2"><span class="a" data-ui="workA"></span> <span class="b" data-ui="workB"></span></h2>
           <p class="section-sub" data-ui="workSub"></p>
         </div>
-        <div class="carousel" data-carousel>
-          <div class="carousel__viewport rail" id="work-list" data-carousel-viewport tabindex="0"></div>
-          <div class="carousel__controls">
-            <button class="carousel__btn" type="button" data-dir="-1" data-ui-label="carouselPrev">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <span class="carousel__count" data-carousel-count aria-live="polite"></span>
-            <button class="carousel__btn" type="button" data-dir="1" data-ui-label="carouselNext">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
+        <div>
+          <p class="teaser" data-ui="workTeaser"></p>
+          <button class="btn-line more-btn" type="button" aria-expanded="false" aria-controls="work-full" data-more></button>
+          <div class="more" id="work-full" hidden>
+            <div class="timeline" id="work-list"></div>
           </div>
         </div>
       </div>
@@ -1862,8 +1752,8 @@
         themeToggle: 'Toggle dark mode',
         heroArtAlt: 'Ink illustration of Guilherme Ferreira in three scenes: playing the violin, holding a phone, and sitting cross-legged with headphones and a laptop.',
         menuToggle: 'Open menu',
-        carouselPrev: 'Previous',
-        carouselNext: 'Next',
+        showMore: 'See more',
+        showLess: 'See less',
         heroBadgeLeft: 'Product Manager',
         heroBadgeRight: 'Builds with AI',
         heroChip1: 'Agentic AI', heroChip2: 'Native Apps', heroChip3: 'Gamified Systems',
@@ -1874,8 +1764,10 @@
         journeySub: 'Operations background, product mind, hands on the code.',
         projectsA: 'My', projectsB: 'Projects',
         projectsSub: 'From idea to deploy. No slideware.',
+        projectsTeaser: 'Ten projects of my own plus one collaboration: native iOS and Android apps, agents that make their own calls, multiplayer games and tools I use every day. Each entry carries the stack, what the project does, the technical highlight and, where there is one, a link to see it running.',
         workA: 'Work', workB: 'History',
         workSub: 'From transport analyst to product manager — the full path, no shortcuts.',
+        workTeaser: 'From logistics operations at DHL to digital product at Housi, by way of SOMOS Educação, MangoBits and JSL. The timeline tells what happened at each one — including the turns: the first system rollout, the move to the commercial side and the switch to product.',
         eduA: 'Education &', eduB: 'Certifications',
         eduSub: 'The formal base behind the practice.',
         skillSub: 'From discovery to deploy: the toolkit of a PM who builds.',
@@ -1904,8 +1796,8 @@
         themeToggle: 'Alternar modo escuro',
         heroArtAlt: 'Ilustração em nánquim de Guilherme Ferreira em três cenas: tocando violino, segurando o celular e sentado de pernas cruzadas com fones e um laptop.',
         menuToggle: 'Abrir menu',
-        carouselPrev: 'Anterior',
-        carouselNext: 'Próximo',
+        showMore: 'Ver mais',
+        showLess: 'Ver menos',
         heroBadgeLeft: 'Product Manager',
         heroBadgeRight: 'Constrói com IA',
         heroChip1: 'IA Agêntica', heroChip2: 'Apps Nativos', heroChip3: 'Sistemas Gamificados',
@@ -1916,8 +1808,10 @@
         journeySub: 'Visão de operação, cabeça de produto, mão no código.',
         projectsA: 'Meus', projectsB: 'Projetos',
         projectsSub: 'Da ideia ao deploy. Sem slideware.',
+        projectsTeaser: 'Dez projetos próprios e uma colaboração: apps nativos de iOS e Android, agentes que tomam decisão sozinhos, jogos multiplayer e ferramentas que eu uso todo dia. Cada ficha traz a stack, o que o projeto faz, o destaque técnico e, quando existe, o link pra ver rodando.',
         workA: 'Experiência', workB: 'Profissional',
         workSub: 'De analista de transportes a Product Manager — a trilha completa, sem atalhos.',
+        workTeaser: 'Da operação logística na DHL ao produto digital na Housi, passando por SOMOS Educação, MangoBits e JSL. A linha do tempo conta o que aconteceu em cada uma — inclusive as viradas: a primeira implantação de sistema, a ida pro comercial e a virada pra produto.',
         eduA: 'Formação &', eduB: 'Certificações',
         eduSub: 'A base formal por trás da prática.',
         skillSub: 'Do discovery ao deploy: o kit de um PM que constrói.',
@@ -2029,14 +1923,14 @@
         var chips = '<span>' + t(x.tag) + '</span>';
         if (x.current) chips = '<span class="now">' + ui('currentBadge') + '</span>' + chips;
         return (
-          '<article class="tlh' + (x.current ? ' tlh--current' : '') + '">' +
-            '<span class="tlh__dot" aria-hidden="true">' + x.initials + '</span>' +
-            '<div class="tlh__card">' +
-              '<div class="tlh__period">' + t(x.period) + '</div>' +
-              '<div class="tlh__name">' + x.company + '</div>' +
-              '<div class="tlh__role">' + t(x.role) + '</div>' +
-              '<p class="tlh__desc">' + t(x.detail) + '</p>' +
-              '<div class="tlh__chips">' + chips + '</div>' +
+          '<article class="tl' + (x.current ? ' tl--current' : '') + '">' +
+            '<span class="tl__dot" aria-hidden="true">' + x.initials + '</span>' +
+            '<div class="tl__card">' +
+              '<div class="tl__period">' + t(x.period) + '</div>' +
+              '<div class="tl__name">' + x.company + '</div>' +
+              '<div class="tl__role">' + t(x.role) + '</div>' +
+              '<p class="tl__desc">' + t(x.detail) + '</p>' +
+              '<div class="tl__chips">' + chips + '</div>' +
             '</div>' +
           '</article>'
         );
@@ -2173,9 +2067,6 @@
       activeTheme = btn.getAttribute('data-theme');
       renderTabs();
       renderProjects();
-      document.getElementById('projects-grid').scrollLeft = 0;
-      observeReveals();
-      refreshCarousels();
     });
 
     function cardHandler(e) {
@@ -2386,64 +2277,47 @@
     })();
 
     // ============================
-    // CARROSSEL
+    // SECOES QUE ABREM ("ver mais")
     // ============================
-    var atualizadores = [];
+    var maisBtns = Array.prototype.slice.call(document.querySelectorAll('[data-more]'));
 
-    function initCarousels() {
-      document.querySelectorAll('[data-carousel]').forEach(function (root) {
-        var vp = root.querySelector('[data-carousel-viewport]');
-        if (!vp) return;
-        var counter = root.querySelector('[data-carousel-count]');
-        var btns = Array.prototype.slice.call(root.querySelectorAll('[data-dir]'));
+    function estaAberta(btn) {
+      return btn.getAttribute('aria-expanded') === 'true';
+    }
 
-        // largura de um item + o gap: e o quanto cada clique anda
-        function passo() {
-          var first = vp.firstElementChild;
-          if (!first) return vp.clientWidth;
-          var gap = parseFloat(getComputedStyle(vp).columnGap) || 0;
-          return first.getBoundingClientRect().width + gap;
-        }
-
-        // o scroll-snap estaciona no padding-left, nao em zero
-        function inicio() {
-          return parseFloat(getComputedStyle(vp).paddingLeft) || 0;
-        }
-
-        function update() {
-          var max = vp.scrollWidth - vp.clientWidth;
-          var pos = vp.scrollLeft - inicio();
-          var noFim = vp.scrollLeft >= max - 1;
-          btns.forEach(function (b) {
-            b.disabled = Number(b.dataset.dir) < 0 ? pos <= 1 : noFim;
-          });
-          if (counter) {
-            var total = vp.children.length;
-            // no fim mostramos o total: como aparece mais de um item por vez,
-            // o indice do primeiro visivel ficaria travado antes do ultimo
-            var idx = noFim ? total : Math.min(Math.max(Math.round(pos / passo()), 0) + 1, total);
-            counter.textContent = total ? idx + ' / ' + total : '';
-          }
-        }
-
-        btns.forEach(function (b) {
-          b.addEventListener('click', function () {
-            vp.scrollBy({ left: passo() * Number(b.dataset.dir) });
-          });
-        });
-        vp.addEventListener('scroll', function () {
-          window.requestAnimationFrame(update);
-        }, { passive: true });
-        window.addEventListener('resize', update);
-
-        atualizadores.push(update);
-        update();
+    // o label depende do estado, entao nao pode ser um data-ui fixo:
+    // o renderUiStrings sobrescreveria na troca de idioma
+    function syncMoreLabels() {
+      maisBtns.forEach(function (btn) {
+        btn.textContent = ui(estaAberta(btn) ? 'showLess' : 'showMore');
       });
     }
 
-    function refreshCarousels() {
-      atualizadores.forEach(function (u) { u(); });
+    function abrir(btn, aberta) {
+      var alvo = document.getElementById(btn.getAttribute('aria-controls'));
+      if (!alvo) return;
+      btn.setAttribute('aria-expanded', aberta ? 'true' : 'false');
+      alvo.hidden = !aberta;
+      syncMoreLabels();
+      if (aberta) observeReveals();
     }
+
+    maisBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        abrir(btn, !estaAberta(btn));
+      });
+    });
+
+    // um link pra #projects ou #work nao pode cair numa secao fechada:
+    // o CTA do hero promete os projetos e entregaria so um botao
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        var alvo = document.querySelector(a.getAttribute('href'));
+        if (!alvo) return;
+        var btn = alvo.querySelector('[data-more]');
+        if (btn && !estaAberta(btn)) abrir(btn, true);
+      });
+    });
 
     // ============================
     // INIT
@@ -2457,12 +2331,10 @@
       renderEducation();
       renderSkills();
       renderToolbox();
+      syncMoreLabels();
       observeReveals();
-      refreshCarousels();
     }
     renderAll();
-    initCarousels();
-    refreshCarousels();
   })();
   </script>
 </body>
