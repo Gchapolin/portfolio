@@ -1150,8 +1150,8 @@
         },
         github: null,
         highlight: {
-          en: 'This redesign itself started by reading graphify’s own generated report on this codebase — 156 nodes, 262 edges, 11 communities — before a single line of new code was written.',
-          pt: 'Este próprio redesign começou lendo o relatório gerado pelo graphify sobre este mesmo código — 156 nós, 262 arestas, 11 comunidades — antes de qualquer linha nova de código.'
+          en: 'The redesign of this site started by reading the report graphify generated about the previous version of this codebase — 156 nodes, 262 edges, 11 communities — before a single new line was written.',
+          pt: 'O redesign deste site começou lendo o relatório que o graphify gerou sobre a versão anterior deste código — 156 nós, 262 arestas, 11 comunidades — antes de qualquer linha nova.'
         }
       },
       {
@@ -1225,63 +1225,39 @@
         }
       },
       {
-        id: 'curso', name: 'Desenvolvimento com Claude para PMs', theme: 't-leadership', status: 'Beta',
+        id: 'smartscore', name: 'SmartScore', theme: 't-apps', status: 'Beta', brand: 'Ferguis',
+        live: 'https://retornelo.ferguis.com.br',
         tagline: {
-          en: 'A 3-module course teaching product managers how to build with Claude',
-          pt: 'Um curso de 3 módulos ensinando gerentes de produto a construir com Claude'
+          en: 'Score app for musicians on iOS and Android — being prepared as Retornelo, under the Ferguis indie label',
+          pt: 'App de partituras para músicos, iOS e Android — em preparação como Retornelo, sob o selo indie Ferguis'
         },
         description: {
-          en: 'A structured course for product managers on building real software with Claude, with three modules and evaluation rubrics. Module 1 uses this very site as its case study — walking through the project from conception to deploy.',
-          pt: 'Curso estruturado pra gerentes de produto sobre construir software de verdade com Claude, com três módulos e rubricas de avaliação. O módulo 1 usa este próprio site como estudo de caso — percorrendo o projeto da concepção ao deploy.'
+          en: 'A tablet-first score reader and organizer (internal codename SmartScore), being prepared for release as Retornelo under Ferguis, Guilherme’s own indie label. iOS and Android with mirrored parity: SwiftUI + SwiftData on one side, Jetpack Compose + Hilt + Room on the other. Score library with folders and tags, page-based viewer, a custom annotation canvas (Douglas-Peucker simplification and eraser hit-testing, no PencilKit) and setlists. Cross-platform ZIP backup/restore with a versioned schema, full store identity (br.com.ferguis.retornelo), fastlane metadata in pt-BR and en-US, and its own public site.',
+          pt: 'Leitor e organizador de partituras tablet-first (codinome interno SmartScore), em preparação para lançamento como Retornelo sob o Ferguis, selo indie do próprio Guilherme. iOS e Android com paridade espelhada: SwiftUI + SwiftData de um lado, Jetpack Compose + Hilt + Room do outro. Biblioteca com pastas e tags, visualizador por páginas, canvas de anotação autoral (simplificação Douglas-Peucker e eraser hit-test, sem PencilKit) e setlists. Backup/restore cross-platform em ZIP com schema versionado, identidade de loja completa (br.com.ferguis.retornelo), metadados fastlane em pt-BR e en-US e site público próprio.'
         },
-        tech: ['Claude Code', 'Curriculum design'],
+        tech: ['SwiftUI', 'SwiftData', 'Kotlin', 'Jetpack Compose', 'Room', 'Fastlane'],
         features: {
           en: [
-            '3 structured modules with evaluation rubrics',
-            'Module 1 case study: this site, from conception to deploy'
+            'Score library with folders, tags and custom setlists',
+            'Tablet-first viewer with page navigation and zoom',
+            'Custom annotation canvas: Douglas-Peucker + eraser hit-test, no PencilKit',
+            '249 unit tests + 11 UI tests on the iOS target',
+            'Cross-platform ZIP backup/restore with versioned schema',
+            'Full Retornelo/Ferguis identity: bundle, keystore, store metadata and live site'
           ],
           pt: [
-            '3 módulos estruturados com rubricas de avaliação',
-            'Estudo de caso do módulo 1: este site, da concepção ao deploy'
+            'Biblioteca de partituras com pastas, tags e setlists',
+            'Visualizador tablet-first com navegação por páginas e zoom',
+            'Canvas de anotação autoral: Douglas-Peucker + eraser hit-test, sem PencilKit',
+            '249 testes unitários + 11 de UI no target iOS',
+            'Backup/restore cross-platform em ZIP com schema versionado',
+            'Identidade Retornelo/Ferguis completa: bundle, keystore, metadados de loja e site no ar'
           ]
         },
         github: null,
         highlight: {
-          en: 'The case study in Module 1 is the same knowledge-graph-informed process that produced this redesign.',
-          pt: 'O estudo de caso do Módulo 1 é o mesmo processo informado por grafo de conhecimento que produziu este redesign.'
-        }
-      },
-      {
-        id: 'cellotutor', name: 'CelloTuttor', theme: 't-apps', status: 'MVP',
-        tagline: {
-          en: 'AI-powered cello practice assistant with real-time posture analysis',
-          pt: 'Assistente de prática de violoncelo com IA e análise de postura em tempo real'
-        },
-        description: {
-          en: 'Cross-platform app that uses MediaPipe computer vision to analyze cello players’ tuning, bow technique, and body posture in real-time. Tracks 54 body landmarks for detailed feedback and provides a gamified practice experience.',
-          pt: 'App multiplataforma que usa visão computacional MediaPipe para analisar afinação, técnica de arco e postura corporal de violoncelistas em tempo real. Rastreia 54 pontos corporais para feedback detalhado e oferece uma experiência gamificada de prática.'
-        },
-        tech: ['Swift', 'SwiftUI', 'Kotlin', 'MediaPipe', 'SwiftData'],
-        features: {
-          en: [
-            'Real-time pitch detection (442 Hz reference)',
-            'Bow angle analysis with calibration system',
-            'Full-body posture tracking (33+21 landmarks)',
-            'Practice session history with GitHub-style heatmap',
-            'Gamified streaks and daily goals'
-          ],
-          pt: [
-            'Detecção de afinação em tempo real (referência 442 Hz)',
-            'Análise do ângulo do arco com sistema de calibração',
-            'Rastreamento corporal completo (33+21 pontos)',
-            'Histórico de sessões com heatmap estilo GitHub',
-            'Streaks gamificados e metas diárias'
-          ]
-        },
-        github: 'https://github.com/Gchapolin/cellotutor',
-        highlight: {
-          en: 'MediaPipe 33+21 landmarks + pitch detection 442Hz running simultaneously on-device',
-          pt: 'Pipeline MediaPipe 33+21 landmarks + detecção de pitch 442Hz rodando simultaneamente on-device'
+          en: 'Mirrored iOS-Android parity module by module, cross-platform ZIP backup and a hand-built annotation canvas — carried end to end under his own indie label, first commit to store-ready',
+          pt: 'Paridade iOS-Android espelhada módulo a módulo, backup ZIP cross-platform e canvas de anotação autoral — levado de ponta a ponta sob selo próprio, do primeiro commit ao pacote pronto de loja'
         }
       },
       {
@@ -1354,38 +1330,30 @@
         }
       },
       {
-        id: 'fitlink', name: 'FitLink', theme: 't-apps', status: 'MVP',
+        id: 'curso', name: 'Desenvolvimento com Claude para PMs', theme: 't-leadership', status: 'Beta',
         tagline: {
-          en: 'Cross-platform fitness platform connecting students, trainers and nutritionists',
-          pt: 'Plataforma fitness multiplataforma conectando alunos, personal trainers e nutricionistas'
+          en: 'A 3-module course teaching product managers how to build with Claude',
+          pt: 'Um curso de 3 módulos ensinando gerentes de produto a construir com Claude'
         },
         description: {
-          en: 'A cross-platform health and fitness platform that connects three types of users: students, personal trainers and nutritionists. Trainers create and assign personalized workout plans, nutritionists manage meal plans, and students track everything with gamified achievements and streaks. Powered by Firebase for real-time sync across devices.',
-          pt: 'Plataforma de saúde e fitness multiplataforma que conecta três tipos de usuários: alunos, personal trainers e nutricionistas. Trainers criam e atribuem treinos personalizados, nutricionistas gerenciam planos alimentares, e alunos acompanham tudo com conquistas gamificadas e streaks. Firebase para sincronização em tempo real.'
+          en: 'A structured course for product managers on building real software with Claude, with three modules and evaluation rubrics. Module 1 uses this very site as its case study — walking through the project from conception to deploy.',
+          pt: 'Curso estruturado pra gerentes de produto sobre construir software de verdade com Claude, com três módulos e rubricas de avaliação. O módulo 1 usa este próprio site como estudo de caso — percorrendo o projeto da concepção ao deploy.'
         },
-        tech: ['Swift', 'SwiftUI', 'Kotlin', 'Jetpack Compose', 'Firebase', 'Cloud Functions'],
+        tech: ['Claude Code', 'Curriculum design'],
         features: {
           en: [
-            'Multi-role system: Student, Personal Trainer, Nutritionist',
-            'Workout execution with real-time rep/weight tracking and rest timers',
-            'Meal plan management with daily adherence tracking',
-            'Invite system with shareable codes for professional connections',
-            'Gamified achievements and streak rewards',
-            'Real-time dashboards with adherence analytics'
+            '3 structured modules with evaluation rubrics',
+            'Module 1 case study: this site, from conception to deploy'
           ],
           pt: [
-            'Sistema multi-perfil: Aluno, Personal Trainer, Nutricionista',
-            'Execução de treinos com tracking de reps/peso em tempo real e timers de descanso',
-            'Gestão de planos alimentares com acompanhamento diário de aderência',
-            'Sistema de convites com códigos compartilháveis para conexões profissionais',
-            'Conquistas gamificadas e recompensas por streaks',
-            'Dashboards em tempo real com analytics de aderência'
+            '3 módulos estruturados com rubricas de avaliação',
+            'Estudo de caso do módulo 1: este site, da concepção ao deploy'
           ]
         },
         github: null,
         highlight: {
-          en: 'Atomic Firebase transactions for invite system + role-based Firestore security rules + real-time sync across 3 user types',
-          pt: 'Transações atômicas Firebase para sistema de convites + regras de segurança Firestore por role + sync em tempo real entre 3 tipos de usuário'
+          en: 'The case study in Module 1 is the same knowledge-graph-informed process that produced this redesign.',
+          pt: 'O estudo de caso do Módulo 1 é o mesmo processo informado por grafo de conhecimento que produziu este redesign.'
         }
       },
       {
@@ -1433,39 +1401,71 @@
         }
       },
       {
-        id: 'smartscore', name: 'SmartScore', theme: 't-apps', status: 'Beta', brand: 'Ferguis',
-        live: 'https://retornelo.ferguis.com.br',
+        id: 'cellotutor', name: 'CelloTuttor', theme: 't-apps', status: 'MVP',
         tagline: {
-          en: 'Score app for musicians on iOS and Android — being prepared as Retornelo, under the Ferguis indie label',
-          pt: 'App de partituras para músicos, iOS e Android — em preparação como Retornelo, sob o selo indie Ferguis'
+          en: 'AI-powered cello practice assistant with real-time posture analysis',
+          pt: 'Assistente de prática de violoncelo com IA e análise de postura em tempo real'
         },
         description: {
-          en: 'A tablet-first score reader and organizer (internal codename SmartScore), being prepared for release as Retornelo under Ferguis, Guilherme’s own indie label. iOS and Android with mirrored parity: SwiftUI + SwiftData on one side, Jetpack Compose + Hilt + Room on the other. Score library with folders and tags, page-based viewer, a custom annotation canvas (Douglas-Peucker simplification and eraser hit-testing, no PencilKit) and setlists. Cross-platform ZIP backup/restore with a versioned schema, full store identity (br.com.ferguis.retornelo), fastlane metadata in pt-BR and en-US, and its own public site.',
-          pt: 'Leitor e organizador de partituras tablet-first (codinome interno SmartScore), em preparação para lançamento como Retornelo sob o Ferguis, selo indie do próprio Guilherme. iOS e Android com paridade espelhada: SwiftUI + SwiftData de um lado, Jetpack Compose + Hilt + Room do outro. Biblioteca com pastas e tags, visualizador por páginas, canvas de anotação autoral (simplificação Douglas-Peucker e eraser hit-test, sem PencilKit) e setlists. Backup/restore cross-platform em ZIP com schema versionado, identidade de loja completa (br.com.ferguis.retornelo), metadados fastlane em pt-BR e en-US e site público próprio.'
+          en: 'Cross-platform app that uses MediaPipe computer vision to analyze cello players’ tuning, bow technique, and body posture in real-time. Tracks 54 body landmarks for detailed feedback and provides a gamified practice experience.',
+          pt: 'App multiplataforma que usa visão computacional MediaPipe para analisar afinação, técnica de arco e postura corporal de violoncelistas em tempo real. Rastreia 54 pontos corporais para feedback detalhado e oferece uma experiência gamificada de prática.'
         },
-        tech: ['SwiftUI', 'SwiftData', 'Kotlin', 'Jetpack Compose', 'Room', 'Fastlane'],
+        tech: ['Swift', 'SwiftUI', 'Kotlin', 'MediaPipe', 'SwiftData'],
         features: {
           en: [
-            'Score library with folders, tags and custom setlists',
-            'Tablet-first viewer with page navigation and zoom',
-            'Custom annotation canvas: Douglas-Peucker + eraser hit-test, no PencilKit',
-            '249 unit tests + 11 UI tests on the iOS target',
-            'Cross-platform ZIP backup/restore with versioned schema',
-            'Full Retornelo/Ferguis identity: bundle, keystore, store metadata and live site'
+            'Real-time pitch detection (442 Hz reference)',
+            'Bow angle analysis with calibration system',
+            'Full-body posture tracking (33+21 landmarks)',
+            'Practice session history with GitHub-style heatmap',
+            'Gamified streaks and daily goals'
           ],
           pt: [
-            'Biblioteca de partituras com pastas, tags e setlists',
-            'Visualizador tablet-first com navegação por páginas e zoom',
-            'Canvas de anotação autoral: Douglas-Peucker + eraser hit-test, sem PencilKit',
-            '249 testes unitários + 11 de UI no target iOS',
-            'Backup/restore cross-platform em ZIP com schema versionado',
-            'Identidade Retornelo/Ferguis completa: bundle, keystore, metadados de loja e site no ar'
+            'Detecção de afinação em tempo real (referência 442 Hz)',
+            'Análise do ângulo do arco com sistema de calibração',
+            'Rastreamento corporal completo (33+21 pontos)',
+            'Histórico de sessões com heatmap estilo GitHub',
+            'Streaks gamificados e metas diárias'
+          ]
+        },
+        github: 'https://github.com/Gchapolin/cellotutor',
+        highlight: {
+          en: 'MediaPipe 33+21 landmarks + pitch detection 442Hz running simultaneously on-device',
+          pt: 'Pipeline MediaPipe 33+21 landmarks + detecção de pitch 442Hz rodando simultaneamente on-device'
+        }
+      },
+      {
+        id: 'fitlink', name: 'FitLink', theme: 't-apps', status: 'MVP',
+        tagline: {
+          en: 'Cross-platform fitness platform connecting students, trainers and nutritionists',
+          pt: 'Plataforma fitness multiplataforma conectando alunos, personal trainers e nutricionistas'
+        },
+        description: {
+          en: 'A cross-platform health and fitness platform that connects three types of users: students, personal trainers and nutritionists. Trainers create and assign personalized workout plans, nutritionists manage meal plans, and students track everything with gamified achievements and streaks. Powered by Firebase for real-time sync across devices.',
+          pt: 'Plataforma de saúde e fitness multiplataforma que conecta três tipos de usuários: alunos, personal trainers e nutricionistas. Trainers criam e atribuem treinos personalizados, nutricionistas gerenciam planos alimentares, e alunos acompanham tudo com conquistas gamificadas e streaks. Firebase para sincronização em tempo real.'
+        },
+        tech: ['Swift', 'SwiftUI', 'Kotlin', 'Jetpack Compose', 'Firebase', 'Cloud Functions'],
+        features: {
+          en: [
+            'Multi-role system: Student, Personal Trainer, Nutritionist',
+            'Workout execution with real-time rep/weight tracking and rest timers',
+            'Meal plan management with daily adherence tracking',
+            'Invite system with shareable codes for professional connections',
+            'Gamified achievements and streak rewards',
+            'Real-time dashboards with adherence analytics'
+          ],
+          pt: [
+            'Sistema multi-perfil: Aluno, Personal Trainer, Nutricionista',
+            'Execução de treinos com tracking de reps/peso em tempo real e timers de descanso',
+            'Gestão de planos alimentares com acompanhamento diário de aderência',
+            'Sistema de convites com códigos compartilháveis para conexões profissionais',
+            'Conquistas gamificadas e recompensas por streaks',
+            'Dashboards em tempo real com analytics de aderência'
           ]
         },
         github: null,
         highlight: {
-          en: 'Mirrored iOS-Android parity module by module, cross-platform ZIP backup and a hand-built annotation canvas — carried end to end under his own indie label, first commit to store-ready',
-          pt: 'Paridade iOS-Android espelhada módulo a módulo, backup ZIP cross-platform e canvas de anotação autoral — levado de ponta a ponta sob selo próprio, do primeiro commit ao pacote pronto de loja'
+          en: 'Atomic Firebase transactions for invite system + role-based Firestore security rules + real-time sync across 3 user types',
+          pt: 'Transações atômicas Firebase para sistema de convites + regras de segurança Firestore por role + sync em tempo real entre 3 tipos de usuário'
         }
       },
       {
@@ -1753,7 +1753,7 @@
       pt: [
         'Product Manager com mais de 5 anos em produto digital na Housi, onde comecei como Product Owner Sr e hoje atuo como Product Manager. Antes disso, foram quase 10 anos entre operações logísticas e gestão de projetos na DHL, SOMOS Educação, MangoBits e JSL.',
         'Trabalho de ponta a ponta: discovery, visão e roadmap, priorização apoiada em dados, KPIs e OKRs, e colaboração próxima com squads de produto, design e engenharia. A vivência em operação e a formação Lean Six Sigma (Black Belt) me ajudam a pensar produto a partir do processo real, e não só da interface. Também uso IA generativa como apoio no trabalho de produto, principalmente para acelerar discovery e especificação e para prototipar ideias antes de levá-las ao time.',
-        'Violinista desde os 7 anos e professor de música desde os 15, trago disciplina, criatividade e a capacidade de ensinar conceitos complexos para tudo que construí. Hoje canalizo essa mesma energia no desenvolvimento de produtos com IA.',
+        'Violinista desde os 7 anos e professor de música desde os 15, trago disciplina, criatividade e a capacidade de ensinar conceitos complexos para tudo que construo. Hoje canalizo essa mesma energia no desenvolvimento de produtos com IA.',
         'Movido por desafios que exigem estratégia, colaboração e impacto real — acredito que produto é ponte entre tecnologia, negócio e pessoas.'
       ]
     };
@@ -1787,7 +1787,7 @@
         connectA: 'Let’s', connectB: 'Connect',
         connectSub: 'Looking for a PM who pairs discovery and data with hands-on prototyping? Let’s talk.',
         contactCta: 'Get in touch',
-        footerLegal: 'Built by Guilherme Ferreira · 2026',
+        footerLegal: 'Built by Guilherme Ferreira · {year}',
         collabBadge: 'Team Project',
         currentBadge: 'Current',
         cardLink: 'View details',
@@ -1826,7 +1826,7 @@
         connectA: 'Vamos', connectB: 'Conversar',
         connectSub: 'Procurando um PM que une discovery e dados à prototipação na prática? Vamos conversar.',
         contactCta: 'Começar a conversa',
-        footerLegal: 'Feito por Guilherme Ferreira · 2026',
+        footerLegal: 'Feito por Guilherme Ferreira · {year}',
         collabBadge: 'Projeto em Equipe',
         currentBadge: 'Atual',
         cardLink: 'Ver detalhes',
@@ -1849,7 +1849,10 @@
       if (typeof obj === 'string') return obj;
       return obj[currentLang] || obj.en || '';
     }
-    function ui(key) { return uiText[currentLang][key] || ''; }
+    function ui(key) {
+      var val = uiText[currentLang][key] || '';
+      return val.replace('{year}', new Date().getFullYear());
+    }
 
     var activeTheme = 'all';
     var allProjects = projects.concat(collaborations);
