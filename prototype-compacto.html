@@ -559,21 +559,40 @@
     }
     .card__thumb {
       position: relative;
-      height: 120px;
+      height: 168px;
       background: linear-gradient(135deg, var(--thumb-from) 0%, var(--thumb-to) 100%);
       display: grid;
       place-items: center;
       overflow: hidden;
     }
-    .card__thumb-letter {
-      position: relative;
-      transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
-      font-size: 84px;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      color: var(--thumb-letter);
-      user-select: none;
+    /* capa real: screenshot do proprio projeto */
+    /* posicionada em vez de item de grid: com place-items:center o
+       height:100% resolvia contra o conteudo, nao contra os 168px do thumb,
+       e a capa transbordava a moldura */
+    .card__shot {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
+    .card:hover .card__shot { transform: scale(1.04); }
+
+    /* capa desenhada: esquema do que o projeto faz, nao um screenshot */
+    .card__art {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      padding: 20px 26px;
+      color: var(--ink);
+      opacity: 0.42;
+      transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.3s ease;
+    }
+    .card:hover .card__art { transform: scale(1.035); opacity: 0.6; }
+    .card__art svg { width: 100%; height: 100%; display: block; }
     .card__status {
       position: absolute;
       top: 14px;
@@ -640,8 +659,7 @@
     }
     .card:hover .card__link::after,
     .card:focus-visible .card__link::after { transform: translateX(4px); }
-    .card:hover .card__thumb-letter,
-    .card:focus-visible .card__thumb-letter { transform: scale(1.07) translateY(-2px); }
+
 
     /* ---------- Work history / education cards ---------- */
     .stack { display: flex; flex-direction: column; gap: 16px; }
@@ -1905,6 +1923,118 @@
       }).join('');
     }
 
+    // ============================
+    // CAPAS DOS CARDS
+    // ============================
+    // Esquemas do que cada projeto faz, desenhados em traco. Nao sao
+    // screenshots: so o Tonika tem imagem real do produto.
+    var ART = {
+      grafo:
+        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">' +
+        '<path d="M46 34 100 20M46 34 62 76M100 20 154 38M62 76 118 84M154 38 118 84M100 20 62 76M154 38 172 78M118 84 172 78"/>' +
+        '<circle cx="46" cy="34" r="7" fill="currentColor" stroke="none"/><circle cx="100" cy="20" r="10" fill="currentColor" stroke="none"/>' +
+        '<circle cx="62" cy="76" r="6" fill="currentColor" stroke="none"/><circle cx="154" cy="38" r="8" fill="currentColor" stroke="none"/>' +
+        '<circle cx="118" cy="84" r="5" fill="currentColor" stroke="none"/><circle cx="172" cy="78" r="4" fill="currentColor" stroke="none"/></svg>',
+      trade:
+        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M6 82 30 66 54 74 78 40 102 52 126 26 150 36 174 14 194 22"/>' +
+        '<path d="M6 100h188" opacity=".35"/>' +
+        '<circle cx="78" cy="40" r="4.5" fill="currentColor" stroke="none"/><circle cx="126" cy="26" r="4.5" fill="currentColor" stroke="none"/>' +
+        '<path d="M78 40v-18M126 26v-14" stroke-width="1.2" opacity=".5"/>' +
+        '<rect x="66" y="6" width="24" height="12" rx="6" fill="currentColor" stroke="none"/>' +
+        '<rect x="114" y="0" width="24" height="12" rx="6" fill="currentColor" stroke="none" opacity=".45"/></svg>',
+      partitura:
+        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">' +
+        '<path d="M8 22h184M8 38h184M8 54h184M8 70h184M8 86h184" opacity=".38"/>' +
+        '<ellipse cx="52" cy="54" rx="9" ry="6.5" fill="currentColor" stroke="none" transform="rotate(-18 52 54)"/><path d="M60 50V20"/>' +
+        '<ellipse cx="100" cy="38" rx="9" ry="6.5" fill="currentColor" stroke="none" transform="rotate(-18 100 38)"/><path d="M108 34V6"/>' +
+        '<ellipse cx="148" cy="70" rx="9" ry="6.5" fill="currentColor" stroke="none" transform="rotate(-18 148 70)"/><path d="M156 66V38"/>' +
+        '<path d="M60 20h48M108 10h48" stroke-width="3"/></svg>',
+      arena:
+        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.6">' +
+        '<circle cx="100" cy="55" r="11" fill="currentColor" stroke="none"/>' +
+        '<circle cx="100" cy="55" r="24" opacity=".75"/><circle cx="100" cy="55" r="36" opacity=".5"/><circle cx="100" cy="55" r="48" opacity=".28"/>' +
+        '<path d="M100 22V8M100 88v14M56 55H38M164 55h18" stroke-linecap="round" opacity=".6"/>' +
+        '<rect x="60" y="18" width="9" height="9" rx="2" fill="currentColor" stroke="none"/>' +
+        '<rect x="138" y="84" width="9" height="9" rx="2" fill="currentColor" stroke="none"/>' +
+        '<rect x="146" y="26" width="7" height="7" rx="2" fill="currentColor" stroke="none" opacity=".6"/></svg>',
+      arvore:
+        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">' +
+        '<path d="M100 26v18M100 44H44v14M100 44h56v14M44 70v12M44 70H22v12M156 70v12M156 70h22v12"/>' +
+        '<rect x="74" y="6" width="52" height="20" rx="6" fill="currentColor" stroke="none"/>' +
+        '<rect x="20" y="56" width="48" height="16" rx="5" fill="currentColor" stroke="none" opacity=".7"/>' +
+        '<rect x="132" y="56" width="48" height="16" rx="5" fill="currentColor" stroke="none" opacity=".7"/>' +
+        '<rect x="10" y="86" width="26" height="12" rx="4" fill="currentColor" stroke="none" opacity=".45"/>' +
+        '<rect x="44" y="86" width="26" height="12" rx="4" fill="currentColor" stroke="none" opacity=".45"/>' +
+        '<rect x="130" y="86" width="26" height="12" rx="4" fill="currentColor" stroke="none" opacity=".45"/>' +
+        '<rect x="164" y="86" width="26" height="12" rx="4" fill="currentColor" stroke="none" opacity=".45"/></svg>',
+      kanban:
+        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.5">' +
+        '<rect x="4" y="4" width="58" height="102" rx="7" opacity=".45"/><rect x="71" y="4" width="58" height="102" rx="7" opacity=".45"/><rect x="138" y="4" width="58" height="102" rx="7" opacity=".45"/>' +
+        '<rect x="12" y="14" width="42" height="17" rx="4" fill="currentColor" stroke="none"/>' +
+        '<rect x="12" y="37" width="42" height="17" rx="4" fill="currentColor" stroke="none" opacity=".55"/>' +
+        '<rect x="79" y="14" width="42" height="17" rx="4" fill="currentColor" stroke="none" opacity=".8"/>' +
+        '<rect x="79" y="37" width="42" height="17" rx="4" fill="currentColor" stroke="none" opacity=".4"/>' +
+        '<rect x="79" y="60" width="42" height="17" rx="4" fill="currentColor" stroke="none" opacity=".4"/>' +
+        '<rect x="146" y="14" width="42" height="17" rx="4" fill="currentColor" stroke="none" opacity=".6"/></svg>',
+      postura:
+        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">' +
+        '<path d="M70 20v26M70 46 44 72M70 46l26 26M70 46H46M70 46h24M46 46 34 26M94 46l14-20"/>' +
+        '<circle cx="70" cy="12" r="8" fill="currentColor" stroke="none"/>' +
+        '<circle cx="46" cy="46" r="4" fill="currentColor" stroke="none"/><circle cx="94" cy="46" r="4" fill="currentColor" stroke="none"/>' +
+        '<circle cx="44" cy="72" r="4" fill="currentColor" stroke="none"/><circle cx="96" cy="72" r="4" fill="currentColor" stroke="none"/>' +
+        '<circle cx="34" cy="26" r="3.5" fill="currentColor" stroke="none"/><circle cx="108" cy="26" r="3.5" fill="currentColor" stroke="none"/>' +
+        '<path d="M130 58c6-26 12-26 18 0s12 26 18 0 12-26 18 0" opacity=".55"/></svg>',
+      trio:
+        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.6">' +
+        '<path d="M100 40 44 84M100 40l56 44M44 84h112" opacity=".55"/>' +
+        '<circle cx="100" cy="28" r="15" fill="currentColor" stroke="none"/>' +
+        '<circle cx="44" cy="92" r="12" fill="currentColor" stroke="none" opacity=".72"/>' +
+        '<circle cx="156" cy="92" r="12" fill="currentColor" stroke="none" opacity=".72"/>' +
+        '<path d="M100 56v18" stroke-dasharray="4 5" opacity=".6"/></svg>',
+      dex:
+        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.5">' +
+        '<rect x="6" y="6" width="40" height="46" rx="8" fill="currentColor" stroke="none"/>' +
+        '<rect x="54" y="6" width="40" height="46" rx="8" fill="currentColor" stroke="none" opacity=".62"/>' +
+        '<rect x="102" y="6" width="40" height="46" rx="8" opacity=".5"/>' +
+        '<rect x="150" y="6" width="40" height="46" rx="8" opacity=".5"/>' +
+        '<rect x="6" y="60" width="40" height="46" rx="8" fill="currentColor" stroke="none" opacity=".38"/>' +
+        '<rect x="54" y="60" width="40" height="46" rx="8" opacity=".5"/>' +
+        '<rect x="102" y="60" width="40" height="46" rx="8" opacity=".5"/>' +
+        '<rect x="150" y="60" width="40" height="46" rx="8" opacity=".5"/></svg>',
+      chat:
+        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.6">' +
+        '<rect x="6" y="10" width="106" height="38" rx="14" fill="currentColor" stroke="none"/>' +
+        '<rect x="74" y="60" width="120" height="40" rx="14" opacity=".6"/>' +
+        '<circle cx="34" cy="29" r="4" fill="var(--surface)" stroke="none"/><circle cx="52" cy="29" r="4" fill="var(--surface)" stroke="none"/><circle cx="70" cy="29" r="4" fill="var(--surface)" stroke="none"/>' +
+        '<path d="M92 74h84M92 86h56" stroke-linecap="round" opacity=".7"/></svg>'
+    };
+
+    var CAPA = {
+      harmonicmap: { img: 'assets/screenshots/harmonicmap/07-composicao.png' },
+      graphify:    { art: 'grafo' },
+      tradeagent:  { art: 'trade' },
+      retornelo:   { art: 'partitura' },
+      eternalpyre: { art: 'arena' },
+      kpitree:     { art: 'arvore' },
+      castor:      { art: 'kanban' },
+      cellotutor:  { art: 'postura' },
+      fitlink:     { art: 'trio' },
+      energydeck:  { art: 'dex' },
+      httuicom:    { art: 'chat' }
+    };
+
+    function capaHtml(p) {
+      var c = CAPA[p.id];
+      if (c && c.img) {
+        return '<img class="card__shot" src="' + c.img + '" alt="" loading="lazy">';
+      }
+      if (c && ART[c.art]) {
+        return '<div class="card__art" aria-hidden="true">' + ART[c.art] + '</div>';
+      }
+      return '<span class="card__thumb-letter" aria-hidden="true">' + p.name.charAt(0).toUpperCase() + '</span>';
+    }
+
     function cardHtml(p) {
       var statusClass = 'card__status--' + p.status.toLowerCase();
       var tech = p.tech.slice(0, 4).map(function (tag) { return '<span>' + tag + '</span>'; }).join('');
@@ -1912,7 +2042,7 @@
       return (
         '<article class="card" data-project="' + p.id + '" tabindex="0" role="button" aria-label="' + p.name + '">' +
           '<div class="card__thumb" aria-hidden="true">' +
-            '<span class="card__thumb-letter">' + p.name.charAt(0).toUpperCase() + '</span>' +
+            capaHtml(p) +
             collab +
             '<span class="card__status ' + statusClass + '">' + p.status + '</span>' +
           '</div>' +
