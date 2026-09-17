@@ -662,6 +662,69 @@
     }
     .xp__chips span.now { background: var(--ink); color: var(--on-pill); }
 
+    /* ---------- Linha do tempo (experiencia) ---------- */
+    .timeline { position: relative; }
+    .tl { position: relative; padding-left: 64px; padding-bottom: 18px; }
+    .tl:last-child { padding-bottom: 0; }
+    .tl::before {
+      content: "";
+      position: absolute;
+      left: 21px;
+      top: 10px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .tl:last-child::before { display: none; }
+    .tl__dot {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--chip-bg);
+      display: grid;
+      place-items: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .tl--current .tl__dot {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--on-pill);
+    }
+    .tl__card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px 22px;
+    }
+    .tl__period {
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    .tl__name { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; }
+    .tl__role { font-size: 14px; font-weight: 600; color: var(--gray); margin-bottom: 12px; }
+    .tl__desc { font-size: 14px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 14px; }
+    .tl__chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tl__chips span {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--gray);
+      background: var(--chip-bg);
+      border-radius: 999px;
+      padding: 4px 11px;
+    }
+    .tl__chips span.now { background: var(--ink); color: var(--on-pill); }
+
     /* ---------- Skills ---------- */
     .skill-group { margin-bottom: 22px; }
     .skill-group:last-child { margin-bottom: 0; }
@@ -877,6 +940,10 @@
       .footer { justify-content: center; text-align: center; }
       .nav__inner { gap: 8px; }
       .nav__logo { font-size: 15px; padding: 9px 14px; white-space: nowrap; }
+      .tl { padding-left: 50px; }
+      .tl::before { left: 17px; }
+      .tl__dot { width: 36px; height: 36px; font-size: 13px; }
+      .tl__card { padding: 18px 18px 20px; }
       .nav__cv,
       .nav__actions .lang-toggle,
       .nav__actions .theme-toggle { display: none; }
@@ -985,7 +1052,7 @@
           <h2 class="h2"><span class="a" data-ui="workA"></span> <span class="b" data-ui="workB"></span></h2>
           <p class="section-sub" data-ui="workSub"></p>
         </div>
-        <div class="stack" id="work-list"></div>
+        <div class="timeline" id="work-list"></div>
       </div>
     </section>
 
@@ -1487,37 +1554,15 @@
     // ============================
     var experience = [
       {
-        company: 'Housi', initials: 'H',
-        role: { en: 'Senior Product Owner → Product Manager', pt: 'Product Owner Sênior → Product Manager' },
-        period: { en: '2021 — Present', pt: '2021 — Atual' },
-        current: true,
-        detail: {
-          en: 'Responsible for Housi digital products, working end to end with multidisciplinary product, design and engineering squads. Product vision, strategy and roadmap; product discovery with hypothesis validation and usability testing; impact-driven backlog prioritization with KPIs and OKRs; application health and UX metrics; support on architecture, integrations, modernization and observability; stakeholder management and go-to-market support. Uses generative AI to support the product process, mainly in discovery, specification and prototyping.',
-          pt: 'Responsável por produtos digitais da Housi, atuando de ponta a ponta com squads multidisciplinares de produto, design e engenharia. Visão, estratégia e roadmap de produto; product discovery com validação de hipóteses e testes de usabilidade; priorização de backlog orientada a impacto, com KPIs e OKRs; métricas de saúde da aplicação e experiência do usuário; apoio em arquitetura, integrações, modernização e observabilidade; interface com stakeholders e apoio ao go-to-market. Uso de IA generativa como apoio ao processo de produto, principalmente em discovery, especificação e prototipação.'
-        },
-        tag: { en: 'Product Leadership', pt: 'Liderança de Produto' }
-      },
-      {
-        company: 'JSL S.A.', initials: 'J',
-        role: { en: 'Product Owner', pt: 'Product Owner' },
-        period: { en: '2020 — 2021', pt: '2020 — 2021' },
+        company: 'DHL Logistics', initials: 'D',
+        role: { en: 'Transport Analyst (Jr → Sr)', pt: 'Analista de Transportes (Jr → Sr)' },
+        period: { en: '2011 — 2015', pt: '2011 — 2015' },
         current: false,
         detail: {
-          en: 'Demand prioritization with business areas, product discovery with operations teams, process and business-rule mapping, UX prototyping support and functional specs via user stories in Scrum teams.',
-          pt: 'Priorização de demandas junto às áreas de negócio, product discovery com áreas operacionais, mapeamento de processos e regras de negócio, apoio à prototipação e UX, e especificações funcionais via user stories em times Scrum.'
+          en: 'I came in working on one-off improvement projects inside the business unit itself. That was where the first chance to work on rollouts and technology projects showed up, and it was what took me into a corporate vertical — where I picked up the OTM rollout, process mapping, ISO audits and the nationwide cargo tracking operation.',
+          pt: 'Entrei mexendo em projetos pontuais de melhoria dentro da própria BU. Foi por aí que apareceu a primeira chance de trabalhar com implantação e com projetos ligados a tecnologia, e foi o que me levou para uma vertical corporativa — onde peguei a implantação do OTM, o mapeamento dos processos, as auditorias ISO e a operação nacional de rastreamento de cargas.'
         },
-        tag: { en: 'Product Ownership', pt: 'Product Ownership' }
-      },
-      {
-        company: 'MangoBits', initials: 'M',
-        role: { en: 'Project Manager', pt: 'Gerente de Projetos' },
-        period: { en: '2019 — 2020', pt: '2019 — 2020' },
-        current: false,
-        detail: {
-          en: 'Led a development team on client digital projects. Translated business needs into requirements and technical solutions, managed agile projects (scope, cost, schedule, risk) within SLA, handled incidents and automated processes for efficiency.',
-          pt: 'Liderança direta de time de desenvolvimento em projetos digitais para clientes. Tradução de demandas de negócio em requisitos e soluções técnicas, gestão de projetos ágeis (escopo, custos, prazos e riscos) dentro do SLA, gestão de incidentes e automação de processos.'
-        },
-        tag: { en: 'Team Leadership', pt: 'Liderança de Equipe' }
+        tag: { en: 'Operations', pt: 'Operações' }
       },
       {
         company: 'SOMOS Educação', initials: 'S',
@@ -1525,21 +1570,43 @@
         period: { en: '2016 — 2019', pt: '2016 — 2019' },
         current: false,
         detail: {
-          en: 'IT project management, KPI development, process improvement and logistics optimization across multiple distribution centers.',
-          pt: 'Gestão de projetos de TI, desenvolvimento de KPIs, melhoria de processos e otimização logística em múltiplos centros de distribuição.'
+          en: 'Here I took part in and later came to manage projects with real operational and strategic weight: from distribution and the logistics network through to rolling out core systems like ERP, WMS and TMS. Soon after I moved to the commercial side, where I delivered a GTM project focused on sales strategy, on widening the commercial repertoire and on protecting revenue from clients that were in court-supervised reorganization at the time — Saraiva Livreiros among them.',
+          pt: 'Aqui participei e depois passei a gerir projetos de alto impacto operacional e estratégico: da distribuição e da malha logística até a implantação de sistemas core como ERP, WMS e TMS. Logo depois fui para a área comercial, onde entreguei um projeto de GTM focado em estratégia de vendas, em ampliar o repertório comercial e em proteger a receita de clientes que estavam em recuperação judicial na época — a Saraiva Livreiros entre eles.'
         },
         tag: { en: 'Process & Analytics', pt: 'Processos & Analytics' }
       },
       {
-        company: 'DHL Logistics', initials: 'D',
-        role: { en: 'Transport Analyst (Jr → Sr)', pt: 'Analista de Transportes (Jr → Sr)' },
-        period: { en: '2011 — 2015', pt: '2011 — 2015' },
+        company: 'MangoBits', initials: 'M',
+        role: { en: 'Project Manager', pt: 'Gerente de Projetos' },
+        period: { en: '2019 — 2020', pt: '2019 — 2020' },
         current: false,
         detail: {
-          en: 'OTM system implementation, process mapping, ISO audits, KPI dashboards and nationwide cargo tracking operations.',
-          pt: 'Implementação do sistema OTM, mapeamento de processos, auditorias ISO, dashboards de KPIs e operações de rastreamento de cargas nacional.'
+          en: 'My first time leading a development team directly, on digital projects for clients. My job was to turn what the business asked for into requirements and technical solutions, and to carry the agile project through to the end — scope, cost, schedule and risk within SLA — while also handling incidents and automating whatever could be automated.',
+          pt: 'Primeira vez liderando um time de desenvolvimento direto, em projetos digitais para clientes. Meu trabalho era traduzir o que o negócio pedia em requisito e solução técnica, e tocar o projeto ágil até o fim — escopo, custo, prazo e risco dentro do SLA —, cuidando também dos incidentes e automatizando o que dava para automatizar.'
         },
-        tag: { en: 'Operations', pt: 'Operações' }
+        tag: { en: 'Team Leadership', pt: 'Liderança de Equipe' }
+      },
+      {
+        company: 'JSL S.A.', initials: 'J',
+        role: { en: 'Product Owner', pt: 'Product Owner' },
+        period: { en: '2020 — 2021', pt: '2020 — 2021' },
+        current: false,
+        detail: {
+          en: 'This is where I became a Product Owner for the first time. I prioritized demand together with the business areas, ran discovery with the people actually in operations, mapped processes and business rules, supported prototyping and UX, and wrote the specs as user stories inside Scrum teams.',
+          pt: 'Foi onde virei Product Owner pela primeira vez. Priorizava as demandas junto com as áreas de negócio, fazia discovery com quem estava na operação, mapeava processo e regra de negócio, apoiava prototipação e UX, e escrevia as especificações em user stories dentro de times Scrum.'
+        },
+        tag: { en: 'Product Ownership', pt: 'Product Ownership' }
+      },
+      {
+        company: 'Housi', initials: 'H',
+        role: { en: 'Senior Product Owner → Product Manager', pt: 'Product Owner Sênior → Product Manager' },
+        period: { en: '2021 — Present', pt: '2021 — Atual' },
+        current: true,
+        detail: {
+          en: 'I am responsible for Housi’s digital products end to end, alongside product, design and engineering squads. In practice that means owning the vision, the strategy and the roadmap, running discovery by validating hypotheses and testing usability, prioritizing the backlog by impact with KPIs and OKRs, watching the application health and experience metrics, joining the conversations about architecture, integrations, modernization and observability, and holding the line with stakeholders and go-to-market. I also lean on generative AI along the way, mainly to speed up discovery, specification and prototyping.',
+          pt: 'Respondo pelos produtos digitais da Housi de ponta a ponta, junto com squads de produto, design e engenharia. Na prática isso é cuidar da visão, da estratégia e do roadmap, rodar discovery validando hipótese e testando usabilidade, priorizar backlog por impacto com KPIs e OKRs, acompanhar as métricas de saúde da aplicação e de experiência, entrar nas conversas de arquitetura, integração, modernização e observabilidade, e segurar a ponta com os stakeholders e o go-to-market. Também uso IA generativa como apoio no caminho, principalmente para acelerar discovery, especificação e prototipação.'
+        },
+        tag: { en: 'Product Leadership', pt: 'Liderança de Produto' }
       }
     ];
 
@@ -1827,17 +1894,15 @@
         var chips = '<span>' + t(x.tag) + '</span>';
         if (x.current) chips = '<span class="now">' + ui('currentBadge') + '</span>' + chips;
         return (
-          '<article class="xp">' +
-            '<div class="xp__head">' +
-              '<span class="xp__logo" aria-hidden="true">' + x.initials + '</span>' +
-              '<div>' +
-                '<div class="xp__name">' + x.company + '</div>' +
-                '<div class="xp__role">' + t(x.role) + '</div>' +
-              '</div>' +
+          '<article class="tl' + (x.current ? ' tl--current' : '') + '">' +
+            '<span class="tl__dot" aria-hidden="true">' + x.initials + '</span>' +
+            '<div class="tl__card">' +
+              '<div class="tl__period">' + t(x.period) + '</div>' +
+              '<div class="tl__name">' + x.company + '</div>' +
+              '<div class="tl__role">' + t(x.role) + '</div>' +
+              '<p class="tl__desc">' + t(x.detail) + '</p>' +
+              '<div class="tl__chips">' + chips + '</div>' +
             '</div>' +
-            '<div class="xp__period">' + t(x.period) + '</div>' +
-            '<p class="xp__desc">' + t(x.detail) + '</p>' +
-            '<div class="xp__chips">' + chips + '</div>' +
           '</article>'
         );
       }).join('');
