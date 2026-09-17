@@ -4,8 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guilherme Ferreira — Product Manager</title>
-  <meta name="description" content="Portfolio de Guilherme Ferreira, Product Manager com mais de 5 anos em produto digital. Projetos proprios construidos com IA: apps nativos, agentes e sistemas gamificados.">
+  <meta name="description" content="Portfólio de Guilherme Ferreira, Product Manager com mais de 5 anos em produto digital. Projetos próprios construídos com IA: apps nativos, agentes e sistemas gamificados.">
+  <meta name="author" content="Guilherme Ferreira">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://gchapolin.github.io/portfolio/">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Open Graph / LinkedIn / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Guilherme Ferreira">
+  <meta property="og:url" content="https://gchapolin.github.io/portfolio/">
+  <meta property="og:title" content="Guilherme Ferreira — Product Manager que constrói">
+  <meta property="og:description" content="Mais de 5 anos em produto digital e base em operação. 13 projetos próprios construídos de ponta a ponta com IA — apps nativos, agentes e sistemas gamificados.">
+  <meta property="og:image" content="https://gchapolin.github.io/portfolio/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Guilherme Ferreira — Product Manager. IA Agêntica, Apps Nativos, Sistemas Gamificados.">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Guilherme Ferreira — Product Manager que constrói">
+  <meta name="twitter:description" content="Mais de 5 anos em produto digital e base em operação. 13 projetos próprios construídos de ponta a ponta com IA.">
+  <meta name="twitter:image" content="https://gchapolin.github.io/portfolio/assets/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap" rel="stylesheet">
@@ -124,6 +146,76 @@
     }
     .nav__links a:hover { background: var(--chip-bg); color: var(--ink); }
     .nav__actions { display: flex; align-items: center; gap: 8px; }
+
+    /* Burger + painel mobile */
+    .nav__burger {
+      display: none;
+      width: 42px;
+      height: 42px;
+      flex: none;
+      place-items: center;
+      align-content: center;
+      padding: 0;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      box-shadow: 0 2px 12px rgba(17, 20, 24, 0.05);
+      cursor: pointer;
+    }
+    .nav__burger span {
+      display: block;
+      width: 16px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--ink);
+      transition: transform 0.25s ease, opacity 0.18s ease;
+    }
+    .nav__burger span + span { margin-top: 4px; }
+    .nav__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .nav__panel {
+      display: none;
+      flex-direction: column;
+      pointer-events: auto;
+      width: calc(100% - 48px);
+      max-width: 320px;
+      margin: 10px 24px 0 auto;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.99);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 16px 40px rgba(17, 20, 24, 0.12);
+    }
+    .nav__panel.open { display: flex; animation: panelIn 0.22s ease; }
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: none; }
+    }
+    .nav__panel a {
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+    }
+    .nav__panel a:hover, .nav__panel a:focus-visible { background: var(--chip-bg); }
+    .nav__panel-cv {
+      margin-top: 6px;
+      text-align: center;
+      background: var(--pill-dark);
+      color: #fff !important;
+      border-radius: 999px !important;
+    }
+    .nav__panel-cv:hover { background: #2a2e36 !important; }
+    /* acima de 560px o pill "Curriculo" ja aparece na nav, entao some do painel */
+    @media (min-width: 561px) { .nav__panel-cv { display: none; } }
     .lang-toggle {
       display: flex;
       background: rgba(255, 255, 255, 0.92);
@@ -632,6 +724,7 @@
     }
     @media (max-width: 900px) {
       .nav__links { display: none; }
+      .nav__burger { display: grid; }
       .hero { padding-top: 120px; }
       .hero__title { font-size: 42px; }
       .h2 { font-size: 32px; }
@@ -645,6 +738,9 @@
     @media (max-width: 560px) {
       .hero__title { font-size: 34px; }
       .footer { justify-content: center; text-align: center; }
+      .nav__inner { gap: 8px; }
+      .nav__logo { font-size: 15px; padding: 9px 14px; white-space: nowrap; }
+      .nav__cv { display: none; }
     }
   </style>
 </head>
@@ -666,8 +762,19 @@
           <button data-lang="en">EN</button>
           <button data-lang="pt" class="active">PT</button>
         </div>
-        <a href="Guilherme Ferreira.pdf" download class="btn-dark" data-ui="navDownload"></a>
+        <a href="Guilherme Ferreira.pdf" download class="btn-dark nav__cv" data-ui="navDownload"></a>
+        <button class="nav__burger" id="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-panel">
+          <span></span><span></span><span></span>
+        </button>
       </div>
+    </div>
+    <div class="nav__panel" id="nav-panel">
+      <a href="#journey" data-ui="navAbout"></a>
+      <a href="#projects" data-ui="navProjects"></a>
+      <a href="#work" data-ui="navExperience"></a>
+      <a href="#skills" data-ui="navSkills"></a>
+      <a href="#connect" data-ui="navContact"></a>
+      <a href="Guilherme Ferreira.pdf" download class="nav__panel-cv" data-ui="navDownload"></a>
     </div>
   </nav>
 
@@ -1814,6 +1921,35 @@
     var grid = document.getElementById('projects-grid');
     grid.addEventListener('click', cardHandler);
     grid.addEventListener('keydown', cardHandler);
+
+    // Menu mobile
+    var burger = document.getElementById('nav-burger');
+    var panel = document.getElementById('nav-panel');
+
+    function setMenu(open) {
+      panel.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    burger.addEventListener('click', function () {
+      setMenu(burger.getAttribute('aria-expanded') !== 'true');
+    });
+    panel.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setMenu(false);
+    });
+    document.addEventListener('click', function (e) {
+      if (burger.getAttribute('aria-expanded') !== 'true') return;
+      if (!e.target.closest('#nav-panel') && !e.target.closest('#nav-burger')) setMenu(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+        setMenu(false);
+        burger.focus();
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900) setMenu(false);
+    });
 
     document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
       btn.addEventListener('click', function () {
