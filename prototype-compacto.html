@@ -497,7 +497,24 @@
     }
     .more-btn[aria-expanded="true"]::after { transform: translateY(1px) rotate(-135deg); }
     [hidden] { display: none !important; }
-    .more { margin-top: 28px; }
+
+    /* o painel aberto sai da coluna estreita do split e usa a largura toda;
+       antes ficava espremido em ~740px com metade da pagina vazia ao lado */
+    .more {
+      margin-top: 44px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      animation: painelIn 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    /* a linha do tempo e texto corrido: a largura toda estraga a leitura */
+    .more--narrow .timeline { max-width: 860px; }
+    @keyframes painelIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .more { animation: none; }
+    }
 
     /* ---------- Projects ---------- */
     .tabs {
@@ -1046,11 +1063,11 @@
         <div>
           <p class="teaser" data-ui="projectsTeaser"></p>
           <button class="btn-line more-btn" type="button" aria-expanded="false" aria-controls="projects-full" data-more></button>
-          <div class="more" id="projects-full" hidden>
-            <div class="tabs" id="theme-tabs" role="tablist"></div>
-            <div class="cards" id="projects-grid"></div>
-          </div>
         </div>
+      </div>
+      <div class="wrap more" id="projects-full" hidden>
+        <div class="tabs" id="theme-tabs" role="tablist"></div>
+        <div class="cards" id="projects-grid"></div>
       </div>
     </section>
 
@@ -1064,10 +1081,10 @@
         <div>
           <p class="teaser" data-ui="workTeaser"></p>
           <button class="btn-line more-btn" type="button" aria-expanded="false" aria-controls="work-full" data-more></button>
-          <div class="more" id="work-full" hidden>
-            <div class="timeline" id="work-list"></div>
-          </div>
         </div>
+      </div>
+      <div class="wrap more more--narrow" id="work-full" hidden>
+        <div class="timeline" id="work-list"></div>
       </div>
     </section>
 
