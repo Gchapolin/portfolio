@@ -908,29 +908,25 @@
       line-height: 1.65;
       color: var(--ink-soft);
     }
-    /* altura fixa em vez de largura fixa: as telas de celular e as de
-       dashboard convivem na mesma fita sem uma virar tarja ilegivel */
-    .modal__shots { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px; }
-    .modal__shots figure { flex: 0 0 auto; width: fit-content; min-width: 168px; margin: 0; }
+    /* grade que quebra linha, nao fita horizontal: a fita cortava a ultima
+       tela no meio na borda do modal e parecia defeito, nao scroll */
+    .modal__shots {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 22px 16px;
+    }
+    /* telas de dashboard sao deitadas e precisam de coluna mais larga */
+    .modal__shots--wide { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+    .modal__shots figure { margin: 0; min-width: 0; }
     .modal__shots img {
       display: block;
-      height: 230px;
-      width: auto;
-      max-width: 100%;
+      width: 100%;
+      height: auto;
       border-radius: 10px;
       border: 1px solid var(--border);
       background: var(--thumb-from);
     }
-    /* width:0 + min-width:100% impede a legenda de esticar a figura:
-       a largura vem da imagem, o texto so quebra dentro dela */
-    .modal__shots figcaption {
-      width: 0;
-      min-width: 100%;
-      font-size: 11px;
-      color: var(--gray);
-      margin-top: 8px;
-      line-height: 1.4;
-    }
+    .modal__shots figcaption { font-size: 11px; color: var(--gray); margin-top: 8px; line-height: 1.4; }
     .modal__sub { border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 16px; margin-bottom: 8px; }
     .modal__sub-head { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; margin-bottom: 4px; }
     .modal__sub-head strong { font-weight: 800; }
@@ -1205,15 +1201,14 @@
         },
         github: 'https://github.com/Gchapolin/harmonicmapapp',
         screenshots: [
-          { src: 'assets/screens/tonika/01-acordes.webp', caption: { en: 'Chords — harmonic field with the tonal function of each degree', pt: 'Acordes — campo harmônico com a função tonal de cada grau' } },
-          { src: 'assets/screens/tonika/02-detalhe-acorde.webp', caption: { en: 'Chord detail — notes, intervals and tonal function', pt: 'Detalhe do acorde — notas, intervalos e função tonal' } },
-          { src: 'assets/screens/tonika/03-progressoes.webp', caption: { en: 'Progressions — popular templates by genre', pt: 'Progressões — templates populares por gênero' } },
-          { src: 'assets/screens/tonika/04-escalas.webp', caption: { en: 'Scales — basic scales and Greek modes', pt: 'Escalas — escalas básicas e modos gregos' } },
-          { src: 'assets/screens/tonika/05-detalhe-escala.webp', caption: { en: 'Scale detail — interval pattern and sonority', pt: 'Detalhe da escala — padrão de intervalos e sonoridade' } },
-          { src: 'assets/screens/tonika/06-composicao.webp', caption: { en: 'Composition — radial map: tonic at the center, secondary dominants in the outer ring', pt: 'Composição — mapa radial: tônica no centro, dominantes secundárias no anel externo' } },
-          { src: 'assets/screens/tonika/07-variacoes.webp', caption: { en: 'Variation Assistant — variations, harmonic suggestions and substitutions', pt: 'Assistente de Variações — variações, sugestões harmônicas e substituições' } },
-          { src: 'assets/screens/tonika/08-minhas-composicoes.webp', caption: { en: 'My Compositions — saved progressions', pt: 'Minhas Composições — progressões salvas' } },
-          { src: 'assets/screens/tonika/09-player.webp', caption: { en: 'Player — 16-bar chart with BPM and real playback', pt: 'Player — grade de 16 compassos com BPM e playback real' } }
+          { src: 'assets/screens/tonika/01-home.webp', caption: { en: 'Home — what you were composing, the library and the entry point for a new piece', pt: 'Home — o que você estava compondo, a biblioteca e a porta de entrada pra uma peça nova' } },
+          { src: 'assets/screens/tonika/02-nova-composicao.webp', caption: { en: 'New composition, step 1 — name and intent come before any music theory', pt: 'Nova composição, passo 1 — nome e intenção vêm antes de qualquer teoria' } },
+          { src: 'assets/screens/tonika/03-tom.webp', caption: { en: 'New composition, step 2 — the key picked on the circle of fifths', pt: 'Nova composição, passo 2 — o tom escolhido no círculo das quintas' } },
+          { src: 'assets/screens/tonika/04-acordes.webp', caption: { en: 'Chords — the harmonic field of the working key, each degree with its tonal function', pt: 'Acordes — o campo harmônico do tom de trabalho, cada grau com a sua função tonal' } },
+          { src: 'assets/screens/tonika/05-detalhe-acorde.webp', caption: { en: 'Chord detail — notes, intervals, function in the key and suggested voicings', pt: 'Detalhe do acorde — notas, intervalos, função no tom e voicings sugeridos' } },
+          { src: 'assets/screens/tonika/06-progressoes.webp', caption: { en: 'Progressions — cadences and loops, each with its variation count', pt: 'Progressões — cadências e loops, cada um com a contagem de variações' } },
+          { src: 'assets/screens/tonika/07-progressao.webp', caption: { en: 'Progression open — the chords in sequence and the variations built from them', pt: 'Progressão aberta — os acordes em sequência e as variações construídas a partir deles' } },
+          { src: 'assets/screens/tonika/08-mapa.webp', caption: { en: 'Map — the composition as a path: the current chord at the center, where it can go around it', pt: 'Mapa — a composição como caminho: o acorde atual no centro, pra onde ele pode ir em volta' } }
         ],
         highlight: {
           en: '1,119 green tests under Swift 6 strict concurrency, 26 genre styles with real playback, and a chord-name vs solfege toggle rare in the category — with documented trade-off decisions, like refusing a risky SwiftData schema migration before launch',
@@ -1246,6 +1241,7 @@
           ]
         },
         github: null,
+        shotsWide: true,
         screenshots: [
           { src: 'assets/screens/graphify/01-grafo.webp', caption: { en: 'Generated graph — 966 nodes, 1,864 edges and 74 communities extracted from one of my own repos', pt: 'Grafo gerado — 966 nós, 1.864 arestas e 74 comunidades extraídos de um repositório meu' } }
         ],
@@ -1359,6 +1355,7 @@
           ]
         },
         live: 'https://eternal-pyre.fly.dev',
+        shotsWide: true,
         screenshots: [
           { src: 'assets/screens/eternalpyre/01-menu.webp', caption: { en: 'Main menu — solo, multiplayer, high scores', pt: 'Menu — solo, multiplayer e recordes' } },
           { src: 'assets/screens/eternalpyre/02-herois.webp', caption: { en: 'Hero select — eight classes, each with its own stats and ability set', pt: 'Escolha de herói — oito classes, cada uma com atributos e habilidades próprias' } },
@@ -1400,6 +1397,7 @@
           ]
         },
         github: 'https://github.com/Gchapolin/kpi-tree-game',
+        shotsWide: true,
         screenshots: [
           { src: 'assets/screens/kpitree/01-arvore.webp', caption: { en: 'Tree — the North Star on the left, execution levers to the right, each metric as a boss with HP', pt: 'Árvore — a North Star à esquerda, as alavancas de execução à direita, cada métrica como um chefe com HP' } },
           { src: 'assets/screens/kpitree/02-arena.webp', caption: { en: 'Arena — the metric as a boss, the areas as players, and a battle log of every hit', pt: 'Arena — a métrica como chefe, as áreas como jogadores e um log de batalha a cada golpe' } },
@@ -2068,7 +2066,7 @@
 
       if (p.screenshots && p.screenshots.length) {
         html += '<h4 class="modal__section-title">' + ui('modalShots') + '</h4>';
-        html += '<div class="modal__shots">' + p.screenshots.map(function (shot) {
+        html += '<div class="modal__shots' + (p.shotsWide ? ' modal__shots--wide' : '') + '">' + p.screenshots.map(function (shot) {
           return '<figure><img src="' + shot.src + '" alt="' + t(shot.caption) + '" loading="lazy"><figcaption>' + t(shot.caption) + '</figcaption></figure>';
         }).join('') + '</div>';
       }
