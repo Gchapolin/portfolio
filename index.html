@@ -1443,6 +1443,14 @@
             { name: 'Spike Dodge', tech: 'Swift / SpriteKit', desc: { en: 'Survival game dodging falling spikes and collecting power-ups', pt: 'Jogo de sobrevivência desviando de espinhos e coletando power-ups' } }
           ]
         },
+        shotsWide: true,
+        screenshots: [
+          { src: 'assets/screens/castor/01-kanban.webp', caption: { en: 'Board — the execution queue next to the columns: Execute Plan, Execute Coding, Claude sessions and MCP status', pt: 'Quadro — a fila de execução ao lado das colunas: Execute Plan, Execute Coding, sessões do Claude e status do MCP' } },
+          { src: 'assets/screens/castor/02-lista.webp', caption: { en: 'List — the same tasks with status, priority and a computed urgency', pt: 'Lista — as mesmas tarefas com status, prioridade e uma urgência calculada' } },
+          { src: 'assets/screens/castor/03-timeline.webp', caption: { en: 'Timeline — the tasks over time, coloured by phase', pt: 'Timeline — as tarefas no tempo, coloridas por fase' } },
+          { src: 'assets/screens/castor/04-kpi.webp', caption: { en: 'KPI — tasks by status, throughput, cycle time per phase and execution cost', pt: 'KPI — tarefas por status, throughput, cycle time por fase e custo de execução' } },
+          { src: 'assets/screens/castor/05-projetos.webp', caption: { en: 'Workspace — active projects, open tasks and the week’s API cost', pt: 'Workspace — projetos ativos, tarefas abertas e o custo de API da semana' } }
+        ],
         highlight: {
           en: 'Real-time updates over Server-Sent Events, an async Claude spawn pattern with three-level JSON extraction fallback, and modal state carried in the URL itself',
           pt: 'Atualizações em tempo real por Server-Sent Events, spawn assíncrono do Claude com fallback de extração de JSON em três níveis, e o estado dos modais carregado na própria URL'
@@ -1536,36 +1544,44 @@
       {
         id: 'energydeck', name: 'EnergyDeck', theme: 't-gamified', status: 'MVP',
         tagline: {
-          en: 'A Pokédex for energy drinks: flavor check-ins, active caffeine tracking and social gamification',
-          pt: 'Pokédex de energéticos: check-in de sabores, tracker de cafeína ativa e gamificação social'
+          en: 'A Pokédex for energy drinks: flavour check-ins, active caffeine in the body and a social scene',
+          pt: 'Pokédex de energéticos: check-in de sabores, cafeína ativa no corpo e uma cena social'
         },
         description: {
-          en: 'A mobile product designed spec-first: a 10-section product scope, user stories per screen and acceptance criteria for 11 features — before any native code. A working React prototype plus a gallery of 32 static mockups cover the 10 specified screens, with collection mechanics (a flavor Dex), Duolingo-style progression (XP, streaks, weekly leagues) and a personal chromatic signature. The product’s ethical tension — gamification vs. health — is named in the spec and addressed with a daily caffeine reference limit.',
-          pt: 'Produto mobile desenhado spec-first: escopo de produto em 10 seções, user stories por tela e critérios de aceite pra 11 features — antes de qualquer código nativo. Protótipo React funcional mais galeria de 32 mockups cobrem as 10 telas especificadas, com mecânica de coleção (Dex de sabores), progressão estilo Duolingo (XP, streaks, ligas semanais) e assinatura cromática pessoal. A tensão ética do produto — gamificação vs. saúde — está nomeada na spec e endereçada com limite diário de referência de cafeína.'
+          en: 'It started spec-first — product scope, user stories per screen and acceptance criteria — and is now a native app: Kotlin with Jetpack Compose on Android, Swift and SwiftUI on iOS, over the same Firebase project. Four tabs: Now (how much caffeine is in your body right now, when it zeroes out, today against your limit), Gallery (each flavour is revealed on the first intake you log), Scene (who is drinking right now and the week’s ranking) and You. 78 test classes, Cloud Functions in TypeScript and Firestore security rules with their own test suite. Internal test build at phase 5.',
+          pt: 'Começou spec-first — escopo de produto, user stories por tela e critérios de aceite — e hoje é app nativo: Kotlin com Jetpack Compose no Android, Swift e SwiftUI no iOS, sobre o mesmo projeto Firebase. Quatro abas: Agora (quanta cafeína está no corpo neste momento, quando zera, o dia contra o seu limite), Galeria (cada sabor se revela no primeiro gole registrado), Cena (quem está bebendo agora e o ranking da semana) e Você. 78 classes de teste, Cloud Functions em TypeScript e regras de segurança do Firestore com suíte própria. Build interno de teste na fase 5.'
         },
-        tech: ['React', 'Product spec', 'iOS-like design system'],
+        tech: ['Kotlin', 'Jetpack Compose', 'Swift', 'SwiftUI', 'Firebase', 'Cloud Functions'],
         features: {
           en: [
-            '10 screens specified with user stories and acceptance criteria',
-            'Working React prototype + 32 static mockups',
-            'Pokédex-style collection with XP, streaks and weekly leagues',
-            'Active caffeine tracker with a daily reference limit',
-            'Product risk named in the spec: gamification vs. health, with mitigation',
-            'Custom iOS-like chrome: nav bar, lists, status bar, keyboard'
+            'Active caffeine computed with decay: how much is in the body now and when it zeroes out',
+            'Daily limit with a reading of the day — it says what the next intake will cost you',
+            'Collection by brand: a flavour is only revealed by the first intake logged',
+            'Scene: who is drinking live, the follow graph and the week’s ranking',
+            'Personal chromatic signature derived from what you drink',
+            'Firestore security rules with their own test suite, plus Cloud Functions in TypeScript',
+            'Two native apps mirroring each other over one Firebase backend'
           ],
           pt: [
-            '10 telas especificadas com user stories e critérios de aceite',
-            'Protótipo React funcional + 32 mockups estáticos',
-            'Coleção estilo Pokédex com XP, streaks e ligas semanais',
-            'Tracker de cafeína ativa com limite diário de referência',
-            'Risco de produto nomeado na spec: gamificação vs. saúde, com mitigação',
-            'Chrome iOS próprio: nav bar, listas, status bar e teclado'
+            'Cafeína ativa calculada com decaimento: quanto está no corpo agora e quando zera',
+            'Limite diário com leitura do dia — ela diz o que o próximo gole vai custar',
+            'Coleção por marca: um sabor só se revela no primeiro gole registrado',
+            'Cena: quem está bebendo ao vivo, o grafo de quem você segue e o ranking da semana',
+            'Assinatura cromática pessoal derivada do que você bebe',
+            'Regras de segurança do Firestore com suíte de teste própria, e Cloud Functions em TypeScript',
+            'Dois apps nativos espelhados sobre um único backend Firebase'
           ]
         },
         github: null,
+        screenshots: [
+          { src: 'assets/screens/energydeck/01-agora.webp', caption: { en: 'Now — active caffeine in the body, when it zeroes out, today against the limit, and the day’s intakes', pt: 'Agora — cafeína ativa no corpo, quando zera, o dia contra o limite e os goles registrados' } },
+          { src: 'assets/screens/energydeck/02-galeria.webp', caption: { en: 'Gallery — the collection by brand: each flavour is revealed on the first intake logged', pt: 'Galeria — a coleção por marca: cada sabor se revela no primeiro gole registrado' } },
+          { src: 'assets/screens/energydeck/03-cena.webp', caption: { en: 'Scene — who is drinking right now and the week’s ranking among the people you follow', pt: 'Cena — quem está bebendo agora e o ranking da semana entre quem você segue' } },
+          { src: 'assets/screens/energydeck/04-voce.webp', caption: { en: 'You — profile, badges, and the way into statistics, the retrospective and the daily limit', pt: 'Você — perfil, selos e a entrada para estatísticas, retrospectiva e limite diário' } }
+        ],
         highlight: {
-          en: 'Full product documentation — scope, stories, acceptance criteria — written before a single line of native code; the gamification vs. health tension treated as a requirement, not a footnote',
-          pt: 'Documentação de produto completa — escopo, stories, critérios de aceite — escrita antes de qualquer linha de código nativo; a tensão gamificação vs. saúde tratada como requisito, não como nota de rodapé'
+          en: 'The caffeine model is the product: it is not a counter, it is a decay curve — that is how the app can tell you when you will be back to zero and what the next can will cost you in sleep',
+          pt: 'O modelo de cafeína é o produto: não é um contador, é uma curva de decaimento — é assim que o app consegue dizer quando você vai zerar e o que a próxima lata vai custar de sono'
         }
       }
     ];
@@ -1897,7 +1913,9 @@
       eternalpyre: 'assets/covers/eternalpyre.webp',
       kpitree:     'assets/covers/kpitree.webp',
       fitlink:     'assets/covers/fitlink.webp',
-      amae:        'assets/covers/amae.webp'
+      amae:        'assets/covers/amae.webp',
+      castor:      'assets/covers/castor.webp',
+      energydeck:  'assets/covers/energydeck.webp'
     };
 
     function capaHtml(p) {
