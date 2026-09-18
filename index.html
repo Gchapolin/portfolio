@@ -588,19 +588,6 @@
     .card__status--production::before { background: var(--ok); }
     .card__status--beta::before, .card__status--mvp::before { background: var(--warn); }
     .card__status--launch::before { background: var(--ok); }
-    .card__collab {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      background: var(--pill-dark);
-      color: var(--on-pill);
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 5px 12px;
-    }
     .card__body { padding: 22px 24px 24px; }
     .card__name { font-size: 19px; font-weight: 800; letter-spacing: -0.015em; margin-bottom: 6px; }
     .card__tagline { color: var(--gray); font-size: 14px; line-height: 1.55; margin-bottom: 14px; }
@@ -1158,8 +1145,7 @@
       { id: 'all', label: { en: 'All', pt: 'Todos' } },
       { id: 't-agentic', label: { en: 'Agentic AI & Automation', pt: 'IA Agêntica & Automação' } },
       { id: 't-apps', label: { en: 'Native Apps', pt: 'Apps Nativos' } },
-      { id: 't-gamified', label: { en: 'Gamified Product Systems', pt: 'Sistemas de Produto Gamificados' } },
-      { id: 't-leadership', label: { en: 'Product & Process Leadership', pt: 'Liderança de Produto & Processos' } }
+      { id: 't-gamified', label: { en: 'Gamified Product Systems', pt: 'Sistemas de Produto Gamificados' } }
     ];
 
     // ============================
@@ -1566,46 +1552,6 @@
     ];
 
     // ============================
-    // COLLABORATIONS (rendered in the same grid, with a badge)
-    // ============================
-    var collaborations = [
-      {
-        id: 'httuicom', name: 'Httuicom', theme: 't-leadership', status: 'Production', collab: true,
-        tagline: {
-          en: 'Cloud-based communication platform with real-time features',
-          pt: 'Plataforma de comunicação em nuvem com recursos em tempo real'
-        },
-        description: {
-          en: 'A modern web application built with React and TypeScript, providing real-time communication and collaboration tools. Deployed on cloud infrastructure with CI/CD pipelines and monitoring.',
-          pt: 'Aplicação web moderna construída com React e TypeScript, oferecendo ferramentas de comunicação e colaboração em tempo real. Implantada em infraestrutura cloud com pipelines CI/CD e monitoramento.'
-        },
-        tech: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'AWS'],
-        features: {
-          en: [
-            'Real-time messaging with WebSocket',
-            'Role-based access control system',
-            'File sharing with cloud storage',
-            'Responsive dashboard with analytics',
-            'CI/CD pipeline with automated testing'
-          ],
-          pt: [
-            'Mensagens em tempo real com WebSocket',
-            'Sistema de controle de acesso baseado em roles',
-            'Compartilhamento de arquivos com armazenamento em nuvem',
-            'Dashboard responsivo com analytics',
-            'Pipeline CI/CD com testes automatizados'
-          ]
-        },
-        github: 'https://github.com/Gchapolin/httuicom',
-        live: 'https://httui.cloud/',
-        highlight: {
-          en: 'Row-level security on PostgreSQL, WebSocket pub/sub, and a zero-downtime CI/CD pipeline on AWS',
-          pt: 'Row-level security no PostgreSQL, pub/sub por WebSocket e pipeline de CI/CD sem downtime na AWS'
-        }
-      }
-    ];
-
-    // ============================
     // EXPERIENCE
     // ============================
     var experience = [
@@ -1814,7 +1760,6 @@
         connectSub: 'Looking for a PM who pairs discovery and data with hands-on prototyping? Let’s talk.',
         contactCta: 'Get in touch',
         footerLegal: 'Built by Guilherme Ferreira · {year}',
-        collabBadge: 'Team Project',
         currentBadge: 'Current',
         cardLink: 'View details',
         modalClose: '← Back',
@@ -1854,7 +1799,6 @@
         connectSub: 'Procurando um PM que une discovery e dados à prototipação na prática? Vamos conversar.',
         contactCta: 'Começar a conversa',
         footerLegal: 'Feito por Guilherme Ferreira · {year}',
-        collabBadge: 'Projeto em Equipe',
         currentBadge: 'Atual',
         cardLink: 'Ver detalhes',
         modalClose: '← Voltar',
@@ -1884,8 +1828,6 @@
     }
 
     var activeTheme = 'all';
-    var allProjects = projects.concat(collaborations);
-
     // ============================
     // RENDERERS
     // ============================
@@ -1948,12 +1890,10 @@
     function cardHtml(p) {
       var statusClass = 'card__status--' + p.status.toLowerCase();
       var tech = p.tech.slice(0, 4).map(function (tag) { return '<span>' + tag + '</span>'; }).join('');
-      var collab = p.collab ? '<span class="card__collab">' + ui('collabBadge') + '</span>' : '';
       return (
         '<article class="card" data-project="' + p.id + '" tabindex="0" role="button" aria-label="' + p.name + '">' +
           '<div class="card__thumb" aria-hidden="true">' +
             capaHtml(p) +
-            collab +
             '<span class="card__status ' + statusClass + '">' + p.status + '</span>' +
           '</div>' +
           '<div class="card__body">' +
@@ -1968,7 +1908,7 @@
 
     function renderProjects() {
       var grid = document.getElementById('projects-grid');
-      var list = allProjects.filter(function (p) {
+      var list = projects.filter(function (p) {
         return activeTheme === 'all' || p.theme === activeTheme;
       });
       grid.innerHTML = list.map(cardHtml).join('');
@@ -2041,7 +1981,7 @@
     var openProjectId = null;
 
     function openModal(id) {
-      var p = allProjects.find(function (x) { return x.id === id; });
+      var p = projects.find(function (x) { return x.id === id; });
       if (!p) return;
       openProjectId = id;
       lastFocused = document.activeElement;
@@ -2051,7 +1991,6 @@
       html += '<h3 class="modal__name" id="modal-name">' + p.name + '</h3>';
       html += '<span class="modal__badge">' + p.status + '</span>';
       if (p.brand) html += '<span class="modal__badge modal__badge--dark">' + p.brand + '</span>';
-      if (p.collab) html += '<span class="modal__badge modal__badge--dark">' + ui('collabBadge') + '</span>';
       html += '</div>';
       html += '<p class="modal__tagline">' + t(p.tagline) + '</p>';
 
