@@ -524,7 +524,9 @@
     }
     .card__thumb {
       position: relative;
-      height: 168px;
+      /* mesma proporcao das capas geradas (1260x600): assim a capa entra
+         inteira em qualquer largura de card, sem corte lateral */
+      aspect-ratio: 21 / 10;
       background: linear-gradient(135deg, var(--thumb-from) 0%, var(--thumb-to) 100%);
       display: grid;
       place-items: center;
@@ -540,24 +542,25 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      /* a capa e montada com o conteudo que identifica o projeto no topo;
+         ancorar no topo evita que a moldura do card corte justo nele */
+      object-position: center top;
       transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
     .card:hover .card__shot { transform: scale(1.04); }
 
-    /* capa desenhada: esquema do que o projeto faz, nao um screenshot */
-    .card__art {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      padding: 20px 26px;
-      color: var(--ink);
-      opacity: 0.42;
-      transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.3s ease;
+    /* sem capa: monograma sobre a textura do thumb */
+    .card__thumb-letter {
+      position: relative;
+      transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+      font-size: 84px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--thumb-letter);
+      user-select: none;
     }
-    .card:hover .card__art { transform: scale(1.035); opacity: 0.6; }
-    .card__art svg { width: 100%; height: 100%; display: block; }
+    .card:hover .card__thumb-letter,
+    .card:focus-visible .card__thumb-letter { transform: scale(1.07) translateY(-2px); }
     .card__status {
       position: absolute;
       top: 14px;
@@ -905,10 +908,29 @@
       line-height: 1.65;
       color: var(--ink-soft);
     }
-    .modal__shots { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; }
-    .modal__shots figure { flex: 0 0 150px; }
-    .modal__shots img { border-radius: 10px; border: 1px solid var(--border); }
-    .modal__shots figcaption { font-size: 11px; color: var(--gray); margin-top: 6px; line-height: 1.4; }
+    /* altura fixa em vez de largura fixa: as telas de celular e as de
+       dashboard convivem na mesma fita sem uma virar tarja ilegivel */
+    .modal__shots { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px; }
+    .modal__shots figure { flex: 0 0 auto; width: fit-content; min-width: 168px; margin: 0; }
+    .modal__shots img {
+      display: block;
+      height: 230px;
+      width: auto;
+      max-width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--thumb-from);
+    }
+    /* width:0 + min-width:100% impede a legenda de esticar a figura:
+       a largura vem da imagem, o texto so quebra dentro dela */
+    .modal__shots figcaption {
+      width: 0;
+      min-width: 100%;
+      font-size: 11px;
+      color: var(--gray);
+      margin-top: 8px;
+      line-height: 1.4;
+    }
     .modal__sub { border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 16px; margin-bottom: 8px; }
     .modal__sub-head { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; margin-bottom: 4px; }
     .modal__sub-head strong { font-weight: 800; }
@@ -1208,7 +1230,7 @@
           en: 'A self-built system that ingests code, documents, and conversation history and extracts entities, relationships, and communities into a knowledge graph — with god-node analysis, cross-file relationship detection, and Obsidian-compatible exports. It is the first thing I open before touching any project of my own.',
           pt: 'Sistema construído do zero que processa código, documentos e histórico de conversas e extrai entidades, relações e comunidades em um grafo de conhecimento — com análise de "god nodes", detecção de relações entre arquivos e exportação compatível com Obsidian. É a primeira coisa que eu abro antes de mexer em qualquer projeto meu.'
         },
-        tech: ['Node.js', 'Graph algorithms', 'Claude API', 'Obsidian'],
+        tech: ['Python', 'tree-sitter', 'Graph algorithms', 'Claude API', 'Obsidian'],
         features: {
           en: [
             'Extracts entities and relationships from code, docs, and session history',
@@ -1224,6 +1246,9 @@
           ]
         },
         github: null,
+        screenshots: [
+          { src: 'assets/screens/graphify/01-grafo.webp', caption: { en: 'Generated graph — 966 nodes, 1,864 edges and 74 communities extracted from one of my own repos', pt: 'Grafo gerado — 966 nós, 1.864 arestas e 74 comunidades extraídos de um repositório meu' } }
+        ],
         highlight: {
           en: 'The redesign of this site started by reading the report graphify generated about the previous version of this codebase — 156 nodes, 262 edges, 11 communities — before a single new line was written.',
           pt: 'O redesign deste site começou lendo o relatório que o graphify gerou sobre a versão anterior deste código — 156 nós, 262 arestas, 11 comunidades — antes de qualquer linha nova.'
@@ -1294,6 +1319,13 @@
           ]
         },
         github: null,
+        screenshots: [
+          { src: 'assets/screens/retornelo/01-biblioteca.webp', caption: { en: 'Library — recent scores, tags and the whole shelf on one screen', pt: 'Biblioteca — partituras recentes, etiquetas e a estante inteira numa tela só' } },
+          { src: 'assets/screens/retornelo/02-repertorios.webp', caption: { en: 'Setlists — pinned programmes on top, the rest grouped by collection', pt: 'Repertórios — programas fixados no topo e o resto agrupado por coleção' } },
+          { src: 'assets/screens/retornelo/03-repertorio.webp', caption: { en: 'Setlist detail — ordered programme with per-piece duration and total running time', pt: 'Repertório aberto — programa em ordem, com duração por peça e tempo total' } },
+          { src: 'assets/screens/retornelo/04-etiquetas.webp', caption: { en: 'Tags — most used at the top, every tag with its score count', pt: 'Etiquetas — as mais usadas no topo e cada etiqueta com a contagem de partituras' } },
+          { src: 'assets/screens/retornelo/05-ajustes.webp', caption: { en: 'Settings — display, viewer, annotation, performance and privacy in one shell', pt: 'Ajustes — exibição, leitor, anotação, performance e privacidade na mesma casca' } }
+        ],
         highlight: {
           en: 'Mirrored iOS-Android parity module by module, cross-platform ZIP backup and a hand-built annotation canvas — carried end to end under my own indie label, first commit to store-ready',
           pt: 'Paridade iOS-Android espelhada módulo a módulo, backup ZIP cross-platform e canvas de anotação autoral — levado de ponta a ponta sob selo próprio, do primeiro commit ao pacote pronto de loja'
@@ -1327,6 +1359,12 @@
           ]
         },
         live: 'https://eternal-pyre.fly.dev',
+        screenshots: [
+          { src: 'assets/screens/eternalpyre/01-menu.webp', caption: { en: 'Main menu — solo, multiplayer, high scores', pt: 'Menu — solo, multiplayer e recordes' } },
+          { src: 'assets/screens/eternalpyre/02-herois.webp', caption: { en: 'Hero select — eight classes, each with its own stats and ability set', pt: 'Escolha de herói — oito classes, cada uma com atributos e habilidades próprias' } },
+          { src: 'assets/screens/eternalpyre/03-mapas.webp', caption: { en: 'Map select — each arena changes the hazards and the amount of cover', pt: 'Escolha de mapa — cada arena muda os perigos e a quantidade de cobertura' } },
+          { src: 'assets/screens/eternalpyre/04-arena.webp', caption: { en: 'Arena — wave, HP, kills and the three ability cooldowns', pt: 'Arena — onda, vida, abates e o cooldown das três habilidades' } }
+        ],
         highlight: {
           en: 'Server-authoritative game state with client-side prediction and rollback, <50ms latency',
           pt: 'Game state server-authoritative com client-side prediction e rollback, <50ms de latência'
@@ -1362,6 +1400,12 @@
           ]
         },
         github: 'https://github.com/Gchapolin/kpi-tree-game',
+        screenshots: [
+          { src: 'assets/screens/kpitree/01-arvore.webp', caption: { en: 'Tree — the North Star on the left, execution levers to the right, each metric as a boss with HP', pt: 'Árvore — a North Star à esquerda, as alavancas de execução à direita, cada métrica como um chefe com HP' } },
+          { src: 'assets/screens/kpitree/02-arena.webp', caption: { en: 'Arena — the metric as a boss, the areas as players, and a battle log of every hit', pt: 'Arena — a métrica como chefe, as áreas como jogadores e um log de batalha a cada golpe' } },
+          { src: 'assets/screens/kpitree/03-score.webp', caption: { en: 'Score — final score, multiplier and how many areas are aligned', pt: 'Score — pontuação final, multiplicador e quantas áreas estão alinhadas' } },
+          { src: 'assets/screens/kpitree/04-config.webp', caption: { en: 'Setup — where the tree, the targets and each area’s ownership are defined', pt: 'Configuração — onde a árvore, as metas e o dono de cada área são definidos' } }
+        ],
         highlight: {
           en: 'RPG scoring engine with depth-based XP multipliers (5x root, 2x branch, 1x leaf) and alignment bonus system',
           pt: 'Engine de pontuação RPG com multiplicadores de XP por profundidade (5x raiz, 2x ramo, 1x folha) e sistema de bônus por alinhamento'
@@ -1474,6 +1518,13 @@
           ]
         },
         github: null,
+        screenshots: [
+          { src: 'assets/screens/fitlink/01-inicio.webp', caption: { en: 'Student home — streak, week summary, next workout and today’s meals', pt: 'Início do aluno — sequência, resumo da semana, próximo treino e refeições do dia' } },
+          { src: 'assets/screens/fitlink/02-treinos.webp', caption: { en: 'Workouts — what the trainer assigned, with status per session', pt: 'Treinos — o que o personal atribuiu, com status por sessão' } },
+          { src: 'assets/screens/fitlink/03-execucao.webp', caption: { en: 'Execution — rest timer, target reps and load, and the set being logged', pt: 'Execução — cronômetro de descanso, meta de repetições e carga, e a série em registro' } },
+          { src: 'assets/screens/fitlink/04-nutricao.webp', caption: { en: 'Nutrition — daily progress and the plan broken down meal by meal', pt: 'Nutrição — progresso do dia e o plano aberto refeição por refeição' } },
+          { src: 'assets/screens/fitlink/05-alunos.webp', caption: { en: 'Trainer view — the student list with each one’s adherence and last session', pt: 'Visão do profissional — a lista de alunos com a aderência e o último treino de cada um' } }
+        ],
         highlight: {
           en: 'Atomic Firebase transactions behind the invite system, role-based Firestore security rules, and real-time sync across the three user types',
           pt: 'Transações atômicas no Firebase por trás do sistema de convites, regras de segurança do Firestore por papel e sincronização em tempo real entre os três tipos de usuário'
@@ -1875,111 +1926,23 @@
     // ============================
     // CAPAS DOS CARDS
     // ============================
-    // Esquemas do que cada projeto faz, desenhados em traco. Nao sao
-    // screenshots: so o Tonika tem imagem real do produto.
-    var ART = {
-      grafo:
-        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">' +
-        '<path d="M46 34 100 20M46 34 62 76M100 20 154 38M62 76 118 84M154 38 118 84M100 20 62 76M154 38 172 78M118 84 172 78"/>' +
-        '<circle cx="46" cy="34" r="7" fill="currentColor" stroke="none"/><circle cx="100" cy="20" r="10" fill="currentColor" stroke="none"/>' +
-        '<circle cx="62" cy="76" r="6" fill="currentColor" stroke="none"/><circle cx="154" cy="38" r="8" fill="currentColor" stroke="none"/>' +
-        '<circle cx="118" cy="84" r="5" fill="currentColor" stroke="none"/><circle cx="172" cy="78" r="4" fill="currentColor" stroke="none"/></svg>',
-      trade:
-        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' +
-        '<path d="M6 82 30 66 54 74 78 40 102 52 126 26 150 36 174 14 194 22"/>' +
-        '<path d="M6 100h188" opacity=".35"/>' +
-        '<circle cx="78" cy="40" r="4.5" fill="currentColor" stroke="none"/><circle cx="126" cy="26" r="4.5" fill="currentColor" stroke="none"/>' +
-        '<path d="M78 40v-18M126 26v-14" stroke-width="1.2" opacity=".5"/>' +
-        '<rect x="66" y="6" width="24" height="12" rx="6" fill="currentColor" stroke="none"/>' +
-        '<rect x="114" y="0" width="24" height="12" rx="6" fill="currentColor" stroke="none" opacity=".45"/></svg>',
-      partitura:
-        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">' +
-        '<path d="M8 22h184M8 38h184M8 54h184M8 70h184M8 86h184" opacity=".38"/>' +
-        '<ellipse cx="52" cy="54" rx="9" ry="6.5" fill="currentColor" stroke="none" transform="rotate(-18 52 54)"/><path d="M60 50V20"/>' +
-        '<ellipse cx="100" cy="38" rx="9" ry="6.5" fill="currentColor" stroke="none" transform="rotate(-18 100 38)"/><path d="M108 34V6"/>' +
-        '<ellipse cx="148" cy="70" rx="9" ry="6.5" fill="currentColor" stroke="none" transform="rotate(-18 148 70)"/><path d="M156 66V38"/>' +
-        '<path d="M60 20h48M108 10h48" stroke-width="3"/></svg>',
-      arena:
-        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.6">' +
-        '<circle cx="100" cy="55" r="11" fill="currentColor" stroke="none"/>' +
-        '<circle cx="100" cy="55" r="24" opacity=".75"/><circle cx="100" cy="55" r="36" opacity=".5"/><circle cx="100" cy="55" r="48" opacity=".28"/>' +
-        '<path d="M100 22V8M100 88v14M56 55H38M164 55h18" stroke-linecap="round" opacity=".6"/>' +
-        '<rect x="60" y="18" width="9" height="9" rx="2" fill="currentColor" stroke="none"/>' +
-        '<rect x="138" y="84" width="9" height="9" rx="2" fill="currentColor" stroke="none"/>' +
-        '<rect x="146" y="26" width="7" height="7" rx="2" fill="currentColor" stroke="none" opacity=".6"/></svg>',
-      arvore:
-        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">' +
-        '<path d="M100 26v18M100 44H44v14M100 44h56v14M44 70v12M44 70H22v12M156 70v12M156 70h22v12"/>' +
-        '<rect x="74" y="6" width="52" height="20" rx="6" fill="currentColor" stroke="none"/>' +
-        '<rect x="20" y="56" width="48" height="16" rx="5" fill="currentColor" stroke="none" opacity=".7"/>' +
-        '<rect x="132" y="56" width="48" height="16" rx="5" fill="currentColor" stroke="none" opacity=".7"/>' +
-        '<rect x="10" y="86" width="26" height="12" rx="4" fill="currentColor" stroke="none" opacity=".45"/>' +
-        '<rect x="44" y="86" width="26" height="12" rx="4" fill="currentColor" stroke="none" opacity=".45"/>' +
-        '<rect x="130" y="86" width="26" height="12" rx="4" fill="currentColor" stroke="none" opacity=".45"/>' +
-        '<rect x="164" y="86" width="26" height="12" rx="4" fill="currentColor" stroke="none" opacity=".45"/></svg>',
-      kanban:
-        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.5">' +
-        '<rect x="4" y="4" width="58" height="102" rx="7" opacity=".45"/><rect x="71" y="4" width="58" height="102" rx="7" opacity=".45"/><rect x="138" y="4" width="58" height="102" rx="7" opacity=".45"/>' +
-        '<rect x="12" y="14" width="42" height="17" rx="4" fill="currentColor" stroke="none"/>' +
-        '<rect x="12" y="37" width="42" height="17" rx="4" fill="currentColor" stroke="none" opacity=".55"/>' +
-        '<rect x="79" y="14" width="42" height="17" rx="4" fill="currentColor" stroke="none" opacity=".8"/>' +
-        '<rect x="79" y="37" width="42" height="17" rx="4" fill="currentColor" stroke="none" opacity=".4"/>' +
-        '<rect x="79" y="60" width="42" height="17" rx="4" fill="currentColor" stroke="none" opacity=".4"/>' +
-        '<rect x="146" y="14" width="42" height="17" rx="4" fill="currentColor" stroke="none" opacity=".6"/></svg>',
-      postura:
-        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">' +
-        '<path d="M70 20v26M70 46 44 72M70 46l26 26M70 46H46M70 46h24M46 46 34 26M94 46l14-20"/>' +
-        '<circle cx="70" cy="12" r="8" fill="currentColor" stroke="none"/>' +
-        '<circle cx="46" cy="46" r="4" fill="currentColor" stroke="none"/><circle cx="94" cy="46" r="4" fill="currentColor" stroke="none"/>' +
-        '<circle cx="44" cy="72" r="4" fill="currentColor" stroke="none"/><circle cx="96" cy="72" r="4" fill="currentColor" stroke="none"/>' +
-        '<circle cx="34" cy="26" r="3.5" fill="currentColor" stroke="none"/><circle cx="108" cy="26" r="3.5" fill="currentColor" stroke="none"/>' +
-        '<path d="M130 58c6-26 12-26 18 0s12 26 18 0 12-26 18 0" opacity=".55"/></svg>',
-      trio:
-        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.6">' +
-        '<path d="M100 40 44 84M100 40l56 44M44 84h112" opacity=".55"/>' +
-        '<circle cx="100" cy="28" r="15" fill="currentColor" stroke="none"/>' +
-        '<circle cx="44" cy="92" r="12" fill="currentColor" stroke="none" opacity=".72"/>' +
-        '<circle cx="156" cy="92" r="12" fill="currentColor" stroke="none" opacity=".72"/>' +
-        '<path d="M100 56v18" stroke-dasharray="4 5" opacity=".6"/></svg>',
-      dex:
-        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.5">' +
-        '<rect x="6" y="6" width="40" height="46" rx="8" fill="currentColor" stroke="none"/>' +
-        '<rect x="54" y="6" width="40" height="46" rx="8" fill="currentColor" stroke="none" opacity=".62"/>' +
-        '<rect x="102" y="6" width="40" height="46" rx="8" opacity=".5"/>' +
-        '<rect x="150" y="6" width="40" height="46" rx="8" opacity=".5"/>' +
-        '<rect x="6" y="60" width="40" height="46" rx="8" fill="currentColor" stroke="none" opacity=".38"/>' +
-        '<rect x="54" y="60" width="40" height="46" rx="8" opacity=".5"/>' +
-        '<rect x="102" y="60" width="40" height="46" rx="8" opacity=".5"/>' +
-        '<rect x="150" y="60" width="40" height="46" rx="8" opacity=".5"/></svg>',
-      chat:
-        '<svg viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1.6">' +
-        '<rect x="6" y="10" width="106" height="38" rx="14" fill="currentColor" stroke="none"/>' +
-        '<rect x="74" y="60" width="120" height="40" rx="14" opacity=".6"/>' +
-        '<circle cx="34" cy="29" r="4" fill="var(--surface)" stroke="none"/><circle cx="52" cy="29" r="4" fill="var(--surface)" stroke="none"/><circle cx="70" cy="29" r="4" fill="var(--surface)" stroke="none"/>' +
-        '<path d="M92 74h84M92 86h56" stroke-linecap="round" opacity=".7"/></svg>'
-    };
-
+    // Cada capa e um render do proprio projeto, feito a partir do codigo dele:
+    // telas do app, o jogo rodando, o grafo que a ferramenta gera. Projeto sem
+    // interface que de pra rodar aqui (nativo, ou repositorio privado de outra
+    // organizacao) fica com o monograma em vez de ilustracao inventada.
     var CAPA = {
-      harmonicmap: { img: 'assets/screens/tonika/06-composicao.webp' },
-      graphify:    { art: 'grafo' },
-      tradeagent:  { art: 'trade' },
-      retornelo:   { art: 'partitura' },
-      eternalpyre: { art: 'arena' },
-      kpitree:     { art: 'arvore' },
-      castor:      { art: 'kanban' },
-      cellotutor:  { art: 'postura' },
-      fitlink:     { art: 'trio' },
-      energydeck:  { art: 'dex' },
-      httuicom:    { art: 'chat' }
+      harmonicmap: 'assets/covers/harmonicmap.webp',
+      graphify:    'assets/covers/graphify.webp',
+      tradeagent:  'assets/covers/tradeagent.webp',
+      retornelo:   'assets/covers/retornelo.webp',
+      eternalpyre: 'assets/covers/eternalpyre.webp',
+      kpitree:     'assets/covers/kpitree.webp',
+      fitlink:     'assets/covers/fitlink.webp'
     };
 
     function capaHtml(p) {
-      var c = CAPA[p.id];
-      if (c && c.img) {
-        return '<img class="card__shot" src="' + c.img + '" alt="" loading="lazy">';
-      }
-      if (c && ART[c.art]) {
-        return '<div class="card__art" aria-hidden="true">' + ART[c.art] + '</div>';
+      if (CAPA[p.id]) {
+        return '<img class="card__shot" src="' + CAPA[p.id] + '" alt="" loading="lazy" width="1260" height="600">';
       }
       return '<span class="card__thumb-letter" aria-hidden="true">' + p.name.charAt(0).toUpperCase() + '</span>';
     }
