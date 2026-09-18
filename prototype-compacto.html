@@ -395,6 +395,7 @@
       width: min(720px, 100%);
       margin: 0 auto 32px;
     }
+    .hero__stage picture { display: block; }
     .hero__art {
       width: 100%;
       height: auto;
@@ -1036,7 +1037,12 @@
   <!-- Hero -->
   <header class="hero">
     <div class="hero__stage">
-      <img class="hero__art" src="assets/guilherme-ilustracao.jpg" width="1264" height="843" data-ui-alt="heroArtAlt" alt="">
+      <picture>
+        <source type="image/webp"
+                srcset="assets/guilherme-ilustracao-760.webp 760w, assets/guilherme-ilustracao.webp 1264w"
+                sizes="(max-width: 768px) calc(100vw - 48px), 720px">
+        <img class="hero__art" src="assets/guilherme-ilustracao.jpg" width="1264" height="843" data-ui-alt="heroArtAlt" alt="">
+      </picture>
       <span class="cursor-tag cursor-tag--l">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3l14 8-6 2-3 6z"/></svg>
         <span data-ui="heroBadgeLeft"></span>
