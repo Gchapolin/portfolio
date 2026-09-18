@@ -616,43 +616,6 @@
     .card:hover .card__link::after,
     .card:focus-visible .card__link::after { transform: translateX(4px); }
 
-    /* ---------- Work history / education cards ---------- */
-    .stack { display: flex; flex-direction: column; gap: 16px; }
-    .xp {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 24px 26px;
-    }
-    .xp__head { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
-    .xp__logo {
-      width: 44px;
-      height: 44px;
-      flex: none;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--chip-bg);
-      display: grid;
-      place-items: center;
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--ink);
-    }
-    .xp__name { font-size: 16.5px; font-weight: 800; letter-spacing: -0.01em; }
-    .xp__role { font-size: 14px; color: var(--gray); font-weight: 600; }
-    .xp__period { font-size: 13px; font-weight: 700; color: var(--ink-soft); margin-bottom: 8px; }
-    .xp__desc { font-size: 14px; color: var(--gray); line-height: 1.65; margin-bottom: 14px; }
-    .xp__chips { display: flex; flex-wrap: wrap; gap: 6px; }
-    .xp__chips span {
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--gray);
-      background: var(--chip-bg);
-      border-radius: 999px;
-      padding: 4px 11px;
-    }
-    .xp__chips span.now { background: var(--ink); color: var(--on-pill); }
-
     /* ---------- Linha do tempo (experiencia) ---------- */
     .timeline { position: relative; }
     .tl { position: relative; padding-left: 64px; padding-bottom: 18px; }
@@ -1075,19 +1038,8 @@
       </div>
     </section>
 
-    <!-- Education & certifications -->
-    <section id="education" class="section section--alt">
-      <div class="wrap split">
-        <div class="split__head">
-          <h2 class="h2"><span class="a" data-ui="eduA"></span> <span class="b" data-ui="eduB"></span></h2>
-          <p class="section-sub" data-ui="eduSub"></p>
-        </div>
-        <div class="stack" id="edu-list"></div>
-      </div>
-    </section>
-
     <!-- Skill set -->
-    <section id="skills" class="section">
+    <section id="skills" class="section section--alt">
       <div class="wrap split">
         <div class="split__head">
           <h2 class="h2"><span class="a">Skill</span> <span class="b">Set</span></h2>
@@ -1098,7 +1050,7 @@
     </section>
 
     <!-- Toolbox -->
-    <section id="toolbox" class="section section--alt toolbox">
+    <section id="toolbox" class="section toolbox">
       <div class="wrap">
         <h2 class="h2"><span class="a" data-ui="toolboxA"></span> <span class="b" data-ui="toolboxB"></span></h2>
         <p class="toolbox__sub" data-ui="toolboxSub"></p>
@@ -1681,52 +1633,6 @@
     ];
 
     // ============================
-    // EDUCATION & CERTIFICATIONS
-    // ============================
-    var education = [
-      {
-        name: 'Lean Six Sigma Black Belt', initials: 'BB',
-        kind: { en: 'Certification', pt: 'Certificação' },
-        desc: {
-          en: 'Statistical methods to eliminate waste and reduce process variation.',
-          pt: 'Métodos estatísticos para eliminar desperdício e reduzir variação em processos.'
-        }
-      },
-      {
-        name: 'Lean Six Sigma Green Belt', initials: 'GB',
-        kind: { en: 'Certification', pt: 'Certificação' },
-        desc: {
-          en: 'Foundations of continuous improvement and process quality.',
-          pt: 'Fundamentos de melhoria contínua e qualidade de processos.'
-        }
-      },
-      {
-        name: 'PUC-PR', initials: 'P',
-        kind: { en: 'Applied Artificial Intelligence', pt: 'Inteligência Artificial Aplicada' },
-        desc: {
-          en: 'Specialization in applied AI.',
-          pt: 'Especialização em IA aplicada.'
-        }
-      },
-      {
-        name: 'UniCesumar', initials: 'U',
-        kind: { en: 'Mobile App Development (CST)', pt: 'Desenvolvimento de Aplicativos Móveis (CST)' },
-        desc: {
-          en: 'Higher-education degree in mobile application development.',
-          pt: 'Curso superior de tecnologia em desenvolvimento de apps móveis.'
-        }
-      },
-      {
-        name: { en: 'Languages', pt: 'Idiomas' }, initials: 'AB',
-        kind: { en: 'Portuguese and English', pt: 'Português e Inglês' },
-        desc: {
-          en: 'Portuguese: native. English: professional.',
-          pt: 'Português: nativo. Inglês: profissional.'
-        }
-      }
-    ];
-
-    // ============================
     // SKILLS
     // ============================
     var skillCategories = [
@@ -1819,8 +1725,6 @@
         projectsSub: 'From idea to deploy. No slideware.',
         workA: 'Work', workB: 'History',
         workSub: 'From transport analyst to product manager — the full path, no shortcuts.',
-        eduA: 'Education &', eduB: 'Certifications',
-        eduSub: 'The formal base behind the practice.',
         skillSub: 'From discovery to deploy: the toolkit of a PM who builds.',
         toolboxA: 'Design & Dev', toolboxB: 'Toolbox',
         toolboxSub: 'The tools I use to design, prototype and put product live.',
@@ -1857,8 +1761,6 @@
         projectsSub: 'Da ideia ao deploy. Sem slideware.',
         workA: 'Experiência', workB: 'Profissional',
         workSub: 'De analista de transportes a Product Manager — a trilha completa, sem atalhos.',
-        eduA: 'Formação &', eduB: 'Certificações',
-        eduSub: 'A base formal por trás da prática.',
         skillSub: 'Do discovery ao deploy: o kit de um PM que constrói.',
         toolboxA: 'Caixa de', toolboxB: 'Ferramentas',
         toolboxSub: 'As ferramentas que uso pra desenhar, prototipar e colocar produto no ar.',
@@ -2001,24 +1903,6 @@
               '<div class="tl__name">' + x.company + '</div>' +
               '<ul class="tl__roles">' + cargos + '</ul>' +
             '</div>' +
-          '</article>'
-        );
-      }).join('');
-    }
-
-    function renderEducation() {
-      var el = document.getElementById('edu-list');
-      el.innerHTML = education.map(function (e) {
-        return (
-          '<article class="xp">' +
-            '<div class="xp__head">' +
-              '<span class="xp__logo" aria-hidden="true">' + e.initials + '</span>' +
-              '<div>' +
-                '<div class="xp__name">' + t(e.name) + '</div>' +
-                '<div class="xp__role">' + t(e.kind) + '</div>' +
-              '</div>' +
-            '</div>' +
-            '<p class="xp__desc" style="margin-bottom:0">' + t(e.desc) + '</p>' +
           '</article>'
         );
       }).join('');
@@ -2262,7 +2146,7 @@
     ].join(',');
 
     // listas que entram em cascata (os filhos sao gerados pelos renderers)
-    var REVEAL_GROUPS = ['#projects-grid', '#work-list', '#edu-list', '#skills-list', '#toolbox-grid'];
+    var REVEAL_GROUPS = ['#projects-grid', '#work-list', '#skills-list', '#toolbox-grid'];
 
     function observeReveals() {
       if (!revealObserver) return;
@@ -2353,7 +2237,6 @@
       renderTabs();
       renderProjects();
       renderWork();
-      renderEducation();
       renderSkills();
       renderToolbox();
       observeReveals();
