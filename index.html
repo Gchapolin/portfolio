@@ -1266,6 +1266,13 @@
           ]
         },
         github: null,
+        shotsWide: true,
+        screenshots: [
+          { src: 'assets/screens/tradeagent/01-painel.webp', caption: { en: 'Dashboard — agent state, invested amount, P&L, win rate and drawdown', pt: 'Painel — estado do agente, valor investido, P&L, taxa de acerto e drawdown' } },
+          { src: 'assets/screens/tradeagent/02-operacoes.webp', caption: { en: 'Trades — every decision with entry, exit, size, confidence and result', pt: 'Operações — cada decisão com entrada, saída, tamanho, confiança e resultado' } },
+          { src: 'assets/screens/tradeagent/03-analise.webp', caption: { en: 'Analytics — P&L over time, breakdown by market, confidence vs outcome and drawdown', pt: 'Análise — P&L no tempo, quebra por mercado, confiança versus resultado e drawdown' } },
+          { src: 'assets/screens/tradeagent/04-como-funciona.webp', caption: { en: 'How it works — the in-app guide to prediction markets and to the agent itself', pt: 'Como funciona — o guia dentro do app sobre mercados de predição e sobre o próprio agente' } }
+        ],
         highlight: {
           en: 'An abstract executor that swaps between live and simulated, with Claude deciding buys and sells every 15-minute cycle — risk held down by dry-run mode and a checklist before the first real trade',
           pt: 'Executor abstrato que alterna entre live e simulado, com o Claude decidindo compra e venda a cada ciclo de 15 minutos — o risco preso no dry-run e num checklist antes da primeira trade real'
@@ -1302,11 +1309,13 @@
         },
         github: null,
         screenshots: [
-          { src: 'assets/screens/retornelo/01-biblioteca.webp', caption: { en: 'Library — recent scores, tags and the whole shelf on one screen', pt: 'Biblioteca — partituras recentes, etiquetas e a estante inteira numa tela só' } },
-          { src: 'assets/screens/retornelo/02-repertorios.webp', caption: { en: 'Setlists — pinned programmes on top, the rest grouped by collection', pt: 'Repertórios — programas fixados no topo e o resto agrupado por coleção' } },
-          { src: 'assets/screens/retornelo/03-repertorio.webp', caption: { en: 'Setlist detail — ordered programme with per-piece duration and total running time', pt: 'Repertório aberto — programa em ordem, com duração por peça e tempo total' } },
-          { src: 'assets/screens/retornelo/04-etiquetas.webp', caption: { en: 'Tags — most used at the top, every tag with its score count', pt: 'Etiquetas — as mais usadas no topo e cada etiqueta com a contagem de partituras' } },
-          { src: 'assets/screens/retornelo/05-ajustes.webp', caption: { en: 'Settings — display, viewer, annotation, performance and privacy in one shell', pt: 'Ajustes — exibição, leitor, anotação, performance e privacidade na mesma casca' } }
+          { src: 'assets/screens/retornelo/01-biblioteca.webp', caption: { en: 'Library — recently played on top, the whole shelf below', pt: 'Biblioteca — tocadas recentemente no topo, a estante inteira abaixo' } },
+          { src: 'assets/screens/retornelo/02-lista.webp', caption: { en: 'List view — the same library sorted by title, with page count per score', pt: 'Modo lista — a mesma biblioteca ordenada por título, com a contagem de páginas de cada partitura' } },
+          { src: 'assets/screens/retornelo/03-partitura.webp', caption: { en: 'Score — pages, format, last opened, and the tags that file it', pt: 'Partitura — páginas, formato, último acesso e as etiquetas que a arquivam' } },
+          { src: 'assets/screens/retornelo/04-repertorio.webp', caption: { en: 'Setlist — the programme in order, duration per piece and total running time', pt: 'Repertório — o programa em ordem, duração por peça e tempo total' } },
+          { src: 'assets/screens/retornelo/05-leitura.webp', caption: { en: 'Viewer, reading mode — the score full-bleed, page counter and nothing else', pt: 'Visualizador, modo leitura — a partitura ocupando tudo, contador de página e mais nada' } },
+          { src: 'assets/screens/retornelo/06-anotacao.webp', caption: { en: 'Viewer, annotation mode — pen, colours and layers over the score', pt: 'Visualizador, modo anotação — caneta, cores e camadas sobre a partitura' } },
+          { src: 'assets/screens/retornelo/07-primeiro-uso.webp', caption: { en: 'First run — the empty library, with import by file or photo', pt: 'Primeiro uso — a estante vazia, com importação por arquivo ou foto' } }
         ],
         highlight: {
           en: 'Mirrored iOS-Android parity module by module, cross-platform ZIP backup and a hand-built annotation canvas — carried end to end under my own indie label, first commit to store-ready',
@@ -1440,39 +1449,6 @@
         }
       },
       {
-        id: 'cellotutor', name: 'CelloTuttor', theme: 't-apps', status: 'MVP',
-        tagline: {
-          en: 'AI-powered cello practice assistant with real-time posture analysis',
-          pt: 'Assistente de prática de violoncelo com IA e análise de postura em tempo real'
-        },
-        description: {
-          en: 'Cross-platform app that uses MediaPipe computer vision to analyze cello players’ tuning, bow technique, and body posture in real-time. Tracks 54 body landmarks for detailed feedback and provides a gamified practice experience.',
-          pt: 'App multiplataforma que usa visão computacional MediaPipe para analisar afinação, técnica de arco e postura corporal de violoncelistas em tempo real. Rastreia 54 pontos corporais para feedback detalhado e oferece uma experiência gamificada de prática.'
-        },
-        tech: ['Swift', 'SwiftUI', 'Kotlin', 'MediaPipe', 'SwiftData'],
-        features: {
-          en: [
-            'Real-time pitch detection (442 Hz reference)',
-            'Bow angle analysis with calibration system',
-            'Full-body posture tracking (33+21 landmarks)',
-            'Practice session history with GitHub-style heatmap',
-            'Gamified streaks and daily goals'
-          ],
-          pt: [
-            'Detecção de afinação em tempo real (referência 442 Hz)',
-            'Análise do ângulo do arco com sistema de calibração',
-            'Rastreamento corporal completo (33+21 pontos)',
-            'Histórico de sessões com heatmap estilo GitHub',
-            'Streaks gamificados e metas diárias'
-          ]
-        },
-        github: 'https://github.com/Gchapolin/cellotutor',
-        highlight: {
-          en: 'A MediaPipe pipeline of 33+21 landmarks and 442 Hz pitch detection running at the same time, all on-device',
-          pt: 'Pipeline MediaPipe de 33+21 landmarks e detecção de pitch em 442 Hz rodando ao mesmo tempo, tudo on-device'
-        }
-      },
-      {
         id: 'fitlink', name: 'FitLink', theme: 't-apps', status: 'MVP',
         tagline: {
           en: 'Cross-platform fitness platform connecting students, trainers and nutritionists',
@@ -1515,7 +1491,50 @@
         }
       },
       {
-        id: 'energydeck', name: 'EnergyDeck', theme: 't-gamified', status: 'Prototype',
+        id: 'amae', name: 'Amae', theme: 't-gamified', status: 'Prototype',
+        tagline: {
+          en: 'Virtual pet for couples: asynchronous cooperation, real routine, and the pet as the message between the two',
+          pt: 'Pet virtual para casais: cooperação assíncrona, rotina real e o pet como recado entre os dois'
+        },
+        description: {
+          en: 'Most couple pet apps burn out in two or three weeks: feeding the pet becomes a chore. Amae replaces the Tamagotchi loop with three axes drawn from couple-therapy research — Futari (a task only both of them together can finish, without needing to be online at the same time), Nichijo (the pet grows when the couple keeps real-life habits) and Amae itself, the Japanese word for the sweet dependence inside a relationship, where the pet carries notes between the two. Swift 6 and SwiftUI over a Firebase backend, with a paper-cut design system where the scene is the navigation — there is no tab bar.',
+          pt: 'A maioria dos apps de pet para casal se esgota em duas ou três semanas: alimentar o bicho vira obrigação. O Amae troca o loop de Tamagotchi por três eixos vindos de pesquisa de terapia de casal — Futari (uma tarefa que só se completa com os dois, sem exigir que estejam online ao mesmo tempo), Nichijo (o pet evolui quando o casal cumpre hábitos da vida real) e o próprio Amae, a palavra japonesa para a doce dependência dentro de uma relação, em que o pet leva recados de um para o outro. Swift 6 e SwiftUI sobre backend Firebase, com um design system de papel recortado em que a cena é a navegação — não existe barra de abas.'
+        },
+        tech: ['Swift 6', 'SwiftUI', 'Firebase', 'Cloud Functions', 'Firestore'],
+        features: {
+          en: [
+            'Futari: a task that only completes with both partners, each in their own time',
+            'The pet carries notes, requests for company and gratitude between the two',
+            'Shared routine: habits the couple agreed on, and the pet reacts to them',
+            'Memories: what the couple built, kept with photo and date',
+            'Paper-cut design system: the house scene is the navigation, no tab bar',
+            'Firebase backend with domain, handlers, security rules and triggers implemented'
+          ],
+          pt: [
+            'Futari: uma tarefa que só se completa com os dois, cada um no seu tempo',
+            'O pet leva bilhetes, pedidos de companhia e gratidão de um para o outro',
+            'Rotina compartilhada: hábitos combinados pelo casal, e o pet reage a eles',
+            'Memórias: o que o casal construiu, guardado com foto e data',
+            'Design system de papel recortado: a cena da casa é a navegação, sem barra de abas',
+            'Backend Firebase com domínio, handlers, regras de segurança e triggers implementados'
+          ]
+        },
+        github: null,
+        screenshots: [
+          { src: 'assets/screens/amae/01-casa.webp', caption: { en: 'House — the scene is the navigation: each object opens a part of the app, and the pet reacts to how the couple is doing', pt: 'Casa — a cena é a navegação: cada objeto abre uma parte do app, e o pet reage a como o casal está' } },
+          { src: 'assets/screens/amae/02-bilhetes.webp', caption: { en: 'Notes — the pet carries messages the two of them write to each other', pt: 'Bilhetes — o pet leva e traz os recados que os dois escrevem um para o outro' } },
+          { src: 'assets/screens/amae/03-rotina.webp', caption: { en: 'Routine — habits the couple agreed to keep outside the app', pt: 'Rotina — hábitos que o casal combinou de cumprir fora do app' } },
+          { src: 'assets/screens/amae/04-memorias.webp', caption: { en: 'Memories — what the couple built, kept with photo and date', pt: 'Memórias — o que o casal construiu, guardado com foto e data' } },
+          { src: 'assets/screens/amae/05-toca.webp', caption: { en: 'Burrow — where the pet goes when it is unwell or wants company', pt: 'Toca — para onde o pet vai quando está doente ou quer companhia' } },
+          { src: 'assets/screens/amae/06-nome-do-pet.webp', caption: { en: 'Naming the pet — the first thing the couple does together in the app', pt: 'Nome do pet — a primeira coisa que o casal faz junto no app' } }
+        ],
+        highlight: {
+          en: 'The differentiator is not a better Tamagotchi loop: it is cooperation that does not require both to be online, habits from real life, and a name taken from Takeo Doi\'s research on dependence inside relationships',
+          pt: 'O diferencial não é um loop de Tamagotchi melhor: é cooperação que não exige os dois online, hábitos da vida real, e um nome tirado da pesquisa de Takeo Doi sobre dependência dentro das relações'
+        }
+      },
+      {
+        id: 'energydeck', name: 'EnergyDeck', theme: 't-gamified', status: 'MVP',
         tagline: {
           en: 'A Pokédex for energy drinks: flavor check-ins, active caffeine tracking and social gamification',
           pt: 'Pokédex de energéticos: check-in de sabores, tracker de cafeína ativa e gamificação social'
@@ -1877,7 +1896,8 @@
       retornelo:   'assets/covers/retornelo.webp',
       eternalpyre: 'assets/covers/eternalpyre.webp',
       kpitree:     'assets/covers/kpitree.webp',
-      fitlink:     'assets/covers/fitlink.webp'
+      fitlink:     'assets/covers/fitlink.webp',
+      amae:        'assets/covers/amae.webp'
     };
 
     function capaHtml(p) {
